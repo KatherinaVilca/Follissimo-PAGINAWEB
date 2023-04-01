@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('detalle_pedido', function (Blueprint $table) {
 
-            $table->int('id_producto');
-            $table->int('id_pedido');
+            $table->bigIncrements('id_producto');
+            $table->integer('id_pedido');
             $table->date('fecha');
-          
+
             $table->timestamps();
         });
     }
