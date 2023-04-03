@@ -15,6 +15,7 @@ return new class extends Migration
             $table->bigIncrements('id_producto');
             $table->integer('precio');
             $table->string('color');
+            $table->string('descripción');
             $table->string('tipo_categoria');
             $table->string('tipo_tamaño');
         });

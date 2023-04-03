@@ -15,6 +15,7 @@ return new class extends Migration
             $table->bigIncrements('id_pedido');
             $table->string('email');
             $table->integer('monto');
+            $table->date('fecha')->default(DB::raw('CURRENT_DATE'));
         });
     }
 
