@@ -15,6 +15,7 @@ class tamañoSeeder extends Seeder
     public function run(): void
     {
         DB::table('tamaño')->insert([
+            'id' => '200',
             'tipo'=> Str::random(3),
         ]);
     }

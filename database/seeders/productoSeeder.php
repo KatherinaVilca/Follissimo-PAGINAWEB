@@ -14,14 +14,17 @@ class productoSeeder extends Seeder
      */
     public function run(): void
     {
+        $tipo_categoria =  DB::table('categoria')->get('id');
+        $tipo_tamaño = DB::table('tamaño')->get('id');
+
         DB::table('producto')->insert([
             'id' => '1',
             'nombre' => 'Planta',
             'precio' => rand(0,60),
             'descripción' => 'Prueba',
             'color' => Str::random(3),
-            'tipo_categoria' => Str::random(4),
-            'tipo_tamaño' => Str::random(3)
+            'tipo_categoria' => $tipo_categoria,
+            'tipo_tamaño' => $tipo_tamaño,
         ]);
     }
 }
