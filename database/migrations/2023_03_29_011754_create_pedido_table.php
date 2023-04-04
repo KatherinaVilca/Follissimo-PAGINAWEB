@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pedido', function (Blueprint $table) {
-            $table->bigIncrements('id_pedido');
-            $table->string('email');
+            $table->id('id');
             $table->integer('monto');
             $table->date('fecha')->default(DB::raw('CURRENT_DATE'));
+            $table->foreignId('id_cliente')->constrained('cliente');
         });
     }
 

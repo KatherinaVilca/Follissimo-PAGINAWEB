@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('detalle_pedido', function (Blueprint $table) {
-            $table->id('id_detalle_pedido');
-            $table->integer('id_pedido');
-            $table->integer('id_producto');
+            $table->foreignId('id_pedido')->constrained('pedido');
+            $table->foreignId('id_producto')->constrained('producto');
+            $table->primary(['id_pedido','id_producto']);
             $table->integer('cantidad');
             $table->integer('monto_subtotal');
 

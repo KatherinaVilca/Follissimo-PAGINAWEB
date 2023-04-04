@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tamaño', function (Blueprint $table) {
-            $table->string('tipo_tamaño')->unique();
+            $table->string('tipo')->unique();
         });
     }
 
@@ -21,6 +21,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('tamaño');
     }
 };
