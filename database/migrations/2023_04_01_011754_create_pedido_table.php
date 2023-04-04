@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tamaño', function (Blueprint $table) {
-            $table->string('tipo')->unique();
+        Schema::create('pedido', function (Blueprint $table) {
+            $table->id('id');
+            $table->integer('monto_total');
+            $table->date('fecha')->default(DB::raw('CURRENT_DATE'));
+            $table->foreignId('id_cliente')->constrained('cliente');
         });
     }
 
@@ -21,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tamaño');
+        Schema::dropIfExists('pedido');
     }
 };
