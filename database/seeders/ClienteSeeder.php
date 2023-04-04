@@ -14,7 +14,7 @@ class ClienteSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('cliente')->insert([
+        DB::table('clientes')->insert([
             'id' => '1234',
             'nombre' => Str::random(5),
             'apellido' => Str::random(5),

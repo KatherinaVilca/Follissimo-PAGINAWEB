@@ -12,7 +12,7 @@ class pedidoSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('pedido')->insert([
+        DB::table('pedidos')->insert([
         'id' => '1',
         //'email' => Str::random(6).'@gmail.com',
         'monto_total' => Str::random(5),

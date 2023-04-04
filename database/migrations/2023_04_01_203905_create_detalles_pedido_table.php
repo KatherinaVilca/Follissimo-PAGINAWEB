@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('detalle_pedido', function (Blueprint $table) {
-            $table->foreignId('id_pedido')->constrained('pedido');
-            $table->foreignId('id_producto')->constrained('producto');
-            $table->primary(['id_pedido','id_producto']);
+        Schema::create('detalles_pedido', function (Blueprint $table) {
+            $table->unsignedBigInteger('id');
+            $table->foreignId('id_pedido')->constrained('pedidos');
+            $table->foreignId('id_producto')->constrained('productos');
+            $table->primary(['id_pedido','id']);
             $table->integer('cantidad');
             $table->integer('monto_subtotal');
 
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('detalle_pedido');
+        Schema::dropIfExists('detalles_pedido');
     }
 };

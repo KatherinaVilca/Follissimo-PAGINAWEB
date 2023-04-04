@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pedido', function (Blueprint $table) {
+        Schema::create('clientes', function (Blueprint $table) {
             $table->id('id');
-            $table->integer('monto_total');
-            $table->date('fecha')->default(DB::raw('CURRENT_DATE'));
-            $table->foreignId('id_cliente')->constrained('cliente');
+            $table->string('nombre');
+            $table->string('apellido');
+            $table->string('direccion');
+            $table->string('email');
         });
     }
 
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pedido');
+        Schema::dropIfExists('clientes');
     }
 };

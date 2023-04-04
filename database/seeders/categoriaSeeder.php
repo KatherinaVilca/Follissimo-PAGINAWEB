@@ -13,9 +13,9 @@ class categoriaSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('categoria')->insert([
-            'id' =>'100'
-            'tipo' => 'mediano' ,
+        DB::table('categorias')->insert([
+            'id' =>'100',
+            'tipo' => 'mediano',
         ]);
     }
 }

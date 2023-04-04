@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categoria', function (Blueprint $table) {
-            $table->id();
-            $table->string('tipo')->unique();
+        Schema::create('pedidos', function (Blueprint $table) {
+            $table->id('id');
+            $table->integer('monto_total');
+            $table->date('fecha')->default(DB::raw('CURRENT_DATE'));
+            $table->foreignId('id_cliente')->constrained('clientes');
         });
     }
 
@@ -22,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categoria');
+        Schema::dropIfExists('pedidos');
     }
 };

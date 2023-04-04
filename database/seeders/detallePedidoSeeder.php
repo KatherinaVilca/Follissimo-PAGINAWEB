@@ -12,8 +12,8 @@ class detallePedidoSeeder extends Seeder
      */
     public function run(): void
     {
-        $id_producto = DB::table('producto')->get('id');
-        $id_pedido = DB::table('pedido')->get('id');
+        $id_producto = DB::table('productos')->get('id');
+        $id_pedido = DB::table('pedidos')->get('id');
 
         DB::table('detallePedidoSeeder')->insert([
             
