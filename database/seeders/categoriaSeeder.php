@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class categoriaSeeder extends Seeder
 {
@@ -14,8 +15,7 @@ class categoriaSeeder extends Seeder
     public function run(): void
     {
         DB::table('categorias')->insert([
-            'id' =>'100',
-            'tipo' => 'mediano',
+            'tipo'=> Str::random(3),
         ]);
     }
 }

@@ -19,7 +19,7 @@ class ClienteSeeder extends Seeder
             'nombre' => Str::random(5),
             'apellido' => Str::random(5),
             'direccion' => Str::random(5),
-            'email' => Str::random(6).'@gmail.com',
+            'e-mail' => Str::random(6).'@gmail.com',
             ]);
     }
 }
