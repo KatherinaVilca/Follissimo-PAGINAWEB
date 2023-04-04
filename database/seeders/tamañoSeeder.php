@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class tamañoSeeder extends Seeder
 {
@@ -12,8 +14,8 @@ class tamañoSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('pedido')->insert([
-            'tipo_tamaño'-> Str::random(3),
+        DB::table('tamaño')->insert([
+            'tipo'=> Str::random(3),
         ]);
     }
 }
