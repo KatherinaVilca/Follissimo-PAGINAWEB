@@ -15,7 +15,15 @@ class tamañoSeeder extends Seeder
     public function run(): void
     {
         DB::table('tamaños')->insert([
-            'tipo' => 'mediano',
+            'tipo' => 'CHICO',
+        ]);
+
+        DB::table('tamaños')->insert([
+            'tipo' => 'MEDIANO',
+        ]);
+
+        DB::table('tamaños')->insert([
+            'tipo' => 'GRANDE',
         ]);
     }
 }

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pedidos', function (Blueprint $table) {
-            $table->id('id');
+            $table->bigIncrements('id');
             $table->integer('monto_total');
             $table->date('fecha')->default(DB::raw('CURRENT_DATE'));
             $table->foreignId('id_cliente')->constrained('clientes');

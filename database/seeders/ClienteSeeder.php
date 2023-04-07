@@ -14,12 +14,20 @@ class ClienteSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('clientes')->insert([
-            'id' => '1234',
-            'nombre' => Str::random(5),
-            'apellido' => Str::random(5),
-            'direccion' => Str::random(5),
-            'e-mail' => Str::random(6).'@gmail.com',
-            ]);
+        $nombres = ['Juan', 'María', 'Pedro', 'Ana', 'Luis', 'Lucía', 'Sofía', 'Miguel', 'Julia', 'Diego'];
+        $apellidos = ['González', 'Pérez', 'Rodríguez', 'García', 'López', 'Fernández', 'Martínez', 'Sánchez', 'Alonso', 'Ramírez'];
+        $calles = ['San Juan', 'Santa Ana', 'Avenida del Sol', 'Calle Mayor', 'Calle de la Paz', 'Avenida de la Libertad', 'Calle Real', 'Avenida de la Constitución', 'Paseo de la Alameda', 'Calle de los Olmos'];
+
+        for ( $i = 0 ; $i < 5 ; $i++ ) {
+            $nombre = $nombres[array_rand($nombres)];
+            $apellido = $apellidos[array_rand($apellidos)];
+
+            DB::table('clientes')->insert([
+                'nombre' => $nombre,
+                'apellido' => $apellido,
+                'direccion' => $calles[array_rand($calles)].' '.rand(0,1000),
+                'e-mail' => $nombre.'_'.$apellido.'@gmail.com',
+                ]);
+        }
     }
 }
