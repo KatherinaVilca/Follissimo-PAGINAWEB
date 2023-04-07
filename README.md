@@ -15,7 +15,10 @@ Cuando un cliente selecciona y realiza una compra de uno o más productos, se ge
 
 - Diagrama Entidad-Relación
 
-[INCLUIR DIAGRAMA ENTIDAD RELACIÓN]
+![ERD](https://user-images.githubusercontent.com/42704038/230647218-63a66249-4b98-4391-9ef2-da0b9db8e928.jpg)
+
+![ERDE](https://user-images.githubusercontent.com/42704038/230647247-7e914a03-15ee-4297-a9c0-7833968feb28.jpg)
+
 
 ## Proyecto Framework PHP - Laravel
 - Entidades que se podrán actualizar
@@ -23,24 +26,26 @@ Cuando un cliente selecciona y realiza una compra de uno o más productos, se ge
     * `Producto`
     * `Detalle de pedido`
     * `Categoría`
+    * `Tamaño`
+    * `Pedido`
 - Reportes que se podrán generar/visualizar
     * Pedidos realizados según X atributo/filtro
     * Clientes según X atributo/filtro
     * Productos según X atributo/filtro
 - Entidades que se podrán obtener por API
-    * `Cliente`
     * `Producto`
-    * `Detalle de pedido`
-    * `Categoría`
     * `Pedido`
+    * `Cliente`
+    * `Categoría`
+    * `Tamaño`
+    * `Detalle de pedido`
 - Entidades que se podrán modificar por API
     * `Cliente`
-    * `Detalle de pedido`
-    * `Pedido`
 
 ## Javascript - React/Vue
 - Información que podrá ver el usuario
     * Logo y nombre de la tienda
+    * Pestaña para ver pedidos realizados
     * Carrusel de novedades sobre la tienda (Las categorías más visitadas,productos destacados)
     * Una barra con todas las categorías
     * Un recurso que podrá ser accedido para ver todos los productos de la tienda con algún orden predeterminado
@@ -53,3 +58,4 @@ Cuando un cliente selecciona y realiza una compra de uno o más productos, se ge
     * Ver todos los productos
     * Ver productos en el carrito
     * Filtrar productos por alguna condición (Ej: mas vendidos, ultimos agregados, etc)
+    * Ver pedidos realizados
