@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class pedidoSeeder extends Seeder
 {
@@ -12,10 +14,13 @@ class pedidoSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('pedidos')->insert([
-        'id' => '1',
-        //'email' => Str::random(6).'@gmail.com',
-        'monto_total' => Str::random(5),
-        ]);
+        $ids_clientes = DB::table('clientes')->pluck('id');
+        for ( $i = 0 ; $i < 7 ; $i++ ) {
+            
+            DB::table('pedidos')->insert([
+                'id_cliente' => $ids_clientes->random(),
+                'monto_total' => rand(49,100),
+                ]);
+        }
     }
 }

@@ -12,7 +12,7 @@ class detallePedidoSeeder extends Seeder
      */
     public function run(): void
     {
-        $id_producto = DB::table('productos')->get('id');
+        $id_producto =reg;
         $id_pedido = DB::table('pedidos')->get('id');
 
         DB::table('detallePedidoSeeder')->insert([

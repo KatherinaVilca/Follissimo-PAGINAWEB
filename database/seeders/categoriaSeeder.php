@@ -15,7 +15,23 @@ class categoriaSeeder extends Seeder
     public function run(): void
     {
         DB::table('categorias')->insert([
-            'tipo'=> Str::random(3),
+            'tipo'=> "PLANTA INTERIOR",
+        ]);
+
+        DB::table('categorias')->insert([
+            'tipo'=> "PLANTA EXTERIOR",
+        ]);
+
+        DB::table('categorias')->insert([
+            'tipo'=> "FLOR HABITUAL",
+        ]);
+
+        DB::table('categorias')->insert([
+            'tipo'=> "FLOR EXOTICA",
+        ]);
+
+        DB::table('categorias')->insert([
+            'tipo'=> "INSUMO",
         ]);
     }
 }
