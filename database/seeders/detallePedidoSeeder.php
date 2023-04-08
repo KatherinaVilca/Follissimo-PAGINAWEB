@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class detallePedidoSeeder extends Seeder
 {
@@ -12,15 +13,17 @@ class detallePedidoSeeder extends Seeder
      */
     public function run(): void
     {
-        $id_producto =reg;
-        $id_pedido = DB::table('pedidos')->get('id');
+        $ids_productos = DB::table('productos')->pluck('id');
+        $ids_pedidos = DB::table('pedidos')->pluck('id');
 
-        DB::table('detallePedidoSeeder')->insert([
-            
-            'id_producto' => $id_producto,
-            'id_pedido' => $id_pedido,
-            'cantidad' => Int::random(2),
-            'monto_subtotal'=>Int::random(3),
-        ]);
+        for ( $i = 0 ; $i < 10 ; $i++ ) {
+            DB::table('detalles_pedido')->insert([
+                'id' => $i,
+                'id_producto' => $ids_productos->random(),
+                'id_pedido' => $ids_pedidos->random(),
+                'cantidad' => rand(1,4),
+                'monto_subtotal'=> rand(1,10),
+            ]);
+        }
     }
 }
