@@ -1,85 +1,61 @@
-## Pasos
+# Introducción
 
-- clonar el repo https://github.com/iaw-2023/laravel-template y mantener como owner la organización de la materia.
-## parados en el directorio del repositorio recientemente clonado, ejecutar:
+## Temática del Proyecto
 
-- `composer install`
-- `cp .env.example .env`
-- `php artisan key:generate`
-- `php artisan serve`
+Florería Foliissimo: cada hoja cuenta una historia
+## Descripción del proyecto:
 
-Con el último comando, pueden acceder a http://127.0.0.1:8000/ y ver la cáscara de la aplicación Laravel
+Foliissimo es una florería que cuenta con una tienda virtual con principal objetivo, la venta de flores, plantas de interior y exterior, decoración e insumos para el cuidado de las mismas, donde el cliente puede realizar pedidos sobre uno o varios productos para el hogar.
 
-### Requisitos
+Cada producto puede ser clasificado según tamaño, precio, categoría, y otras características a continuación.
 
-- tener [composer](https://getcomposer.org/) instalado
-- tener [php](https://www.php.net/) instalado
+Cuando un cliente selecciona y realiza una compra de uno o más productos, se genera un pedido detallando cada uno de los productos seleccionados, más otros atributos que se mencionan a continuación
+
+# Requisitos
+
+- Diagrama Entidad-Relación
+
+![ERD](https://user-images.githubusercontent.com/42704038/230647218-63a66249-4b98-4391-9ef2-da0b9db8e928.jpg)
+
+![ERDE](https://user-images.githubusercontent.com/42704038/230647247-7e914a03-15ee-4297-a9c0-7833968feb28.jpg)
 
 
+## Proyecto Framework PHP - Laravel
+- Entidades que se podrán actualizar
+    * `Cliente`
+    * `Producto`
+    * `Detalle de pedido`
+    * `Categoría`
+    * `Tamaño`
+    * `Pedido`
+- Reportes que se podrán generar/visualizar
+    * Pedidos realizados según X atributo/filtro
+    * Clientes según X atributo/filtro
+    * Productos según X atributo/filtro
+- Entidades que se podrán obtener por API
+    * `Producto`
+    * `Pedido`
+    * `Cliente`
+    * `Categoría`
+    * `Tamaño`
+    * `Detalle de pedido`
+- Entidades que se podrán modificar por API
+    * `Cliente`
 
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
-
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Javascript - React/Vue
+- Información que podrá ver el usuario
+    * Logo y nombre de la tienda
+    * Pestaña para ver pedidos realizados
+    * Carrusel de novedades sobre la tienda (Las categorías más visitadas,productos destacados)
+    * Una barra con todas las categorías
+    * Un recurso que podrá ser accedido para ver todos los productos de la tienda con algún orden predeterminado
+    * Un espacio para la búsqueda de productos
+    * Apartado de Contacto de la tienda
+- Acciones que el usuario podrá realizar, ya sea la primera vez que ingrese a la aplicación como futuros accesos a la misma
+    * Ingresar a cada producto para verlo con más detalle
+    * Navegar por las categorías
+    * Buscar producto/s
+    * Ver todos los productos
+    * Ver productos en el carrito
+    * Filtrar productos por alguna condición (Ej: mas vendidos, ultimos agregados, etc)
+    * Ver pedidos realizados
