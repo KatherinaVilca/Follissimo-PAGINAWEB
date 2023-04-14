@@ -41,6 +41,7 @@ Cuando un cliente selecciona y realiza una compra de uno o más productos, se ge
     * `Detalle de pedido`
 - Entidades que se podrán modificar por API
     * `Cliente`
+    * `Pedido`
 
 ## Javascript - React/Vue
 - Información que podrá ver el usuario

@@ -18,7 +18,6 @@ class detallePedidoSeeder extends Seeder
 
         for ( $i = 0 ; $i < 10 ; $i++ ) {
             DB::table('detalles_pedido')->insert([
-                'id' => $i,
                 'id_producto' => $ids_productos->random(),
                 'id_pedido' => $ids_pedidos->random(),
                 'cantidad' => rand(1,4),

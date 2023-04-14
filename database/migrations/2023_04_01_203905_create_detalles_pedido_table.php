@@ -12,13 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('detalles_pedido', function (Blueprint $table) {
-            $table->unsignedBigInteger('id');
+            $table->id();
             $table->foreignId('id_pedido')->constrained('pedidos');
             $table->foreignId('id_producto')->constrained('productos');
-            $table->primary(['id_pedido','id']);
             $table->integer('cantidad');
             $table->integer('monto_subtotal');
-
         });
     }
 
