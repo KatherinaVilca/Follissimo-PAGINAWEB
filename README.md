@@ -15,7 +15,7 @@ Cuando un cliente selecciona y realiza una compra de uno o más productos, se ge
 
 - Diagrama Entidad-Relación
 
-![ERD](https://user-images.githubusercontent.com/42704038/232162921-8b9ddea7-f206-49eb-9b5d-1887d6e492ec.png)
+![ERD](https://user-images.githubusercontent.com/42704038/232163156-9d519fa2-41f8-4bf8-afc4-cc00a81fff9c.png)
 
 ![ERDE](https://user-images.githubusercontent.com/42704038/232162604-a55f22d1-2e00-4dbc-9e2b-de00c2d4779f.png)
 
