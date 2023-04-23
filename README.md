@@ -15,10 +15,9 @@ Cuando un cliente selecciona y realiza una compra de uno o más productos, se ge
 
 - Diagrama Entidad-Relación
 
-![ERD](https://user-images.githubusercontent.com/42704038/230647218-63a66249-4b98-4391-9ef2-da0b9db8e928.jpg)
+![ERD](https://user-images.githubusercontent.com/42704038/232163156-9d519fa2-41f8-4bf8-afc4-cc00a81fff9c.png)
 
-![ERDE](https://user-images.githubusercontent.com/42704038/230647247-7e914a03-15ee-4297-a9c0-7833968feb28.jpg)
-
+![ERDE](https://user-images.githubusercontent.com/42704038/232162604-a55f22d1-2e00-4dbc-9e2b-de00c2d4779f.png)
 
 ## Proyecto Framework PHP - Laravel
 - Entidades que se podrán actualizar
@@ -41,6 +40,7 @@ Cuando un cliente selecciona y realiza una compra de uno o más productos, se ge
     * `Detalle de pedido`
 - Entidades que se podrán modificar por API
     * `Cliente`
+    * `Pedido`
 
 ## Javascript - React/Vue
 - Información que podrá ver el usuario
