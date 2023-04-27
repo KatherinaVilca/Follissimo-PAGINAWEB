@@ -8,7 +8,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Seeders\faker;
 
-class productoSeeder extends Seeder
+class ProductoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
