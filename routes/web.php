@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
+use app\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,8 +28,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/nuevoProducto', [ProductController::class, 'create'])->name'product.create');
-Route::get('/crearNuevoProducto', [ProductController::class, 'store'])->name'product.store');
-Route::get('/verProducto', [ProductController::class, 'show'])->name'product.show');
+Route::get('/nuevoProducto', [ProductController::class, 'create'])->name('product.create');
+Route::get('/crearNuevoProducto', [ProductController::class, 'store'])->name('product.store');
+Route::get('/verProducto', [ProductController::class, 'show'])->name('product.show');
 
 require __DIR__.'/auth.php';
