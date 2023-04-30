@@ -29,7 +29,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/nuevoProducto', [ProductController::class, 'create'])->name'product.create');
-Route::get('/nuevoProducto', [ProductController::class, 'store'])->name'product.store');
-Route::get('/nuevoProducto', [ProductController::class, 'show'])->name'product.show');
+Route::get('/crearNuevoProducto', [ProductController::class, 'store'])->name'product.store');
+Route::get('/verProducto', [ProductController::class, 'show'])->name'product.show');
 
 require __DIR__.'/auth.php';
