@@ -28,7 +28,8 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nameCategory'=>'required'
     }
 
     /**
