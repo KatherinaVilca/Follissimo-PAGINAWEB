@@ -12,7 +12,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $productos = productos::all();
+        return view('ProductView.products', compact('pruductos'));
     }
 
     /**
@@ -20,7 +21,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $categorias = categorias::all();
+        $tamaños = tamaños::all();
+        return view('ProductView.productCreate', compact('categorias'), compact('tamaños'));
     }
 
     /**
@@ -28,7 +31,17 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nameProduct'=> 'bail|required',
+            'priceProduct' => 'required|min:0',
+            'colorProduct' =>'required',
+            'categoriaProduct'=>'required|exists:categorias',
+            'tamañoProduct'=>'required|exists:tamaño',
+            'descriptionProduct' => 'required|max:255',
+        ])
+
+        return redirect()->route('product.index')
+            ->with('success', 'Producto nuevo creado');
     }
 
     /**
@@ -36,7 +49,8 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        $product = Product::find($id);
+        return view('ProductView.showProduct', ['product' => $product]);
     }
 
     /**
