@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
 use app\Http\Controllers\ProductController;
+use app\Http\Controllers\CategoriaController;
+use app\Http\Controllers\TamanioController;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
