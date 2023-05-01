@@ -38,7 +38,7 @@ class CategoriaController extends Controller
 
         categorias::create([
             'tipo' => $request->input('nameCategory'),
-        ])
+        ]);
 
         return redirect()->route('categoria.index')
             ->with('success', 'Nueva categoria creada');

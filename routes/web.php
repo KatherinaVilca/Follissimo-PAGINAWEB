@@ -1,9 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use app\Http\Controllers\ProductController;
-use app\Http\Controllers\CategoriaController;
-use app\Http\Controllers\TamanioController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\TamanioController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,7 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/todosproductos', [ProductController::class, 'index'])->name('product.index');
+Route::get('/todosproductos', [ProductController::class, 'index'])->name('ProductView.products');
 Route::get('/nuevoproducto', [ProductController::class, 'create'])->name('product.create');
 Route::post('/crearnuevoproducto', [ProductController::class, 'store'])->name('product.store');
 Route::get('/verproducto', [ProductController::class, 'show'])->name('product.show');

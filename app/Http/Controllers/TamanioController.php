@@ -34,11 +34,11 @@ class TamanioController extends Controller
     {
         $this->validate($request, [
             'nameTamaño'=>'required',
-        ])
+        ]);
 
         tamaños::create([
             'tipo' => $request->input('nameTamaño'),
-        ])
+        ]);
 
         return redirect()->route('tamanio.index')
             ->with('success', 'Nuevo tamaño creado');

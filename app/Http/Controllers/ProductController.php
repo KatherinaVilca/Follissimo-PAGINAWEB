@@ -15,7 +15,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $allProductos = productos::all();
+        $allProductos = Product::all();
         return view('productView.products', compact('allProductos'));
     }
 
@@ -41,7 +41,7 @@ class ProductController extends Controller
             'categoriaProduct'=>'required|exists:categorias',
             'tamañoProduct'=>'required|exists:tamaño',
             'descriptionProduct' => 'required|max:255',
-        ])
+        ]);
 
         productos::create([
             'nombre' => $request->input('nameProduct'),
@@ -50,7 +50,7 @@ class ProductController extends Controller
             'tipo_categoria' => $request->input('categoriaProduct'),
             'tipo_tamaño' => $request->input('tamañoProduct'),
             'descripcion' => $request->input('descriptionProduct'),
-        ])
+        ]);
 
         return redirect()->route('product.index')
             ->with('success', 'Producto nuevo creado');
