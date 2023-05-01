@@ -13,7 +13,7 @@ class TamanioController extends Controller
     public function index()
     {
         $tamaños = tamaños::all();
-        return view('TamañoView.tamaños', compact('tamaños'));
+        return view('tamañoView.tamaños', compact('tamaños'));
     }
 
     /**

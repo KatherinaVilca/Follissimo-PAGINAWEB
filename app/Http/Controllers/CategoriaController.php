@@ -13,7 +13,7 @@ class CategoriaController extends Controller
     public function index()
     {
         $categorias = categorias::all();
-        return view('CategoriaView.categorias', compact('categorias'));
+        return view('categoriaView.categorias', compact('categorias'));
     }
 
     /**

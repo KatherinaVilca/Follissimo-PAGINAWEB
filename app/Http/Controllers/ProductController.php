@@ -12,8 +12,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $productos = productos::all();
-        return view('ProductView.products', compact('pruductos'));
+        $allProductos = productos::all();
+        return view('productView.products', compact('allProductos'));
     }
 
     /**
@@ -23,7 +23,7 @@ class ProductController extends Controller
     {
         $categorias = categorias::all();
         $tamaños = tamaños::all();
-        return view('ProductView.productCreate', compact('categorias'), compact('tamaños'));
+        return view('productView.productCreate', compact('categorias'), compact('tamaños'));
     }
 
     /**
@@ -50,7 +50,7 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         $product = Product::find($id);
-        return view('ProductView.showProduct', ['product' => $product]);
+        return view('productView.showProduct', ['product' => $product]);
     }
 
     /**
