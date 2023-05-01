@@ -1,7 +1,15 @@
+@extends('layouts.app')
+
+@section('header')
+<h2>Header Productos</h2>
+@endsection
+
+@section('page content')
 <!DOCTYPE html>
     <table>
         <thead>
             <tr>
+                <th>ID</th>
                 <th>Nombre</th>
                 <th>Precio</th>
                 <th>Color</th>
@@ -19,9 +27,10 @@
                 <td>{{ $producto->color }}</td>
                 <td>{{ $producto->tipo_categoria}}</td>
                 <td>{{ $producto->tipo_tamaño}}</td>
-                <td>{{ $producto->descripcion }}</td>
+                <td>{{ $producto->descripción }}</td>
             </tr>
             @endforeach
         </tbody>
     </table>
 </html>
+@endsection
