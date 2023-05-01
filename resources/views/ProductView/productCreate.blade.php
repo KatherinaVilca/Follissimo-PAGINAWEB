@@ -36,7 +36,7 @@
         <input type="text" class="form-control" name="descriptionProduct">
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Crear producto</button>
         </form> 
     </html>
                                                                                                                     
