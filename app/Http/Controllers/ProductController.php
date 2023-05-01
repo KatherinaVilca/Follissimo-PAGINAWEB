@@ -43,6 +43,15 @@ class ProductController extends Controller
             'descriptionProduct' => 'required|max:255',
         ])
 
+        productos::create([
+            'nombre' => $request->input('nameProduct'),
+            'precio' => $request->input('priceProduct'),
+            'color' => $request->input('colorProduct'),
+            'tipo_categoria' => $request->input('categoriaProduct'),
+            'tipo_tamaño' => $request->input('tamañoProduct'),
+            'descripcion' => $request->input('descriptionProduct'),
+        ])
+
         return redirect()->route('product.index')
             ->with('success', 'Producto nuevo creado');
     }
