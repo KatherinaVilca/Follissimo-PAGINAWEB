@@ -12,7 +12,8 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        //
+        $categorias = categorias::all();
+        return view('CategoriaView.categorias', compact('categorias'));
     }
 
     /**
@@ -29,7 +30,11 @@ class CategoriaController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'nameCategory'=>'required'
+            'nameCategory'=>'required',
+        ]);
+
+        return redirect()->route('categoria.index')
+            ->with('success', 'Nueva categoria creada');
     }
 
     /**

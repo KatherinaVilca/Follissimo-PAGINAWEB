@@ -12,7 +12,8 @@ class TamanioController extends Controller
      */
     public function index()
     {
-        //
+        $tamaños = tamaños::all();
+        return view('TamañoView.tamaños', compact('tamaños'));
     }
 
     /**
@@ -28,7 +29,12 @@ class TamanioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nameTamaño'=>'required',
+        ])
+
+        return redirect()->route('tamanio.index')
+            ->with('success', 'Nuevo tamaño creado');
     }
 
     /**
