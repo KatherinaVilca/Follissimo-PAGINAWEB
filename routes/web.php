@@ -31,15 +31,15 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/todosProductos', [ProductController::class, 'index'])->name('product.index');
-Route::get('/nuevoProducto', [ProductController::class, 'create'])->name('product.create');
-Route::get('/crearNuevoProducto', [ProductController::class, 'store'])->name('product.store');
-Route::get('/verProducto', [ProductController::class, 'show'])->name('product.show');
+Route::get('/todosproductos', [ProductController::class, 'index'])->name('product.index');
+Route::get('/nuevoproducto', [ProductController::class, 'create'])->name('product.create');
+Route::post('/crearnuevoproducto', [ProductController::class, 'store'])->name('product.store');
+Route::get('/verproducto', [ProductController::class, 'show'])->name('product.show');
 
-Route::get('/todasCategorias', [CategoriaController::class, 'index'])->name('categoria.index');
-Route::get('/crearNuevaCategoria', [CategoriaController::class, 'store'])->name('categoria.store');
+Route::get('/todascategorias', [CategoriaController::class, 'index'])->name('categoria.index');
+Route::post('/crearnuevacategoria', [CategoriaController::class, 'store'])->name('categoria.store');
 
-Route::get('/todosTamaños', [TamanioController::class, 'index'])->name('tamaño.index');
-Route::get('/crearNuevoTamaño', [TamanioController::class, 'store'])->name('tamaño.store');
+Route::get('/todostamaños', [TamanioController::class, 'index'])->name('tamaño.index');
+Route::post('/crearnuevotamaño', [TamanioController::class, 'store'])->name('tamaño.store');
 
 require __DIR__.'/auth.php';
