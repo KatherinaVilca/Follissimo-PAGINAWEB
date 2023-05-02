@@ -31,9 +31,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::resource('productos','App\Http\Controllers\ProductController');
+
 Route::get('/todosproductos', [ProductController::class, 'index'])->name('ProductView.products');
-Route::get('/nuevoproducto', [ProductController::class, 'create'])->name('product.create');
-Route::post('/crearnuevoproducto', [ProductController::class, 'store'])->name('product.store');
+Route::get('/nuevoproducto', [ProductController::class, 'create'])->name('ProductView.productCreate');
+Route::post('/crearnuevoproducto', [ProductController::class, 'store'])->name('ProductView.store');
 Route::get('/verproducto', [ProductController::class, 'show'])->name('product.show');
 
 Route::get('/todascategorias', [CategoriaController::class, 'index'])->name('categoria.index');
