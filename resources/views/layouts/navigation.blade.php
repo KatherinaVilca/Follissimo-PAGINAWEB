@@ -15,6 +15,24 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('producto.index')" :active="request()->routeIs('producto.index')">
+                        {{ __('Productos') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('producto.index')" :active="request()->routeIs('productos')">
+                        {{ __('Categorias') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('producto.index')" :active="request()->routeIs('productos')">
+                        {{ __('Tamaños') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('producto.index')" :active="request()->routeIs('productos')">
+                        {{ __('Clientes') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('producto.index')" :active="request()->routeIs('productos')">
+                        {{ __('Pedidos') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('producto.index')" :active="request()->routeIs('productos')">
+                        {{ __('Detalles Pedidos') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -69,6 +87,24 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                {{ __('Productos') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                {{ __('Categorias') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                {{ __('Tamaños') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                {{ __('Clientes') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                {{ __('Pedidos') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                {{ __('Detalles Pedidos') }}
             </x-responsive-nav-link>
         </div>
 
