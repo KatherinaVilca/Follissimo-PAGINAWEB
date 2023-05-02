@@ -26,8 +26,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categorias = categorias::all();
-        $tamaños = tamaños::all();
+        $categorias = Categoria::all();
+        $tamaños = Tamaño::all();
         return view('productView.productCreate', compact('categorias'), compact('tamaños'));
     }
 
@@ -37,24 +37,24 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'nameProduct'=> 'bail|required',
-            'priceProduct' => 'required|min:0',
-            'colorProduct' =>'required',
-            'categoriaProduct'=>'required|exists:categorias',
-            'tamañoProduct'=>'required|exists:tamaño',
-            'descriptionProduct' => 'required|max:255',
+            'Nombre'=> 'bail|required',
+            'Precio' => 'required|min:0',
+            'Color' =>'required',
+            'Categoria'=>'required',
+            'Tamaño'=>'required',
+            'Descripcion' => 'required|max:255',
         ]);
+        $productos = new Product();
 
-        productos::create([
-            'nombre' => $request->input('nameProduct'),
-            'precio' => $request->input('priceProduct'),
-            'color' => $request->input('colorProduct'),
-            'tipo_categoria' => $request->input('categoriaProduct'),
-            'tipo_tamaño' => $request->input('tamañoProduct'),
-            'descripcion' => $request->input('descriptionProduct'),
-        ]);
+        $productos->nombre = $request->get('Nombre');
+        $productos->precio = $request->get('Precio');
+        $productos->color = $request->get('Color');
+        $productos->tipo_categoria = $request->get('Categoria');
+        $productos->tipo_tamaño = $request->get('Tamaño');
+        $productos->descripción = $request->get('Descripcion');
 
-        return redirect()->route('product.index')
+        $productos->save();
+        return redirect('/productos')
             ->with('success', 'Producto nuevo creado');
     }
 
