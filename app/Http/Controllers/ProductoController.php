@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
+use App\Models\Producto;
 use App\Models\Categoria;
 use App\Models\Tamaño;
 use Illuminate\Http\Request;
@@ -17,8 +17,8 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        $productos = Product::all();
         return view('producto.index', compact('productos'));
+        $productos = Producto::all();
     }
 
     /**
@@ -44,7 +44,7 @@ class ProductoController extends Controller
             'Tamaño'=>'required',
             'Descripcion' => 'required|max:255',
         ]);
-        $producto = new Product();
+        $producto = new Producto();
 
         $producto->nombre = $request->get('Nombre');
         $producto->precio = $request->get('Precio');
@@ -61,10 +61,10 @@ class ProductoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show(Producto $producto)
     {
-        $product = Product::find($id);
-        return view('producto.showProduct', ['product' => $product]);
+        $producto = Producto::find($id);
+        return view('producto.showProduct', ['producto' => $producto]);
     }
 
     /**
@@ -72,7 +72,7 @@ class ProductoController extends Controller
      */
     public function edit($id)
     {
-        $producto = Product::find($id);
+        $producto = Producto::find($id);
         $categorias = Categoria::all();
         $tamaños = Tamaño::all();
         return view('producto.edit', compact('categorias'), compact('tamaños'))->with('producto',$producto);
@@ -83,7 +83,7 @@ class ProductoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $producto = Product::find($id);
+        $producto = Producto::find($id);
 
         $producto->nombre = $request->get('Nombre');
         $producto->precio = $request->get('Precio');
@@ -112,7 +112,7 @@ class ProductoController extends Controller
      */
     public function destroy($id)
     {
-        $producto = Product::find($id);
+        $producto = Producto::find($id);
         $producto->delete();
 
         return redirect('/productos')
