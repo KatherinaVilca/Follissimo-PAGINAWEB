@@ -32,8 +32,12 @@
                 <td>{{ $producto->tipo_tamaño}}</td>
                 <td>{{ $producto->descripción }}</td>
                 <td>
-                    <a href="productos/{{$producto->id}}/edit" class="btn btn-info">Editar</a>
-                    <a class="btn btn-danger">Eliminar</a>
+                    <form action="{{route('productos.destroy',$producto->id)}}" method="POST">
+                        <button href="productos/{{$producto->id}}/edit" class="btn btn-info">Editar</button>
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
                 </td>
             </tr>
             @endforeach

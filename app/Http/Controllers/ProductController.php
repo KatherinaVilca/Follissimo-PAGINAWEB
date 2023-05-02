@@ -55,7 +55,7 @@ class ProductController extends Controller
 
         $producto->save();
         return redirect('/productos')
-            ->with('success', 'Producto nuevo creado');
+            ->with('success', 'Producto creado existosamente');
     }
 
     /**
@@ -110,8 +110,12 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        //
+        $producto = Product::find($id);
+        $producto->delete();
+
+        return redirect('/productos')
+            ->with('success', 'Producto eliminado exitosamente');
     }
 }
