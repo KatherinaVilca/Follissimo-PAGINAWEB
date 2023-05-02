@@ -10,7 +10,7 @@ use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 
-class ProductController extends Controller
+class ProductoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +18,7 @@ class ProductController extends Controller
     public function index()
     {
         $productos = Product::all();
-        return view('ProductView.index', compact('productos'));
+        return view('producto.index', compact('productos'));
     }
 
     /**
@@ -28,7 +28,7 @@ class ProductController extends Controller
     {
         $categorias = Categoria::all();
         $tamaños = Tamaño::all();
-        return view('productView.productCreate', compact('categorias'), compact('tamaños'));
+        return view('producto.create', compact('categorias'), compact('tamaños'));
     }
 
     /**
@@ -64,7 +64,7 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         $product = Product::find($id);
-        return view('productView.showProduct', ['product' => $product]);
+        return view('producto.showProduct', ['product' => $product]);
     }
 
     /**
@@ -75,7 +75,7 @@ class ProductController extends Controller
         $producto = Product::find($id);
         $categorias = Categoria::all();
         $tamaños = Tamaño::all();
-        return view('ProductView.edit', compact('categorias'), compact('tamaños'))->with('producto',$producto);
+        return view('producto.edit', compact('categorias'), compact('tamaños'))->with('producto',$producto);
     }
 
     /**

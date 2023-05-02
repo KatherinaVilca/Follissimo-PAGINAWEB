@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\TamanioController;
 use Illuminate\Support\Facades\Route;
@@ -31,12 +31,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::resource('productos','App\Http\Controllers\ProductController');
+Route::resource('productos','App\Http\Controllers\ProductoController');
 
-Route::get('/todosproductos', [ProductController::class, 'index'])->name('ProductView.products');
-Route::get('/nuevoproducto', [ProductController::class, 'create'])->name('ProductView.productCreate');
-Route::post('/crearnuevoproducto', [ProductController::class, 'store'])->name('ProductView.store');
-Route::get('/verproducto', [ProductController::class, 'show'])->name('product.show');
+Route::get('/todosproductos', [ProductoController::class, 'index'])->name('producto.index');
+Route::get('/nuevoproducto', [ProductoController::class, 'create'])->name('producto.create');
+Route::post('/crearnuevoproducto', [ProductoController::class, 'store'])->name('producto.store');
+Route::get('/verproducto', [ProductoController::class, 'show'])->name('product.show');
 
 Route::get('/todascategorias', [CategoriaController::class, 'index'])->name('categoria.index');
 Route::post('/crearnuevacategoria', [CategoriaController::class, 'store'])->name('categoria.store');
