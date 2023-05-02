@@ -17,8 +17,8 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        return view('producto.index', compact('productos'));
         $productos = Producto::all();
+        return view('producto.index', compact('productos'));
     }
 
     /**
@@ -54,7 +54,7 @@ class ProductoController extends Controller
         $producto->descripción = $request->get('Descripcion');
 
         $producto->save();
-        return redirect('/productos')
+        return redirect('productos')
             ->with('success', 'Producto creado existosamente');
     }
 

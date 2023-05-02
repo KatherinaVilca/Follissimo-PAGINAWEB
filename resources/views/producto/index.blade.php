@@ -4,7 +4,7 @@
     <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
         Index Productos
     </h2>
-    <a href="productos/create" class="btn btn-primary">Crear producto</a>
+    <a href="{{route('producto.create')}}" class="btn btn-primary">Crear producto</a>
 @endsection
 
 @section('page content')
@@ -32,8 +32,8 @@
                 <td>{{ $producto->tipo_tamaño}}</td>
                 <td>{{ $producto->descripción }}</td>
                 <td>
-                    <form action="{{route('productos.destroy',$producto->id)}}" method="POST">
-                        <button href="productos/{{$producto->id}}/edit" class="btn btn-info">Editar</button>
+                    <form action="{{route('producto.destroy',$producto->id)}}" method="POST">
+                        <a href="productos/{{$producto->id}}/edit" class="btn btn-info">Editar</a>
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Eliminar</button>

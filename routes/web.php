@@ -31,12 +31,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::resource('productos','App\Http\Controllers\ProductoController');
-
-Route::get('/todosproductos', [ProductoController::class, 'index'])->name('producto.index');
-Route::get('/nuevoproducto', [ProductoController::class, 'create'])->name('producto.create');
-Route::post('/crearnuevoproducto', [ProductoController::class, 'store'])->name('producto.store');
-Route::get('/verproducto', [ProductoController::class, 'show'])->name('product.show');
+Route::get('/productos', [ProductoController::class, 'index'])->name('producto.index');
+Route::get('/productos/create', [ProductoController::class, 'create'])->name('producto.create');
+Route::post('/productos', [ProductoController::class, 'store'])->name('producto.store');
+Route::get('/productos/{id}/edit', [ProductoController::class, 'edit'])->name('producto.edit');
+Route::put('/productos/{id}', [ProductoController::class, 'update'])->name('producto.update');
+Route::get('/productos/{id}', [ProductoController::class, 'show'])->name('product.show');
+Route::delete('/productos/{id}/delete', [ProductoController::class, 'destroy'])->name('producto.destroy');
 
 Route::get('/todascategorias', [CategoriaController::class, 'index'])->name('categoria.index');
 Route::post('/crearnuevacategoria', [CategoriaController::class, 'store'])->name('categoria.store');
