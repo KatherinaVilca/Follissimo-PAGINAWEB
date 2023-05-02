@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Categoria;
+use App\Models\Tamaño;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -15,8 +17,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $allProductos = Product::all();
-        return view('productView.products', compact('allProductos'));
+        $productos = Product::all();
+        return view('ProductView.index', compact('productos'));
     }
 
     /**
