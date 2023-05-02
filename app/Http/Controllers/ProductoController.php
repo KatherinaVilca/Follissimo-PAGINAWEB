@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductoRequest;
 use App\Models\Producto;
 use App\Models\Categoria;
 use App\Models\Tamaño;
@@ -36,22 +37,16 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'Nombre'=> 'bail|required',
-            'Precio' => 'required|min:0',
-            'Color' =>'required',
-            'Categoria'=>'required',
-            'Tamaño'=>'required',
-            'Descripcion' => 'required|max:255',
-        ]);
+        $validateData = $request->validated();
+
         $producto = new Producto();
 
-        $producto->nombre = $request->get('Nombre');
-        $producto->precio = $request->get('Precio');
-        $producto->color = $request->get('Color');
-        $producto->tipo_categoria = $request->get('Categoria');
-        $producto->tipo_tamaño = $request->get('Tamaño');
-        $producto->descripción = $request->get('Descripcion');
+        $producto->nombre = $validateData->get('Nombre');
+        $producto->precio = $validateData->get('Precio');
+        $producto->color = $validateData->get('Color');
+        $producto->tipo_categoria = $validateData->get('Categoria');
+        $producto->tipo_tamaño = $validateData->get('Tamaño');
+        $producto->descripción = $validateData->get('Descripcion');
 
         $producto->save();
         return redirect('productos')
@@ -85,21 +80,14 @@ class ProductoController extends Controller
     {
         $producto = Producto::find($id);
 
-        $producto->nombre = $request->get('Nombre');
-        $producto->precio = $request->get('Precio');
-        $producto->color = $request->get('Color');
-        $producto->tipo_categoria = $request->get('Categoria');
-        $producto->tipo_tamaño = $request->get('Tamaño');
-        $producto->descripción = $request->get('Descripcion');
+        $validateData = $request->validated();
 
-        $this->validate($request, [
-            'Nombre'=> 'bail|required',
-            'Precio' => 'required|min:0',
-            'Color' =>'required',
-            'Categoria'=>'required',
-            'Tamaño'=>'required',
-            'Descripcion' => 'required|max:255',
-        ]);
+        $producto->nombre = $validateData->get('Nombre');
+        $producto->precio = $validateData->get('Precio');
+        $producto->color = $validateData->get('Color');
+        $producto->tipo_categoria = $validateData->get('Categoria');
+        $producto->tipo_tamaño = $validateData->get('Tamaño');
+        $producto->descripción = $validateData->get('Descripcion');
 
         $producto->update();
 
