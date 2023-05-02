@@ -32,7 +32,7 @@
                 <td>{{ $producto->tipo_tamaño}}</td>
                 <td>{{ $producto->descripción }}</td>
                 <td>
-                    <a class="btn btn-info">Editar</a>
+                    <a href="productos/{{$producto->id}}/edit" class="btn btn-info">Editar</a>
                     <a class="btn btn-danger">Eliminar</a>
                 </td>
             </tr>

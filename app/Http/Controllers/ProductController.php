@@ -44,16 +44,16 @@ class ProductController extends Controller
             'Tamaño'=>'required',
             'Descripcion' => 'required|max:255',
         ]);
-        $productos = new Product();
+        $producto = new Product();
 
-        $productos->nombre = $request->get('Nombre');
-        $productos->precio = $request->get('Precio');
-        $productos->color = $request->get('Color');
-        $productos->tipo_categoria = $request->get('Categoria');
-        $productos->tipo_tamaño = $request->get('Tamaño');
-        $productos->descripción = $request->get('Descripcion');
+        $producto->nombre = $request->get('Nombre');
+        $producto->precio = $request->get('Precio');
+        $producto->color = $request->get('Color');
+        $producto->tipo_categoria = $request->get('Categoria');
+        $producto->tipo_tamaño = $request->get('Tamaño');
+        $producto->descripción = $request->get('Descripcion');
 
-        $productos->save();
+        $producto->save();
         return redirect('/productos')
             ->with('success', 'Producto nuevo creado');
     }
@@ -70,17 +70,41 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
-        //
+        $producto = Product::find($id);
+        $categorias = Categoria::all();
+        $tamaños = Tamaño::all();
+        return view('ProductView.edit', compact('categorias'), compact('tamaños'))->with('producto',$producto);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
-        //
+        $producto = Product::find($id);
+
+        $producto->nombre = $request->get('Nombre');
+        $producto->precio = $request->get('Precio');
+        $producto->color = $request->get('Color');
+        $producto->tipo_categoria = $request->get('Categoria');
+        $producto->tipo_tamaño = $request->get('Tamaño');
+        $producto->descripción = $request->get('Descripcion');
+
+        $this->validate($request, [
+            'Nombre'=> 'bail|required',
+            'Precio' => 'required|min:0',
+            'Color' =>'required',
+            'Categoria'=>'required',
+            'Tamaño'=>'required',
+            'Descripcion' => 'required|max:255',
+        ]);
+
+        $producto->update();
+
+        return redirect('/productos')
+            ->with('success', 'Producto editado exitosamente');
     }
 
     /**
