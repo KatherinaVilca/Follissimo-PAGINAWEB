@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tamanio;
+use App\Models\Tamaño;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -15,8 +15,8 @@ class TamanioController extends Controller
      */
     public function index()
     {
-        $tamaños = tamaños::all();
-        return view('tamañoView.tamaños', compact('tamaños'));
+        $tamaños = Tamaño::all();
+        return view('tamaño.index', compact('tamaños'));
     }
 
     /**
@@ -24,7 +24,7 @@ class TamanioController extends Controller
      */
     public function create()
     {
-        //
+         return view('tamaño.create');
     }
 
     /**
@@ -33,15 +33,16 @@ class TamanioController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'nameTamaño'=>'required',
+            'Nombre'=>'required',
         ]);
 
-        tamaños::create([
-            'tipo' => $request->input('nameTamaño'),
-        ]);
+        $tamaño = new Tamaño ();
+        $tamaño->tipo = $request->get('Nombre'),
+     
+        $tamaño->save();
 
-        return redirect()->route('tamanio.index')
-            ->with('success', 'Nuevo tamaño creado');
+        return redirect()->route('/tamaños')
+            ->with('success', 'Tamaño creado existosamente' );
     }
 
     /**
@@ -55,24 +56,39 @@ class TamanioController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Tamanio $tamanio)
+    public function edit($id)
     {
-        //
+        $tamaño = Tamaño::find($id);
+        return  view('tamaño.edit')->with('tamaño',$tamaño);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Tamanio $tamanio)
+    public function update(Request $request, $id)
     {
-        //
+        $tamaño = Tamaño::find($id);
+
+        $this->validate($request, [
+            'Nombre'=>'required',
+        ]);
+
+        $tamaño->tipo = $request->get('Nombre'),
+        $tamaño->update();
+
+        return redirect('/tamaños')
+            ->with('success', 'Tamaño editado exitosamente');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Tamanio $tamanio)
+    public function destroy($id)
     {
-        //
+        $tamaño = Tamaño::find($id);
+        $tamaño->delete();
+
+        return redirect('/tamaños')
+        ->with('success', 'Tamaño eliminado exitosamente');
     }
 }

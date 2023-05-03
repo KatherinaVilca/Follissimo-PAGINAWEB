@@ -15,8 +15,8 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        $categorias = categorias::all();
-        return view('categoriaView.categorias', compact('categorias'));
+        $categorias = Categoria::all();
+        return view('categoria.index', compact('categorias'));
     }
 
     /**
@@ -24,7 +24,7 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        //
+        return view('categoria.create');
     }
 
     /**
@@ -33,14 +33,15 @@ class CategoriaController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'nameCategory'=>'required',
+            'Nombre'=>'required',
         ]);
 
-        categorias::create([
-            'tipo' => $request->input('nameCategory'),
-        ]);
+        $categoria = new Categoria();
+        $categoria->tipo = $request->get('Nombre');
 
-        return redirect()->route('categoria.index')
+        $categoria->save();
+
+        return redirect('/categorias')
             ->with('success', 'Nueva categoria creada');
     }
 
@@ -55,24 +56,39 @@ class CategoriaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Categoria $categoria)
+    public function edit($id)
     {
-        //
+        $categoria = Categoria::find($id);
+        return view('categoria.edit')->with('categoria',$categoria);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Categoria $categoria)
+    public function update(Request $request, $id)
     {
-        //
+        $categoria = Categoria::find($id);
+
+        $this->validate($request, [
+            'Nombre'=>'required',
+        ]);
+
+        $categoria->tipo = $request->get('Nombre');
+        $categoria->update();
+
+        return redirect('/categorias')
+            ->with('success', 'Categoria editada exitosamente');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Categoria $categoria)
+    public function destroy($id)
     {
-        //
+        $categoria = Categoria::find($id);
+        $categoria->delete();
+        
+        return redirect('/categorias')
+            ->with('success', 'Tamaño eliminado exitosamente');
     }
 }
