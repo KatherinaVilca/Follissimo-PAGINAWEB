@@ -49,7 +49,7 @@ class ProductoController extends Controller
         $producto->descripción = $validateData->get('Descripcion');
 
         $producto->save();
-        return redirect('productos')
+        return redirect('/productos')
             ->with('success', 'Producto creado existosamente');
     }
 
