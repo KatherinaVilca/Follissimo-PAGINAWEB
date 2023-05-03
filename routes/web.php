@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\CategoriaController;
-use App\Http\Controllers\TamanioController;
+use App\Http\Controllers\TamañoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,7 +42,7 @@ Route::delete('/productos/{id}/delete', [ProductoController::class, 'destroy'])-
 Route::get('/todascategorias', [CategoriaController::class, 'index'])->name('categoria.index');
 Route::post('/crearnuevacategoria', [CategoriaController::class, 'store'])->name('categoria.store');
 
-Route::get('/todostamaños', [TamanioController::class, 'index'])->name('tamaño.index');
-Route::post('/crearnuevotamaño', [TamanioController::class, 'store'])->name('tamaño.store');
+Route::get('/todostamaños', [TamañoController::class, 'index'])->name('tamaño.index');
+Route::post('/crearnuevotamaño', [TamañoController::class, 'store'])->name('tamaño.store');
 
 require __DIR__.'/auth.php';

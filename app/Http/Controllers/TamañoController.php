@@ -8,7 +8,7 @@ use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 
-class TamanioController extends Controller
+class TamañoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,8 +37,8 @@ class TamanioController extends Controller
         ]);
 
         $tamaño = new Tamaño ();
-        $tamaño->tipo = $request->get('Nombre'),
-     
+        $tamaño->tipo = $request->get('Nombre');
+
         $tamaño->save();
 
         return redirect()->route('/tamaños')
@@ -48,7 +48,7 @@ class TamanioController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Tamanio $tamanio)
+    public function show(Tamaño $Tamaño)
     {
         //
     }
@@ -73,7 +73,7 @@ class TamanioController extends Controller
             'Nombre'=>'required',
         ]);
 
-        $tamaño->tipo = $request->get('Nombre'),
+        $tamaño->tipo = $request->get('Nombre');
         $tamaño->update();
 
         return redirect('/tamaños')
