@@ -18,10 +18,10 @@
                     <x-nav-link :href="route('producto.index')" :active="request()->routeIs('producto.index')">
                         {{ __('Productos') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('producto.index')" :active="request()->routeIs('productos')">
+                    <x-nav-link :href="route('categoria.index')" :active="request()->routeIs('categorias')">
                         {{ __('Categorias') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('producto.index')" :active="request()->routeIs('productos')">
+                    <x-nav-link :href="route('tamaño.index')" :active="request()->routeIs('tamaños')">
                         {{ __('Tamaños') }}
                     </x-nav-link>
                     <x-nav-link :href="route('producto.index')" :active="request()->routeIs('productos')">
