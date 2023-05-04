@@ -1,16 +1,33 @@
-<!DOCTYPE html>
-    <table>
+@extends('layouts.app')
+
+@section('header')
+    <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+        Index Categorias
+    </h2>
+    <a href="{{route('categoria.create')}}" class="btn btn-primary">Crear categoria</a>
+@endsection
+
+@section('page content')
+    <table  class="table table-striped mt-4" >
         <thead>
             <tr>
-                <th>Nombre</th>
+                <th scope="col">Nombre </th>
             </tr>
         </thead>
         <tbody>
             @foreach ($categorias as $categoria)
             <tr>
                 <td>{{ $categoria->tipo }}</td>
+                <td>
+                    <form action="{{route('categoria.destroy',$categoria->tipo)}}" method="POST">
+                        <a href="categoria/{{$categoria->tipo}}/edit" class="btn btn-info">Editar</a>
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
+                </td>
             </tr>
             @endforeach
         </tbody>
     </table>
-</html>
+    @endsection
