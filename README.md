@@ -21,12 +21,9 @@ Cuando un cliente selecciona y realiza una compra de uno o más productos, se ge
 
 ## Proyecto Framework PHP - Laravel
 - Entidades que se podrán actualizar
-    * `Cliente`
     * `Producto`
-    * `Detalle de pedido`
     * `Categoría`
     * `Tamaño`
-    * `Pedido`
 - Reportes que se podrán generar/visualizar
     * Pedidos realizados según X atributo/filtro
     * Clientes según X atributo/filtro
