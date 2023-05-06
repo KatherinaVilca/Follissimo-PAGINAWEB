@@ -56,7 +56,7 @@ class ProductoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Producto $producto)
+    public function show(Producto $id)
     {
         $producto = Producto::find($id);
         return view('producto.showProduct', ['producto' => $producto]);
@@ -106,4 +106,7 @@ class ProductoController extends Controller
         return redirect('/productos')
             ->with('success', 'Producto eliminado exitosamente');
     }
+
+   
 }
+

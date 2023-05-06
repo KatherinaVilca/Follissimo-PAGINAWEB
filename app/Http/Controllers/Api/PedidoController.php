@@ -13,4 +13,12 @@ class PedidoController extends Controller
         return response()->json(['data'=>$pedidos]);
     }
 
+    public function cancelar($id){
+
+        $pedido = Pedido::find($id);
+        $pedido->delete();
+
+        return response()->json(['data' = $pedido]);
+    }
+
 }
