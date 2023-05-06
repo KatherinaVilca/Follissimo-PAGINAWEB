@@ -13,7 +13,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::get('/productos',[ProductoController::class, 'index'])->name('producto.index');
-Route::get('/producto/{id}', [ProductoController::class, 'show'])name->('producto.show');
+Route::get('/producto/{id}', [ProductoController::class, 'show'])->name('producto.show');
 
 Route::get('/detallepedido', [DetallePedidoController::class, 'index'])->name('detallePedido.index');
 Route::get('/detallepedido/{id}', [DetallePedidoController::class, 'show'])->name('detallePedido.show');
