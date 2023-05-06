@@ -29,31 +29,30 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/productos', [ProductoController::class, 'index'])->name('producto.index');
+    Route::get('/productos/create', [ProductoController::class, 'create'])->name('producto.create');
+    Route::post('/productos', [ProductoController::class, 'store'])->name('producto.store');
+    Route::get('/productos/{id}/edit', [ProductoController::class, 'edit'])->name('producto.edit');
+    Route::put('/productos/{id}', [ProductoController::class, 'update'])->name('producto.update');
+    Route::get('/productos/{id}', [ProductoController::class, 'show'])->name('product.show');
+    Route::delete('/productos/{id}/delete', [ProductoController::class, 'destroy'])->name('producto.destroy');
+
+    Route::get('/categorias', [CategoriaController::class, 'index'])->name('categoria.index');
+    Route::get('/categorias/create', [CategoriaController::class, 'create'])->name('categoria.create');
+    Route::post('/categorias', [CategoriaController::class, 'store'])->name('categoria.store');
+    Route::get('/categorias/{tipo}/edit', [CategoriaController::class, 'edit'])->name('categoria.edit');
+    Route::put('/categorias/{tipo}', [CategoriaController::class, 'update'])->name('categoria.update');
+    Route::get('/categorias/{tipo}', [CategoriaController::class, 'show'])->name('categoria.show');
+    Route::delete('/categorias/{tipo}/delete', [CategoriaController::class, 'destroy'])->name('categoria.destroy');
+
+    Route::get('/tamaños', [TamañoController::class, 'index'])->name('tamaño.index');
+    Route::get('/tamaños/create', [TamañoController::class, 'create'])->name('tamaño.create');
+    Route::post('/tamaños', [TamañoController::class, 'store'])->name('tamaño.store');
+    Route::get('/tamaños/{tipo}/edit', [TamañoController::class, 'edit'])->name('tamaño.edit');
+    Route::put('/tamaños/{tipo}', [TamañoController::class, 'update'])->name('tamaño.update');
+    Route::get('/tamaños/{tipo}', [TamañoController::class, 'show'])->name('tamaño.show');
+    Route::delete('/tamaños/{tipo}/delete', [TamañoController::class, 'destroy'])->name('tamaño.destroy');
 });
-
-Route::get('/productos', [ProductoController::class, 'index'])->name('producto.index');
-Route::get('/productos/create', [ProductoController::class, 'create'])->name('producto.create');
-Route::post('/productos', [ProductoController::class, 'store'])->name('producto.store');
-Route::get('/productos/{id}/edit', [ProductoController::class, 'edit'])->name('producto.edit');
-Route::put('/productos/{id}', [ProductoController::class, 'update'])->name('producto.update');
-Route::get('/productos/{id}', [ProductoController::class, 'show'])->name('product.show');
-Route::delete('/productos/{id}/delete', [ProductoController::class, 'destroy'])->name('producto.destroy');
-
-Route::get('/categorias', [CategoriaController::class, 'index'])->name('categoria.index');
-Route::get('/categorias/create', [CategoriaController::class, 'create'])->name('categoria.create');
-Route::post('/categorias', [CategoriaController::class, 'store'])->name('categoria.store');
-Route::get('/categorias/{tipo}/edit', [CategoriaController::class, 'edit'])->name('categoria.edit');
-Route::put('/categorias/{tipo}', [CategoriaController::class, 'update'])->name('categoria.update');
-Route::get('/categorias/{tipo}', [CategoriaController::class, 'show'])->name('categoria.show');
-Route::delete('/categorias/{tipo}/delete', [CategoriaController::class, 'destroy'])->name('categoria.destroy');
-
-Route::get('/tamaños', [TamañoController::class, 'index'])->name('tamaño.index');
-Route::get('/tamaños/create', [TamañoController::class, 'create'])->name('tamaño.create');
-Route::post('/tamaños', [TamañoController::class, 'store'])->name('tamaño.store');
-Route::get('/tamaños/{tipo}/edit', [TamañoController::class, 'edit'])->name('tamaño.edit');
-Route::put('/tamaños/{tipo}', [TamañoController::class, 'update'])->name('tamaño.update');
-Route::get('/tamaños/{tipo}', [TamañoController::class, 'show'])->name('tamaño.show');
-Route::delete('/tamaños/{tipo}/delete', [TamañoController::class, 'destroy'])->name('tamaño.destroy');
-
 
 require __DIR__.'/auth.php';
