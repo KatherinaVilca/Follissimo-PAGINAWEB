@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\DetallePedidoController;
 use App\Http\Controllers\Api\ProductoController;
 use App\Http\Controllers\Api\PedidoController;
 use App\Http\Controllers\Api\CategoriaController;
+use App\Http\Controllers\Api\TamañoController;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
@@ -22,4 +23,6 @@ Route::get('/pedido/{id_cliente}', [PedidoController::class, 'index'])->name('pe
 Route::get('/pedido/{id}', [PedidoController::class, 'show'])->name('pedido.cancelar');
 
 Route::get('/categorias',[CategoriaController::class, 'index'])->name('categoria.index');
+
+Route::get('/tamaños',[TamañoController::class, 'index'])->name('tamaño.index');
 

@@ -18,7 +18,7 @@ class PedidoController extends Controller
         $pedido = Pedido::find($id);
         $pedido->delete();
 
-        return response()->json(['data' = $pedido]);
+        return response()->json(['data' => $pedido]);
     }
 
 }
