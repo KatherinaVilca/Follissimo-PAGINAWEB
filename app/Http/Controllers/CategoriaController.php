@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categoria;
+use App\Models\Producto;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -85,10 +86,12 @@ class CategoriaController extends Controller
      */
     public function destroy($id)
     {
-        $categoria = Categoria::where('tipo',$id);
-        $categoria->delete();
-
-        return redirect('/categorias')
-            ->with('success', 'Tamaño eliminado exitosamente');
+        $categoria = Categoria::find($id);
+        if (Producto::where('tipo_categoria',$id)->first() == null) {
+            $categoria->delete();
+            return redirect('/categorias')->with('success', 'categoria eliminada exitosamente');
+        }
+        else
+            return redirect('/categorias')->with('error', 'No se pudo eliminar la categoria');
     }
 }

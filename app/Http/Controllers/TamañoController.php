@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tamaño;
+use App\Models\Producto;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -41,7 +42,7 @@ class TamañoController extends Controller
 
         $tamaño->save();
 
-        return redirect()->route('/tamaños')
+        return redirect('/tamaños')
             ->with('success', 'Tamaño creado existosamente' );
     }
 
@@ -86,9 +87,11 @@ class TamañoController extends Controller
     public function destroy($id)
     {
         $tamaño = Tamaño::find($id);
-        $tamaño->delete();
-
-        return redirect('/tamaños')
-        ->with('success', 'Tamaño eliminado exitosamente');
+        if (Producto::where('tipo_tamaño',$id)->first() == null) {
+            $tamaño->delete();
+            return redirect('/tamaños')->with('success', 'Tamaño eliminado exitosamente');
+        }
+        else
+            return redirect('/tamaños')->with('error', 'No se pudo eliminar el tamaño');
     }
 }
