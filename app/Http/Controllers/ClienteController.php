@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\cliente;
+use App\Models\Cliente;
+use App\Models\Pedido;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class ClienteController extends Controller
@@ -12,7 +14,20 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        //
+        $clientes = Cliente::all();
+
+        $pedidos_por_cliente = Pedido::select('id_cliente', DB::raw('count(*) as cantidad_pedidos'))
+                           ->groupBy('id_cliente')
+                           ->get()
+                           ->toArray();
+        $cantidad_pedidos_por_cliente = [];
+        foreach ($clientes as $cliente) {
+            $cantidad_pedidos_por_cliente[$cliente->id] = 0;
+        }
+        foreach ($pedidos_por_cliente as $pedido) {
+            $cantidad_pedidos_por_cliente[$pedido['id_cliente']] = $pedido['cantidad_pedidos'];
+        }
+        return view('cliente.index', compact('clientes'), compact('cantidad_pedidos_por_cliente'));
     }
 
     /**

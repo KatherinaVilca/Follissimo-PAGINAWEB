@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\TamañoController;
+use App\Http\Controllers\ClienteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,7 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/productos/{id}/delete', [ProductoController::class, 'destroy'])->name('producto.destroy');
 
     Route::get('/productos/filtrar', [ProductoController::class, 'filtrar'])->name('producto.filtrar');
-    
+
 
     Route::get('/categorias', [CategoriaController::class, 'index'])->name('categoria.index');
     Route::get('/categorias/create', [CategoriaController::class, 'create'])->name('categoria.create');
@@ -56,6 +57,8 @@ Route::middleware('auth')->group(function () {
     Route::put('/tamaños/{id}', [TamañoController::class, 'update'])->name('tamaño.update');
     Route::get('/tamaños/{id}', [TamañoController::class, 'show'])->name('tamaño.show');
     Route::delete('/tamaños/{id}/delete', [TamañoController::class, 'destroy'])->name('tamaño.destroy');
+
+    Route::get('/clientes', [ClienteController::class, 'index'])->name('cliente.index');
 });
 
 require __DIR__.'/auth.php';
