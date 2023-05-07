@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Categoria extends Model
 {
-   protected $tablaCategorias = 'categorias';
-   use SoftDeletes;
+    use HasFactory;
+    use SoftDeletes;
+    protected $tablaCategorias = 'categorias';
+
+    public function productos() {
+        return $this->hasMany('App\Models\Producto');
+    }
 }

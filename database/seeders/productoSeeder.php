@@ -33,7 +33,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,2000),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'PLANTA EXTERIOR',
+            'tipo_categoria' => '2',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -42,7 +42,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,2000),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'PLANTA EXTERIOR',
+            'tipo_categoria' => '2',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -51,7 +51,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,2000),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'PLANTA EXTERIOR',
+            'tipo_categoria' => '2',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -60,7 +60,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,2000),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'PLANTA EXTERIOR',
+            'tipo_categoria' => '2',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -69,7 +69,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,2000),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'PLANTA EXTERIOR',
+            'tipo_categoria' => '2',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -78,7 +78,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,2000),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'PLANTA EXTERIOR',
+            'tipo_categoria' => '2',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -87,7 +87,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,2000),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'PLANTA EXTERIOR',
+            'tipo_categoria' => '2',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -96,7 +96,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,2000),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'PLANTA EXTERIOR',
+            'tipo_categoria' => '2',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -105,7 +105,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,2000),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'PLANTA EXTERIOR',
+            'tipo_categoria' => '2',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -114,7 +114,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,2000),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'PLANTA EXTERIOR',
+            'tipo_categoria' => '2',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -123,7 +123,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,2000),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'PLANTA EXTERIOR',
+            'tipo_categoria' => '2',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -132,7 +132,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,2000),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'PLANTA EXTERIOR',
+            'tipo_categoria' => '2',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -141,7 +141,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,2000),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'PLANTA INTERIOR',
+            'tipo_categoria' => '1',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -150,7 +150,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,2000),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'PLANTA INTERIOR',
+            'tipo_categoria' => '1',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -159,7 +159,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,2000),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'PLANTA INTERIOR',
+            'tipo_categoria' => '1',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -168,7 +168,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,2000),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'PLANTA INTERIOR',
+            'tipo_categoria' => '1',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -177,7 +177,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,2000),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'PLANTA INTERIOR',
+            'tipo_categoria' => '1',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -186,7 +186,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,2000),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'PLANTA INTERIOR',
+            'tipo_categoria' => '1',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -195,7 +195,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,2000),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'PLANTA INTERIOR',
+            'tipo_categoria' => '1',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -204,7 +204,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,2000),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'PLANTA INTERIOR',
+            'tipo_categoria' => '1',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -213,7 +213,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,2000),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'PLANTA INTERIOR',
+            'tipo_categoria' => '1',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -222,7 +222,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,2000),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'PLANTA INTERIOR',
+            'tipo_categoria' => '1',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -231,7 +231,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,2000),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'PLANTA INTERIOR',
+            'tipo_categoria' => '1',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -240,7 +240,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,2000),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'PLANTA INTERIOR',
+            'tipo_categoria' => '1',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -249,7 +249,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(1000,4000),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'FLOR EXOTICA',
+            'tipo_categoria' => '4',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -258,26 +258,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(1000,4000),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'FLOR EXOTICA',
-            'tipo_tamaño' => $tipos_tamaño->random(),
-        ]);
-
-
-        DB::table('productos')->insert([
-            'nombre' => $flores_exoticas[array_rand($flores_exoticas)],
-            'precio' => rand(1000,4000),
-            'descripción' => 'Descripción '.Str::random(40),
-            'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'FLOR EXOTICA',
-            'tipo_tamaño' => $tipos_tamaño->random(),
-        ]);
-
-        DB::table('productos')->insert([
-            'nombre' => $flores_exoticas[array_rand($flores_exoticas)],
-            'precio' => rand(1000,4000),
-            'descripción' => 'Descripción '.Str::random(40),
-            'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'FLOR EXOTICA',
+            'tipo_categoria' => '4',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -287,7 +268,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(1000,4000),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'FLOR EXOTICA',
+            'tipo_categoria' => '4',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -296,26 +277,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(1000,4000),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'FLOR EXOTICA',
-            'tipo_tamaño' => $tipos_tamaño->random(),
-        ]);
-
-
-        DB::table('productos')->insert([
-            'nombre' => $flores_exoticas[array_rand($flores_exoticas)],
-            'precio' => rand(1000,4000),
-            'descripción' => 'Descripción '.Str::random(40),
-            'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'FLOR EXOTICA',
-            'tipo_tamaño' => $tipos_tamaño->random(),
-        ]);
-
-        DB::table('productos')->insert([
-            'nombre' => $flores_exoticas[array_rand($flores_exoticas)],
-            'precio' => rand(1000,4000),
-            'descripción' => 'Descripción '.Str::random(40),
-            'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'FLOR EXOTICA',
+            'tipo_categoria' => '4',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -325,7 +287,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(1000,4000),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'FLOR EXOTICA',
+            'tipo_categoria' => '4',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -334,7 +296,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(1000,4000),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'FLOR EXOTICA',
+            'tipo_categoria' => '4',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -344,7 +306,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(1000,4000),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'FLOR EXOTICA',
+            'tipo_categoria' => '4',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -353,7 +315,45 @@ class ProductoSeeder extends Seeder
             'precio' => rand(1000,4000),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'FLOR EXOTICA',
+            'tipo_categoria' => '4',
+            'tipo_tamaño' => $tipos_tamaño->random(),
+        ]);
+
+
+        DB::table('productos')->insert([
+            'nombre' => $flores_exoticas[array_rand($flores_exoticas)],
+            'precio' => rand(1000,4000),
+            'descripción' => 'Descripción '.Str::random(40),
+            'color' => $colores[array_rand($colores)],
+            'tipo_categoria' => '4',
+            'tipo_tamaño' => $tipos_tamaño->random(),
+        ]);
+
+        DB::table('productos')->insert([
+            'nombre' => $flores_exoticas[array_rand($flores_exoticas)],
+            'precio' => rand(1000,4000),
+            'descripción' => 'Descripción '.Str::random(40),
+            'color' => $colores[array_rand($colores)],
+            'tipo_categoria' => '4',
+            'tipo_tamaño' => $tipos_tamaño->random(),
+        ]);
+
+
+        DB::table('productos')->insert([
+            'nombre' => $flores_exoticas[array_rand($flores_exoticas)],
+            'precio' => rand(1000,4000),
+            'descripción' => 'Descripción '.Str::random(40),
+            'color' => $colores[array_rand($colores)],
+            'tipo_categoria' => '4',
+            'tipo_tamaño' => $tipos_tamaño->random(),
+        ]);
+
+        DB::table('productos')->insert([
+            'nombre' => $flores_exoticas[array_rand($flores_exoticas)],
+            'precio' => rand(1000,4000),
+            'descripción' => 'Descripción '.Str::random(40),
+            'color' => $colores[array_rand($colores)],
+            'tipo_categoria' => '4',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -362,7 +362,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,60),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'FLOR HABITUAL',
+            'tipo_categoria' => '3',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -371,7 +371,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,60),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'FLOR HABITUAL',
+            'tipo_categoria' => '3',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -380,7 +380,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,60),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'FLOR HABITUAL',
+            'tipo_categoria' => '3',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -389,7 +389,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,60),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'FLOR HABITUAL',
+            'tipo_categoria' => '3',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -398,7 +398,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,60),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'FLOR HABITUAL',
+            'tipo_categoria' => '3',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -407,7 +407,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,60),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'FLOR HABITUAL',
+            'tipo_categoria' => '3',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -416,7 +416,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,60),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'FLOR HABITUAL',
+            'tipo_categoria' => '3',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -425,7 +425,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,60),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'FLOR HABITUAL',
+            'tipo_categoria' => '3',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -434,7 +434,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,60),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'FLOR HABITUAL',
+            'tipo_categoria' => '3',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -443,7 +443,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,60),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'FLOR HABITUAL',
+            'tipo_categoria' => '3',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -452,7 +452,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,60),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'FLOR HABITUAL',
+            'tipo_categoria' => '3',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -461,7 +461,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(0,60),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'FLOR HABITUAL',
+            'tipo_categoria' => '3',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -470,7 +470,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(100,500),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'INSUMO',
+            'tipo_categoria' => '5',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -479,7 +479,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(100,500),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'INSUMO',
+            'tipo_categoria' => '5',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -488,7 +488,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(100,500),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'INSUMO',
+            'tipo_categoria' => '5',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -497,7 +497,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(100,500),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'INSUMO',
+            'tipo_categoria' => '5',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -506,7 +506,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(100,500),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'INSUMO',
+            'tipo_categoria' => '5',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -515,7 +515,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(100,500),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'INSUMO',
+            'tipo_categoria' => '5',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -524,7 +524,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(100,500),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'INSUMO',
+            'tipo_categoria' => '5',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -533,7 +533,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(100,500),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'INSUMO',
+            'tipo_categoria' => '5',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
         DB::table('productos')->insert([
@@ -541,16 +541,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(100,500),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'INSUMO',
-            'tipo_tamaño' => $tipos_tamaño->random(),
-        ]);
-
-        DB::table('productos')->insert([
-            'nombre' => $insumos_floreria[array_rand($insumos_floreria)],
-            'precio' => rand(100,500),
-            'descripción' => 'Descripción '.Str::random(40),
-            'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'INSUMO',
+            'tipo_categoria' => '5',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -559,7 +550,7 @@ class ProductoSeeder extends Seeder
             'precio' => rand(100,500),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'INSUMO',
+            'tipo_categoria' => '5',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
@@ -568,7 +559,16 @@ class ProductoSeeder extends Seeder
             'precio' => rand(100,500),
             'descripción' => 'Descripción '.Str::random(40),
             'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'INSUMO',
+            'tipo_categoria' => '5',
+            'tipo_tamaño' => $tipos_tamaño->random(),
+        ]);
+
+        DB::table('productos')->insert([
+            'nombre' => $insumos_floreria[array_rand($insumos_floreria)],
+            'precio' => rand(100,500),
+            'descripción' => 'Descripción '.Str::random(40),
+            'color' => $colores[array_rand($colores)],
+            'tipo_categoria' => '5',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
     }

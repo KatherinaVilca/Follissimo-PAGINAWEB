@@ -19,8 +19,8 @@
             <tr>
                 <td>{{ $categoria->tipo }}</td>
                 <td>
-                    <form action="{{route('categoria.destroy',$categoria->tipo)}}" method="POST">
-                        <a href="categoria/{{$categoria->tipo}}/edit" class="btn btn-info">Editar</a>
+                    <form action="{{route('categoria.destroy',$categoria->id)}}" method="POST">
+                        <a href="categorias/{{$categoria->id}}/edit" class="btn btn-info">Editar</a>
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Eliminar</button>

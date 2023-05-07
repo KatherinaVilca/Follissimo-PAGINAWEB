@@ -41,10 +41,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/categorias', [CategoriaController::class, 'index'])->name('categoria.index');
     Route::get('/categorias/create', [CategoriaController::class, 'create'])->name('categoria.create');
     Route::post('/categorias', [CategoriaController::class, 'store'])->name('categoria.store');
-    Route::get('/categorias/{tipo}/edit', [CategoriaController::class, 'edit'])->name('categoria.edit');
-    Route::put('/categorias/{tipo}', [CategoriaController::class, 'update'])->name('categoria.update');
-    Route::get('/categorias/{tipo}', [CategoriaController::class, 'show'])->name('categoria.show');
-    Route::delete('/categorias/{tipo}/delete', [CategoriaController::class, 'destroy'])->name('categoria.destroy');
+    Route::get('/categorias/{id}/edit', [CategoriaController::class, 'edit'])->name('categoria.edit');
+    Route::put('/categorias/{id}', [CategoriaController::class, 'update'])->name('categoria.update');
+    Route::get('/categorias/{id}', [CategoriaController::class, 'show'])->name('categoria.show');
+    Route::delete('/categorias/{id}/delete', [CategoriaController::class, 'destroy'])->name('categoria.destroy');
 
     Route::get('/tamaños', [TamañoController::class, 'index'])->name('tamaño.index');
     Route::get('/tamaños/create', [TamañoController::class, 'create'])->name('tamaño.create');

@@ -37,7 +37,7 @@
                 <td>{{ $producto->nombre }}</td>
                 <td>{{ $producto->precio }}</td>
                 <td>{{ $producto->color }}</td>
-                <td>{{ $producto->tipo_categoria}}</td>
+                <td>{{ $producto->categoria->tipo}}</td>
                 <td>{{ $producto->tamaño->tipo}}</td>
                 <td>{{ $producto->descripción }}</td>
                 <td>

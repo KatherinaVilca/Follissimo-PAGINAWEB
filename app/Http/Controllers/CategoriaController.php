@@ -85,9 +85,9 @@ class CategoriaController extends Controller
      */
     public function destroy($id)
     {
-        $categoria = Categoria::find($id);
+        $categoria = Categoria::where('tipo',$id);
         $categoria->delete();
-        
+
         return redirect('/categorias')
             ->with('success', 'Tamaño eliminado exitosamente');
     }

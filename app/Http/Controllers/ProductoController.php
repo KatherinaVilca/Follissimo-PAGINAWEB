@@ -19,8 +19,7 @@ class ProductoController extends Controller
     public function index()
     {
         $productos = Producto::all();
-        $tamaños = Tamaño::all();
-        return view('producto.index', compact('productos'), compact('tamaños'));
+        return view('producto.index', compact('productos'));
     }
 
     /**
@@ -45,11 +44,9 @@ class ProductoController extends Controller
         $producto->nombre = $validateData['Nombre'];
         $producto->precio = $validateData['Precio'];
         $producto->color = $validateData['Color'];
-        $producto->tipo_categoria = $validateData['Categoria'];
-        $producto->tipo_tamaño = $validateData['Tamaño'];
+        $producto->tipo_categoria = Categoria::where('tipo',$validateData['Categoria'])->first()->id;
+        $producto->tipo_tamaño = Tamaño::where('tipo',$validateData['Tamaño'])->first()->id;
         $producto->descripción = $validateData['Descripcion'];
-
-        $producto->timestamps = false;
 
         $producto->save();
         return redirect('/productos')
@@ -88,8 +85,8 @@ class ProductoController extends Controller
         $producto->nombre = $validateData['Nombre'];
         $producto->precio = $validateData['Precio'];
         $producto->color = $validateData['Color'];
-        $producto->tipo_categoria = $validateData['Categoria'];
-        $producto->tipo_tamaño = $validateData['Tamaño'];
+        $producto->tipo_categoria = Categoria::where('tipo',$validateData['Categoria'])->first()->id;
+        $producto->tipo_tamaño = Tamaño::where('tipo',$validateData['Tamaño'])->first()->id;
         $producto->descripción = $validateData['Descripcion'];
 
         $producto->update();

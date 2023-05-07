@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('nombre');
             $table->integer('precio');
             $table->string('color');
-            $table->string('tipo_categoria');
+            $table->bigInteger('tipo_categoria');
             $table->foreign('tipo_categoria')
-                ->references('tipo')->on('categorias');
+                ->references('id')->on('categorias');
             $table->bigInteger('tipo_tamaño');
             $table->foreign('tipo_tamaño')
                 ->references('id')->on('tamaños');
