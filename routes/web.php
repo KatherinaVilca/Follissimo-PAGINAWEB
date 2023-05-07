@@ -52,10 +52,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/tamaños', [TamañoController::class, 'index'])->name('tamaño.index');
     Route::get('/tamaños/create', [TamañoController::class, 'create'])->name('tamaño.create');
     Route::post('/tamaños', [TamañoController::class, 'store'])->name('tamaño.store');
-    Route::get('/tamaños/{tipo}/edit', [TamañoController::class, 'edit'])->name('tamaño.edit');
-    Route::put('/tamaños/{tipo}', [TamañoController::class, 'update'])->name('tamaño.update');
-    Route::get('/tamaños/{tipo}', [TamañoController::class, 'show'])->name('tamaño.show');
-    Route::delete('/tamaños/{tipo}/delete', [TamañoController::class, 'destroy'])->name('tamaño.destroy');
+    Route::get('/tamaños/{id}/edit', [TamañoController::class, 'edit'])->name('tamaño.edit');
+    Route::put('/tamaños/{id}', [TamañoController::class, 'update'])->name('tamaño.update');
+    Route::get('/tamaños/{id}', [TamañoController::class, 'show'])->name('tamaño.show');
+    Route::delete('/tamaños/{id}/delete', [TamañoController::class, 'destroy'])->name('tamaño.destroy');
 });
 
 require __DIR__.'/auth.php';

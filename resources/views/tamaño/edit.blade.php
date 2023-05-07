@@ -7,14 +7,14 @@
 @endsection
 
 @section('page content')
-        <form action="/tamaños/{{$tamaño->tipo}}" method="POST">
+        <form action="/tamaños/{{$tamaño->id}}" method="POST">
             @csrf
             @method('PUT')
             <div class="mb-3">
                 <label for="Nombre" class="form-label">Nombre tamaño</label>
                 <input type="text" class="form-control" name="Nombre" tabindex="1" value="{{$tamaño->tipo}}">
             </div>
-          
+
             <button type="submit" class="btn btn-success" tabindex="7">Guardar cambios</button>
             <a href="/tamaños" class="btn btn-danger" tabindex="8">Cancelar</a>
         </form>

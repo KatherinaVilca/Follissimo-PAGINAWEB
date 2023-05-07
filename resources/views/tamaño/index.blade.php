@@ -19,8 +19,8 @@
             <tr>
                 <td>{{ $tamaño->tipo }}</td>
                 <td>
-                    <form action="{{route('tamaño.destroy',$tamaño->tipo)}}" method="POST">
-                        <a href="tamaño/{{$tamaño->tipo}}/edit" class="btn btn-info">Editar</a>
+                    <form action="{{route('tamaño.destroy',$tamaño->id)}}" method="POST">
+                        <a href="tamaños/{{$tamaño->id}}/edit" class="btn btn-info">Editar</a>
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Eliminar</button>
@@ -30,4 +30,4 @@
             @endforeach
         </tbody>
     </table>
-    @endsection
+@endsection
