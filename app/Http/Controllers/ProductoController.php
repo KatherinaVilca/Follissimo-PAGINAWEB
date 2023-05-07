@@ -35,18 +35,20 @@ class ProductoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ProductoRequest $request)
     {
         $validateData = $request->validated();
 
         $producto = new Producto();
 
-        $producto->nombre = $validateData->get('Nombre');
-        $producto->precio = $validateData->get('Precio');
-        $producto->color = $validateData->get('Color');
-        $producto->tipo_categoria = $validateData->get('Categoria');
-        $producto->tipo_tamaño = $validateData->get('Tamaño');
-        $producto->descripción = $validateData->get('Descripcion');
+        $producto->nombre = $validateData['Nombre'];
+        $producto->precio = $validateData['Precio'];
+        $producto->color = $validateData['Color'];
+        $producto->tipo_categoria = $validateData['Categoria'];
+        $producto->tipo_tamaño = $validateData['Tamaño'];
+        $producto->descripción = $validateData['Descripcion'];
+
+        $producto->timestamps = false;
 
         $producto->save();
         return redirect('/productos')
@@ -76,18 +78,18 @@ class ProductoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(ProductoRequest $request, $id)
     {
         $producto = Producto::find($id);
 
         $validateData = $request->validated();
-
-        $producto->nombre = $validateData->get('Nombre');
-        $producto->precio = $validateData->get('Precio');
-        $producto->color = $validateData->get('Color');
-        $producto->tipo_categoria = $validateData->get('Categoria');
-        $producto->tipo_tamaño = $validateData->get('Tamaño');
-        $producto->descripción = $validateData->get('Descripcion');
+       
+        $producto->nombre = $validateData['Nombre'];
+        $producto->precio = $validateData['Precio'];
+        $producto->color = $validateData['Color'];
+        $producto->tipo_categoria = $validateData['Categoria'];
+        $producto->tipo_tamaño = $validateData['Tamaño'];
+        $producto->descripción = $validateData['Descripcion'];
 
         $producto->update();
 
@@ -105,6 +107,12 @@ class ProductoController extends Controller
 
         return redirect('/productos')
             ->with('success', 'Producto eliminado exitosamente');
+    }
+
+    public function filtrar(Request $request)
+    {
+        $productosFiltrados = Producto::filtro($request)->get();
+        return view('producto.filtrar', compact('productosFiltrados'));
     }
 
    
