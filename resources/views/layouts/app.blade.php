@@ -54,9 +54,8 @@
                     </div>
                 </div>
             </main>
-
-             <!-- Footer -->
-             @include('layouts.footer')
         </div>
     </body>
+    <!-- Footer -->
+    @include('layouts.footer')
 </html>
