@@ -12,16 +12,30 @@
             @method('PUT')
             <div class="mb-3">
                 <label for="Nombre" class="form-label">Nombre producto</label>
-                <input type="text" class="form-control" name="Nombre" tabindex="1" value="{{$producto->nombre}}">
+                <input type="text" class="form-control" name="Nombre" tabindex="1" value="{{$producto->nombre}}" required>
+                @error('Nombre')
+                    <div class="invalid-feedback d-block" role="alert">
+                        {{$message}}
+                    </div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="Precio" class="form-label">Precio</label>
-                <input type="number" class="form-control" name="Precio" tabindex="2" value="{{$producto->precio}}">
+                <input type="number" class="form-control" name="Precio" tabindex="2" value="{{$producto->precio}}" required>
+                @error('Precio')
+                    <div class="invalid-feedback d-block" role="alert">
+                        {{$message}}
+                    </div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="Color" class="form-label">Color</label>
-                <input type="text" class="form-control" name="Color" tabindex="3" value="{{$producto->color}}">
-            </div>
+                <input type="text" class="form-control" name="Color" tabindex="3" value="{{$producto->color}}" required>
+                @error('Descripcion')
+                    <div class="invalid-feedback d-block" role="alert">
+                        {{$message}}
+                    </div>
+                @enderror            </div>
             <div class="mb-3">
                 <label> Categoria:</label>
                 <select class="form-select" aria-label="Default select example" name="Categoria" tabindex="4">
@@ -48,7 +62,12 @@
             </div>
             <div class="mb-3">
                 <label for="Descripcion" class="form-label">Descripcion</label>
-                <input type="text" class="form-control" name="Descripcion" tabindex="6" value="{{$producto->descripción}}">
+                <input type="text" class="form-control" name="Descripcion" tabindex="6" value="{{$producto->descripción}}" required>
+                @error('Descripcion')
+                    <div class="invalid-feedback d-block" role="alert">
+                        {{$message}}
+                    </div>
+                @enderror
             </div>
 
             <button type="submit" class="btn btn-success" tabindex="7">Guardar cambios</button>
