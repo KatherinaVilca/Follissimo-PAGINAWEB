@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Producto extends Model
 {
     protected $table = 'productos';
-    public $timestamps = false;
     use SoftDeletes;
 
     public function categoria()

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('tamaños', function (Blueprint $table) {
             $table->string('tipo');
             $table->primary('tipo');
+            $table->timestamps();
             $table->softDeletes();
         });
     }

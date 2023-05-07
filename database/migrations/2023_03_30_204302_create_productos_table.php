@@ -23,6 +23,7 @@ return new class extends Migration
             $table->foreign('tipo_tamaño')
                 ->references('tipo')->on('tamaños');
             $table->string('descripción');
+            $table->timestamps();
             $table->softDeletes();
         });
     }
