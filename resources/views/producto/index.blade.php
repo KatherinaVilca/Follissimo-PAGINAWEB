@@ -29,7 +29,7 @@
                 <td>{{ $producto->precio }}</td>
                 <td>{{ $producto->color }}</td>
                 <td>{{ $producto->tipo_categoria}}</td>
-                <td>{{ $producto->tipo_tamaño}}</td>
+                <td>{{ $producto->tamaño->tipo}}</td>
                 <td>{{ $producto->descripción }}</td>
                 <td>
                     <form action="{{route('producto.destroy',$producto->id)}}" method="POST">

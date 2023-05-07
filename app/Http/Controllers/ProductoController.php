@@ -19,7 +19,8 @@ class ProductoController extends Controller
     public function index()
     {
         $productos = Producto::all();
-        return view('producto.index', compact('productos'));
+        $tamaños = Tamaño::all();
+        return view('producto.index', compact('productos'), compact('tamaños'));
     }
 
     /**
@@ -107,6 +108,4 @@ class ProductoController extends Controller
             ->with('success', 'Producto eliminado exitosamente');
     }
 
-   
 }
-

@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('tipo_categoria');
             $table->foreign('tipo_categoria')
                 ->references('tipo')->on('categorias');
-            $table->string('tipo_tamaño');
+            $table->bigInteger('tipo_tamaño');
             $table->foreign('tipo_tamaño')
-                ->references('tipo')->on('tamaños');
+                ->references('id')->on('tamaños');
             $table->string('descripción');
             $table->timestamps();
             $table->softDeletes();

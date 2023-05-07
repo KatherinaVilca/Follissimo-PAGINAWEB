@@ -10,4 +10,8 @@ class Tamaño extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
+    public function productos() {
+        return $this->hasMany('App\Models\Producto');
+    }
 }

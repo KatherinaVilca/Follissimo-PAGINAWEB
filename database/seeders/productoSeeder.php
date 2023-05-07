@@ -15,7 +15,7 @@ class ProductoSeeder extends Seeder
      */
     public function run(): void
     {
-        $plantas_interior = array("Ficus elastica","Potos","Sansevieria","Filodendro","Cuna de Moisés", "Monstera", 
+        $plantas_interior = array("Ficus elastica","Potos","Sansevieria","Filodendro","Cuna de Moisés", "Monstera",
                                 "Monstera Adansonii", "Singoriun", "Lazo de amor", "Calatea", "Pothus");
         $plantas_exterior = array("Geranios","Hortensias","Lavandas","Petunias","Rosales", "Hiedra", "Helecho",
                                 "Crisantemo");
@@ -26,7 +26,7 @@ class ProductoSeeder extends Seeder
                                 "Maseta ceramica", "Palo tutor", "Portamaceta", "Bolsa perlita", "Sustrato plantas interior", "Florero",
                                 "Palo santo", "Hidro");
 
-        $tipos_tamaño = DB::table('tamaños')->pluck('tipo');
+        $tipos_tamaño = DB::table('tamaños')->pluck('id');
 
         DB::table('productos')->insert([
             'nombre' => $plantas_exterior[array_rand($plantas_exterior)],
@@ -126,7 +126,7 @@ class ProductoSeeder extends Seeder
             'tipo_categoria' => 'PLANTA EXTERIOR',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
-        
+
         DB::table('productos')->insert([
             'nombre' => $plantas_exterior[array_rand($plantas_exterior)],
             'precio' => rand(0,2000),
@@ -262,26 +262,7 @@ class ProductoSeeder extends Seeder
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
-        
-        DB::table('productos')->insert([
-            'nombre' => $flores_exoticas[array_rand($flores_exoticas)],
-            'precio' => rand(1000,4000),
-            'descripción' => 'Descripción '.Str::random(40),
-            'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'FLOR EXOTICA',
-            'tipo_tamaño' => $tipos_tamaño->random(),
-        ]);
 
-        DB::table('productos')->insert([
-            'nombre' => $flores_exoticas[array_rand($flores_exoticas)],
-            'precio' => rand(1000,4000),
-            'descripción' => 'Descripción '.Str::random(40),
-            'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'FLOR EXOTICA',
-            'tipo_tamaño' => $tipos_tamaño->random(),
-        ]);
-
-        
         DB::table('productos')->insert([
             'nombre' => $flores_exoticas[array_rand($flores_exoticas)],
             'precio' => rand(1000,4000),
@@ -300,26 +281,7 @@ class ProductoSeeder extends Seeder
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
-        
-        DB::table('productos')->insert([
-            'nombre' => $flores_exoticas[array_rand($flores_exoticas)],
-            'precio' => rand(1000,4000),
-            'descripción' => 'Descripción '.Str::random(40),
-            'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'FLOR EXOTICA',
-            'tipo_tamaño' => $tipos_tamaño->random(),
-        ]);
 
-        DB::table('productos')->insert([
-            'nombre' => $flores_exoticas[array_rand($flores_exoticas)],
-            'precio' => rand(1000,4000),
-            'descripción' => 'Descripción '.Str::random(40),
-            'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'FLOR EXOTICA',
-            'tipo_tamaño' => $tipos_tamaño->random(),
-        ]);
-
-        
         DB::table('productos')->insert([
             'nombre' => $flores_exoticas[array_rand($flores_exoticas)],
             'precio' => rand(1000,4000),
@@ -338,7 +300,45 @@ class ProductoSeeder extends Seeder
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
 
-        
+
+        DB::table('productos')->insert([
+            'nombre' => $flores_exoticas[array_rand($flores_exoticas)],
+            'precio' => rand(1000,4000),
+            'descripción' => 'Descripción '.Str::random(40),
+            'color' => $colores[array_rand($colores)],
+            'tipo_categoria' => 'FLOR EXOTICA',
+            'tipo_tamaño' => $tipos_tamaño->random(),
+        ]);
+
+        DB::table('productos')->insert([
+            'nombre' => $flores_exoticas[array_rand($flores_exoticas)],
+            'precio' => rand(1000,4000),
+            'descripción' => 'Descripción '.Str::random(40),
+            'color' => $colores[array_rand($colores)],
+            'tipo_categoria' => 'FLOR EXOTICA',
+            'tipo_tamaño' => $tipos_tamaño->random(),
+        ]);
+
+
+        DB::table('productos')->insert([
+            'nombre' => $flores_exoticas[array_rand($flores_exoticas)],
+            'precio' => rand(1000,4000),
+            'descripción' => 'Descripción '.Str::random(40),
+            'color' => $colores[array_rand($colores)],
+            'tipo_categoria' => 'FLOR EXOTICA',
+            'tipo_tamaño' => $tipos_tamaño->random(),
+        ]);
+
+        DB::table('productos')->insert([
+            'nombre' => $flores_exoticas[array_rand($flores_exoticas)],
+            'precio' => rand(1000,4000),
+            'descripción' => 'Descripción '.Str::random(40),
+            'color' => $colores[array_rand($colores)],
+            'tipo_categoria' => 'FLOR EXOTICA',
+            'tipo_tamaño' => $tipos_tamaño->random(),
+        ]);
+
+
         DB::table('productos')->insert([
             'nombre' => $flores_exoticas[array_rand($flores_exoticas)],
             'precio' => rand(1000,4000),
@@ -473,7 +473,7 @@ class ProductoSeeder extends Seeder
             'tipo_categoria' => 'INSUMO',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
-        
+
         DB::table('productos')->insert([
             'nombre' => $insumos_floreria[array_rand($insumos_floreria)],
             'precio' => rand(100,500),
@@ -491,7 +491,7 @@ class ProductoSeeder extends Seeder
             'tipo_categoria' => 'INSUMO',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
-        
+
         DB::table('productos')->insert([
             'nombre' => $insumos_floreria[array_rand($insumos_floreria)],
             'precio' => rand(100,500),
@@ -509,7 +509,7 @@ class ProductoSeeder extends Seeder
             'tipo_categoria' => 'INSUMO',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
-        
+
         DB::table('productos')->insert([
             'nombre' => $insumos_floreria[array_rand($insumos_floreria)],
             'precio' => rand(100,500),
@@ -527,7 +527,7 @@ class ProductoSeeder extends Seeder
             'tipo_categoria' => 'INSUMO',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
-        
+
         DB::table('productos')->insert([
             'nombre' => $insumos_floreria[array_rand($insumos_floreria)],
             'precio' => rand(100,500),
@@ -536,15 +536,6 @@ class ProductoSeeder extends Seeder
             'tipo_categoria' => 'INSUMO',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
-        DB::table('productos')->insert([
-            'nombre' => $insumos_floreria[array_rand($insumos_floreria)],
-            'precio' => rand(100,500),
-            'descripción' => 'Descripción '.Str::random(40),
-            'color' => $colores[array_rand($colores)],
-            'tipo_categoria' => 'INSUMO',
-            'tipo_tamaño' => $tipos_tamaño->random(),
-        ]);
-        
         DB::table('productos')->insert([
             'nombre' => $insumos_floreria[array_rand($insumos_floreria)],
             'precio' => rand(100,500),
@@ -562,7 +553,16 @@ class ProductoSeeder extends Seeder
             'tipo_categoria' => 'INSUMO',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
-        
+
+        DB::table('productos')->insert([
+            'nombre' => $insumos_floreria[array_rand($insumos_floreria)],
+            'precio' => rand(100,500),
+            'descripción' => 'Descripción '.Str::random(40),
+            'color' => $colores[array_rand($colores)],
+            'tipo_categoria' => 'INSUMO',
+            'tipo_tamaño' => $tipos_tamaño->random(),
+        ]);
+
         DB::table('productos')->insert([
             'nombre' => $insumos_floreria[array_rand($insumos_floreria)],
             'precio' => rand(100,500),

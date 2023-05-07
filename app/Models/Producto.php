@@ -19,6 +19,6 @@ class Producto extends Model
 
     public function tamaño()
     {
-        return $this->belongsTo(Tamaño::class);
+        return $this->belongsTo(Tamaño::class,'tipo_tamaño');
     }
 }
