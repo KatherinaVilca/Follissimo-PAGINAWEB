@@ -5,6 +5,15 @@
         Index Productos
     </h2>
     <a href="{{route('producto.create')}}" class="btn btn-primary">Crear producto</a>
+
+    <select class="form-select" aria-label="Filtrar" href= "{{route('producto.create')}}">
+        <option selected>Filtrar</option>
+        <option value="color">Color</option>
+        <option value="tipo_tamaño">Tipo_tamaño</option>
+        <option value="precio_min">Precio_min</option>
+        <option value="precio_max">Precio_max</option>
+  </select>
+  
 @endsection
 
 @section('page content')
