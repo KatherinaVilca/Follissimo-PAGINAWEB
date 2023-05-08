@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\TamañoController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\PedidoController;
+use App\Http\Controllers\DetallePedidoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -62,6 +63,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/clientes', [ClienteController::class, 'index'])->name('cliente.index');
 
     Route::get('/pedidos', [PedidoController::class, 'index'])->name('pedido.index');
+
+    Route::get('/pedidos/{id}/index', [DetallePedidoController::class, 'index'])->name('detallePedido.index');
 });
 
 require __DIR__.'/auth.php';

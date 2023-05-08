@@ -14,6 +14,7 @@
                 <th scope="col">Monto Total</th>
                 <th scope="col">Fecha</th>
                 <th scope="col">Cliente</th>
+                <th scope="col">Acción</th>
             </tr>
         </thead>
         <tbody>
@@ -21,8 +22,9 @@
             <tr>
                 <td>{{ $pedido->id }}</td>
                 <td>{{ $pedido->monto_total }}</td>
-                <td>{{ $pedido->fecha }}</td>
+                <td>{{ date('d-m-Y', strtotime($pedido->fecha)); }}</td>
                 <td>{{ $pedido->id_cliente }}</td>
+                <td><a href="pedidos/{{$pedido->id}}/index" class="btn btn-info">Ver más</a></td>
             </tr>
             @endforeach
         </tbody>
