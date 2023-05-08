@@ -1,0 +1,164 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Folissimo API",
+        "description": "Descripción de la API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/categorias": {
+            "get": {
+                "tags": [
+                    "Categorias"
+                ],
+                "summary": "Obtener lista de categorías",
+                "description": "Obtiene la lista de todas las categorias",
+                "operationId": "getCategoriasList",
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa"
+                    }
+                }
+            }
+        },
+        "/detallepedido": {
+            "get": {
+                "tags": [
+                    "Detalle de Pedidos"
+                ],
+                "summary": "Obtener todos los detalles de pedidos",
+                "description": "Obtiene la lista de todos los detalles de pedidos.",
+                "operationId": "detallePedidoIndex",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del detalle de pedido",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lista de detalles de pedidos"
+                    }
+                }
+            }
+        },
+        "/detallepedido/{id}": {
+            "get": {
+                "tags": [
+                    "Detalle de Pedidos"
+                ],
+                "summary": "Obtener un detalle de pedido",
+                "description": "Obtiene la información de un detalle de pedido en base a su ID.",
+                "operationId": "detallePedidoShow",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del detalle de pedido",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Información del detalle de pedido"
+                    },
+                    "404": {
+                        "description": "Detalle de pedido no encontrado"
+                    }
+                }
+            }
+        },
+        "/pedido/{id_cliente}": {
+            "get": {
+                "tags": [
+                    "Pedido"
+                ],
+                "summary": "Obtener pedidos de un cliente",
+                "description": "Obtiene la lista de pedidos asociados a un cliente en base a su ID.",
+                "operationId": "pedidoIndex",
+                "parameters": [
+                    {
+                        "name": "id_cliente",
+                        "in": "path",
+                        "description": "ID del cliente",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lista de pedidos del cliente"
+                    }
+                }
+            }
+        },
+        "/pedido/{id}": {
+            "delete": {
+                "tags": [
+                    "Pedido"
+                ],
+                "summary": "Cancelar un pedido",
+                "description": "Cancela un pedido en base a su ID.",
+                "operationId": "pedidoCancelar",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del pedido",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Pedido cancelado exitosamente"
+                    },
+                    "404": {
+                        "description": "Pedido no encontrado"
+                    }
+                }
+            }
+        },
+        "/productos": {
+            "get": {
+                "tags": [
+                    "Productos"
+                ],
+                "summary": "Obtener lista de productos",
+                "description": "Obtiene la lista de todos los productos.",
+                "operationId": "getProductosList",
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa"
+                    }
+                }
+            }
+        },
+        "/producto/{id}": {
+            "get": {
+                "tags": [
+                    "Producto"
+                ],
+                "summary": "Obtener información de un producto",
+                "description": "Obtiene la información de un producto en base a su ID.",
+                "operationId": "productoShow",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del producto",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Información del producto"
+                    },
+                    "404": {
+                        "description": "Producto no encontrado"
+                    }
+                }
+            }
+        }
+    }
+}
