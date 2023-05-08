@@ -56,10 +56,10 @@ class ProductoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Producto $id)
+    public function show($id)
     {
         $producto = Producto::find($id);
-        return view('producto.showProduct', ['producto' => $producto]);
+        return view('producto.show')->with('producto',$producto);
     }
 
     /**

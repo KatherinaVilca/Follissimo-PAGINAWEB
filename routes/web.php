@@ -38,7 +38,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/productos', [ProductoController::class, 'store'])->name('producto.store');
     Route::get('/productos/{id}/edit', [ProductoController::class, 'edit'])->name('producto.edit');
     Route::put('/productos/{id}', [ProductoController::class, 'update'])->name('producto.update');
-    Route::get('/productos/{id}', [ProductoController::class, 'show'])->name('product.show');
+    Route::get('/productos/{id}/show', [ProductoController::class, 'show'])->name('product.show');
     Route::delete('/productos/{id}/delete', [ProductoController::class, 'destroy'])->name('producto.destroy');
 
     Route::get('/productos/filtrar', [ProductoController::class, 'filtrar'])->name('producto.filtrar');

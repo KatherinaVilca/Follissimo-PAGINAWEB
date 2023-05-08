@@ -13,7 +13,7 @@
         <option value="precio_min">Precio_min</option>
         <option value="precio_max">Precio_max</option>
   </select>
-  
+
 @endsection
 
 @section('page content')
@@ -43,6 +43,7 @@
                 <td>
                     <form action="{{route('producto.destroy',$producto->id)}}" method="POST">
                         <a href="productos/{{$producto->id}}/edit" class="btn btn-info">Editar</a>
+                        <a href="productos/{{$producto->id}}/show" class="btn btn-info">Ver más</a>
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Eliminar</button>
