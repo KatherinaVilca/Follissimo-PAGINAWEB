@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DetallePedido;
+use App\Models\Pedido;
 use Illuminate\Http\Request;
 
 class DetallePedidoController extends Controller
@@ -10,9 +11,12 @@ class DetallePedidoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $detalles_pedido = DetallePedido::where('id_pedido', $id)
+            ->get();
+
+        return view('detallePedido.index', compact('detalles_pedido'))->with('id',$id);
     }
 
     /**
