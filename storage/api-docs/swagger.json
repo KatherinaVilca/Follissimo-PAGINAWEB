@@ -21,7 +21,7 @@
                 }
             }
         },
-        "/detallepedido": {
+        "/pedidos/{id}/index": {
             "get": {
                 "tags": [
                     "Detalle de Pedidos"
@@ -44,7 +44,7 @@
                 }
             }
         },
-        "/detallepedido/{id}": {
+        "/detallepedido/{id}/show": {
             "get": {
                 "tags": [
                     "Detalle de Pedidos"
@@ -70,14 +70,14 @@
                 }
             }
         },
-        "/pedido/{id_cliente}": {
+        "/pedidos/{id_cliente}/index_id": {
             "get": {
                 "tags": [
                     "Pedido"
                 ],
                 "summary": "Obtener pedidos de un cliente",
                 "description": "Obtiene la lista de pedidos asociados a un cliente en base a su ID.",
-                "operationId": "pedidoIndex",
+                "operationId": "pedidoIndexID",
                 "parameters": [
                     {
                         "name": "id_cliente",
@@ -134,7 +134,7 @@
                 }
             }
         },
-        "/producto/{id}": {
+        "/productos/{id}/show": {
             "get": {
                 "tags": [
                     "Producto"
