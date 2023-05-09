@@ -8,6 +8,7 @@ use App\Models\Producto;
 use OpenApi\Annotations as OA;
 use OpenApi\Annotations\Get;
 use OpenApi\Annotations\Response;
+use App\Http\Resources\ProductoResource;
 
 /**
  * @OA\Info(
@@ -33,10 +34,14 @@ class ProductoController extends Controller
  *     )
  * )
  */
-    public function index(){
-
+     public function index(){
         $productos = Producto::all();
-        return response()->json(['data' => $productos],200);
+
+        if ($productos->count() > 0) {
+            return response()->json(ProductoResource::collection($productos), 200);
+        } else {
+            return response()->json(['message' => 'No se encontraron productos'], 404);
+        }
     }
 
 /**
@@ -44,7 +49,7 @@ class ProductoController extends Controller
  * @param  int  $id
  * @return \Illuminate\Http\Response
  * @OA\Get(
- *     path="/producto/{id}",
+ *     path="/productos/{id}/show",
  *     operationId="productoShow",
  *     tags={"Producto"},
  *     summary="Obtener información de un producto",
@@ -65,14 +70,14 @@ class ProductoController extends Controller
  *     )
  * )
  */
- 
     public function show($id){
 
         $producto = Producto::find($id);
-      
-        if (!$producto) {
-            return response()->json(['message' => 'Producto no encontrado'], 404);
+        
+        if ($producto) {
+            return response()->json(new ProductoResource($producto), 200);
+        } else {
+            return response()->json(['message' => 'Producto no encontrado'], 400);
         }
-        return response()->json(['data' => $producto], 200);
     }
 }

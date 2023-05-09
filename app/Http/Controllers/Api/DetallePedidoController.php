@@ -11,11 +11,11 @@ use OpenApi\Annotations\Response;
 
 class DetallePedidoController extends Controller
 {
-/** Muentra todos los detalles de pedidos para cierto id
+/** Muentra todos los detalles de pedidos para cierto id de pedido
  * @param  int  $id
  * @return \Illuminate\Http\Response 
  * @OA\Get(
- *     path="/detallepedido",
+ *     path="/pedidos/{id}/index",
  *     operationId="detallePedidoIndex",
  *     tags={"Detalle de Pedidos"},
  *     summary="Obtener todos los detalles de pedidos",
@@ -47,7 +47,7 @@ class DetallePedidoController extends Controller
  * @param  int  $id
  * @return \Illuminate\Http\Response
  * @OA\Get(
- *     path="/detallepedido/{id}",
+ *     path="/detallepedido/{id}/show",
  *     operationId="detallePedidoShow",
  *     tags={"Detalle de Pedidos"},
  *     summary="Obtener un detalle de pedido",

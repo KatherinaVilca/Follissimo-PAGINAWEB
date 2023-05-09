@@ -7,15 +7,21 @@ use Illuminate\Http\Request;
 use OpenApi\Annotations as OA;
 use OpenApi\Annotations\Get;
 use OpenApi\Annotations\Response;
+use App\Models\Pedido;
 
 class PedidoController extends Controller
 {
+    public function index()
+    {
+
+    }
+
 /** Muentra todos los pedidos para un id de cliente
  * @param  int  $id_cliente
  * @return \Illuminate\Http\Response 
  * @OA\Get(
- *     path="/pedido/{id_cliente}",
- *     operationId="pedidoIndex",
+ *     path="/pedidos/{id_cliente}/index_id",
+ *     operationId="pedidoIndexID",
  *     tags={"Pedido"},
  *     summary="Obtener pedidos de un cliente",
  *     description="Obtiene la lista de pedidos asociados a un cliente en base a su ID.",
@@ -31,9 +37,10 @@ class PedidoController extends Controller
  *     )
  * )
  */
-    public function index($id_cliente){
+    public function index_id($id_cliente){
 
-        $pedidos = Pedido::find($id_cliente);
+        $pedidos = Pedido::where('id_cliente', $id_cliente)->get();
+        
         return response()->json(['data'=>$pedidos]);
     }
 
