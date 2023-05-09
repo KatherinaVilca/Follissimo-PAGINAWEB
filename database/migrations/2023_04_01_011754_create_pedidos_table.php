@@ -17,6 +17,7 @@ return new class extends Migration
             $table->date('fecha')->default(DB::raw('CURRENT_DATE'));
             $table->foreignId('id_cliente')->constrained('clientes');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
