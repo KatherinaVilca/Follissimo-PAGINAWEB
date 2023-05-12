@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\TamañoController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\PedidoController;
+use App\Http\Controllers\EstadoPedidoController;
 use App\Http\Controllers\DetallePedidoController;
 use Illuminate\Support\Facades\Route;
 
@@ -59,6 +60,14 @@ Route::middleware('auth')->group(function () {
     Route::put('/tamaños/{id}', [TamañoController::class, 'update'])->name('tamaño.update');
     Route::get('/tamaños/{id}', [TamañoController::class, 'show'])->name('tamaño.show');
     Route::delete('/tamaños/{id}/delete', [TamañoController::class, 'destroy'])->name('tamaño.destroy');
+
+    Route::get('/estados', [EstadoPedidoController::class, 'index'])->name('estadoPedido.index');
+    Route::get('/estados/create', [EstadoPedidoController::class, 'create'])->name('estadoPedido.create');
+    Route::post('/estados', [EstadoPedidoController::class, 'store'])->name('estadoPedido.store');
+    Route::get('/estados/{id}/edit', [EstadoPedidoController::class, 'edit'])->name('estadoPedido.edit');
+    Route::put('/estados/{id}', [EstadoPedidoController::class, 'update'])->name('estadoPedido.update');
+    Route::get('/estados/{id}', [EstadoPedidoController::class, 'show'])->name('estadoPedido.show');
+    Route::delete('/estados/{id}/delete', [EstadoPedidoController::class, 'destroy'])->name('estadoPedido.destroy');
 
     Route::get('/clientes', [ClienteController::class, 'index'])->name('cliente.index');
 

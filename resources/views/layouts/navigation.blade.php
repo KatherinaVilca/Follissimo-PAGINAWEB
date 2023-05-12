@@ -24,6 +24,9 @@
                     <x-nav-link :href="route('tamaño.index')" :active="request()->routeIs('tamaño.index')">
                         {{ __('Tamaños') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('estadoPedido.index')" :active="request()->routeIs('estadoPedido.index')">
+                        {{ __('Estados') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('cliente.index')" :active="request()->routeIs('cliente.index')">
                         {{ __('Clientes') }}
                     </x-nav-link>
