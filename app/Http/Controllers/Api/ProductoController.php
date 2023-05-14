@@ -23,7 +23,7 @@ class ProductoController extends Controller
 /** Muentra todos los productos
  * @return \Illuminate\Http\Response 
  * @OA\Get(
- *     path="/productos",
+ *     path="/api/productos",
  *     operationId="getProductosList",
  *     tags={"Productos"},
  *     summary="Obtener lista de productos",
@@ -31,6 +31,11 @@ class ProductoController extends Controller
  *     @OA\Response(
  *         response=200,
  *         description="Operación exitosa"
+ *     ),
+ * 
+ *     @OA\Response(
+ *         response=404,
+ *         description="Productos no encontrados"
  *     )
  * )
  */
@@ -49,7 +54,7 @@ class ProductoController extends Controller
  * @param  int  $id
  * @return \Illuminate\Http\Response
  * @OA\Get(
- *     path="/productos/{id}/show",
+ *     path="/api/productos/{id}/show",
  *     operationId="productoShow",
  *     tags={"Producto"},
  *     summary="Obtener información de un producto",
