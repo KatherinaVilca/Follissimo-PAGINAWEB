@@ -7,10 +7,11 @@ use App\Models\Categoria;
 use OpenApi\Annotations as OA;
 use OpenApi\Annotations\Get;
 use OpenApi\Annotations\Response;
+use App\Http\Resources\CategoriaResource;
 
 class CategoriaController extends Controller
 {
-/** Muentra todas las categorias
+/** Muestra todas las categorias
  * @return \Illuminate\Http\Response 
  * @OA\Get(
  *     path="/api/categorias",
@@ -22,12 +23,22 @@ class CategoriaController extends Controller
  *         response=200,
  *         description="Operación exitosa",
  *     ),
+ *     
+ *     @OA\Response(
+ *         response=404,
+ *         description="No se encontraron categorias"
+ *     )
  * )
  */  
     public function index()
     {
         $categorias = Categoria::all();
-        return response()->json(['data' => $categorias],200);
+    
+        if ($categorias->count() > 0) {
+            return response()->json(CategoriaResource::collection($categorias), 200);
+        } else {
+            return response()->json(['message' => 'No se encontraron categorias'], 404);
+        }
     }
 
 }
