@@ -21,7 +21,7 @@ class ProductoResource extends JsonResource
             'color' => $this->color,
             'tipo_categoria' => $this->tipo_categoria,
             'tipo_tamaño' => $this->tipo_tamaño,
-            'descripción' => $this->descripción,
+            'descripción' => $this->descripción
         ];
     }
 }
