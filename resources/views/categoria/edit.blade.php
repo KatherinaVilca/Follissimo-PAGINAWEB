@@ -2,7 +2,7 @@
 
 @section('header')
     <h2>
-        Header Editor Categorias
+        Editor Categorias
     </h2>
 @endsection
 

@@ -2,7 +2,7 @@
 
 @section('header')
     <h2>
-        Header Editor Tamaños
+        Editor Tamaños
     </h2>
 @endsection
 

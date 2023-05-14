@@ -2,7 +2,7 @@
 
 @section('header')
     <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-        Index Categorias
+        Categorias
     </h2>
     <a href="{{route('categoria.create')}}" class="btn btn-primary">Crear categoria</a>
 @endsection

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('header')
-    <h2>Header Create Producto</h2>
+    <h2>Create Producto</h2>
 @endsection
 
 @section('page content')

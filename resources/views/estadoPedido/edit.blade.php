@@ -2,7 +2,7 @@
 
 @section('header')
     <h2>
-        Header Editor Estados Pedido
+        Editor Estados Pedido
     </h2>
 @endsection
 

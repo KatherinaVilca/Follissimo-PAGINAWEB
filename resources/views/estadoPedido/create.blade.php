@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('header')
-    <h2>Header Create Estado Pedido</h2>
+    <h2>Create Estado Pedido</h2>
 @endsection
 
 @section('page content')
