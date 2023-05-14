@@ -8,6 +8,7 @@ use OpenApi\Annotations as OA;
 use OpenApi\Annotations\Get;
 use OpenApi\Annotations\Response;
 use App\Models\Pedido;
+use App\Http\Resources\PedidoResource;
 
 class PedidoController extends Controller
 {
@@ -16,11 +17,11 @@ class PedidoController extends Controller
 
     }
 
-/** Muentra todos los pedidos para un id de cliente
+/** Muestra todos los pedidos para un id de cliente
  * @param  int  $id_cliente
  * @return \Illuminate\Http\Response 
  * @OA\Get(
- *     path="/pedidos/{id_cliente}/index_id",
+ *     path="/api/pedidos/{id_cliente}/index_id",
  *     operationId="pedidoIndexID",
  *     tags={"Pedido"},
  *     summary="Obtener pedidos de un cliente",
@@ -34,6 +35,11 @@ class PedidoController extends Controller
  *     @OA\Response(
  *         response=200,
  *         description="Lista de pedidos del cliente",
+ *     ),
+ * 
+ *     @OA\Response(
+ *         response=404,
+ *         description="No se encontraron pedidos del cliente"
  *     )
  * )
  */
@@ -48,7 +54,7 @@ class PedidoController extends Controller
  * @param  int  $id
  * @return \Illuminate\Http\Response 
  * @OA\Delete(
- *     path="/pedido/{id}",
+ *     path="/api/pedido/{id}",
  *     operationId="pedidoCancelar",
  *     tags={"Pedido"},
  *     summary="Cancelar un pedido",

@@ -14,6 +14,11 @@ class PedidoResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'monto_total'  => $this->monto_total,
+            'fecha' => $this->fecha,
+            'id_cliente' => $this->id_cliente,
+        ];
     }
 }
