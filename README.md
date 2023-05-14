@@ -15,15 +15,16 @@ Cuando un cliente selecciona y realiza una compra de uno o más productos, se ge
 
 - Diagrama Entidad-Relación
 
-![ERD](https://user-images.githubusercontent.com/42704038/232163156-9d519fa2-41f8-4bf8-afc4-cc00a81fff9c.png)
+![ERD Compacto](https://github.com/iaw-2023/Data-Demons-laravel/assets/42704038/6d7b0171-89eb-4d75-8012-53dd9252cbb0)
 
-![ERDE](https://user-images.githubusercontent.com/42704038/232162604-a55f22d1-2e00-4dbc-9e2b-de00c2d4779f.png)
+![ERD Expandido](https://github.com/iaw-2023/Data-Demons-laravel/assets/42704038/bfc3879a-d583-45c5-8b40-146af7956f0d)
 
 ## Proyecto Framework PHP - Laravel
 - Entidades que se podrán actualizar
     * `Producto`
     * `Categoría`
     * `Tamaño`
+    * `Estado Pedido`
 - Reportes que se podrán generar/visualizar
     * Pedidos realizados según X atributo/filtro
     * Clientes según X atributo/filtro
