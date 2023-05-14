@@ -8,8 +8,7 @@
 @endsection
 
 @section('page content')
-    <table class="table table-striped mt-4">
-        <script src="D:\GitHub\Data-Demons-laravel\node_modules\tablefilter\src\tablefilter.js"></script>
+    <table id="tablaFiltrable" class="table table-striped mt-4">
         <thead>
             <tr>
                 <th scope="col">ID</th>

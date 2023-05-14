@@ -7,7 +7,7 @@
 @endsection
 
 @section('page content')
-    <table class="table table-striped mt-4">
+    <table id="tablaFiltrable" class="table table-striped mt-4">
         <thead>
             <tr>
                 <th scope="col">ID</th>
