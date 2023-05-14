@@ -16,7 +16,7 @@
                     </div>
                 @enderror
             </div>
-            <button type="submit" class="btn btn-success" tabindex="7">Crear</button>
-            <a href="/estados" class="btn btn-danger" tabindex="8">Cancelar</a>
+            <button type="submit" class="btn btn-outline-success" tabindex="7">Crear</button>
+            <a href="/estados" class="btn btn-outline-danger" tabindex="8">Cancelar</a>
         </form>
 @endsection
