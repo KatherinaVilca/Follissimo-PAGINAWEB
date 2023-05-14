@@ -17,6 +17,9 @@
                 "responses": {
                     "200": {
                         "description": "Operación exitosa"
+                    },
+                    "404": {
+                        "description": "No se encontraron categorias"
                     }
                 }
             }
@@ -70,7 +73,7 @@
                 }
             }
         },
-        "/pedidos/{id_cliente}/index_id": {
+        "/api/pedidos/{id_cliente}/index_id": {
             "get": {
                 "tags": [
                     "Pedido"
@@ -89,11 +92,14 @@
                 "responses": {
                     "200": {
                         "description": "Lista de pedidos del cliente"
+                    },
+                    "404": {
+                        "description": "No se encontraron pedidos del cliente"
                     }
                 }
             }
         },
-        "/pedido/{id}": {
+        "/api/pedido/{id}": {
             "delete": {
                 "tags": [
                     "Pedido"
@@ -119,7 +125,7 @@
                 }
             }
         },
-        "/productos": {
+        "/api/productos": {
             "get": {
                 "tags": [
                     "Productos"
@@ -130,11 +136,14 @@
                 "responses": {
                     "200": {
                         "description": "Operación exitosa"
+                    },
+                    "404": {
+                        "description": "Productos no encontrados"
                     }
                 }
             }
         },
-        "/productos/{id}/show": {
+        "/api/productos/{id}/show": {
             "get": {
                 "tags": [
                     "Producto"
@@ -156,6 +165,24 @@
                     },
                     "404": {
                         "description": "Producto no encontrado"
+                    }
+                }
+            }
+        },
+        "/api/tamaños": {
+            "get": {
+                "tags": [
+                    "Tamaños"
+                ],
+                "summary": "Obtener lista de tamaños",
+                "description": "Obtiene la lista de todos los tamaños",
+                "operationId": "getTamañosList",
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa"
+                    },
+                    "404": {
+                        "description": "No se encontraron tamaños"
                     }
                 }
             }
