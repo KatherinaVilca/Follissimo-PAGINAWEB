@@ -8,55 +8,31 @@ use App\Models\DetallePedido;
 use OpenApi\Annotations as OA;
 use OpenApi\Annotations\Get;
 use OpenApi\Annotations\Response;
+use App\Http\Resources\DetallePedidoResource;
+
 
 class DetallePedidoController extends Controller
 {
-/** Muentra todos los detalles de pedidos para cierto id de pedido
- * @param  int  $id
- * @return \Illuminate\Http\Response 
- * @OA\Get(
- *     path="/pedidos/{id}/index",
- *     operationId="detallePedidoIndex",
- *     tags={"Detalle de Pedidos"},
- *     summary="Obtener todos los detalles de pedidos",
- *     description="Obtiene la lista de todos los detalles de pedidos.",
- *      @OA\Parameter(
- *         description="Parámetro necesario para la consulta de detalles de pedidos para un producto",
- *         name="id",
- *         in="path",
- *         description="ID del detalle de pedido",
- *         required=true,
- *     ),
- *     @OA\Response(
- *         response=200,
- *         description="Lista de detalles de pedidos",
- *     )
- * )
- */
-    public function index($id)
+    public function index()
     {
-        $detalles_pedido = DetallePedido::where('id_pedido', $id)
-            ->get();
-
-        return response()->json(compact('detalles_pedido', 'id'), 200);
-
+     
     }
 
 /**
- * Muentra el detalle de pedido para cierto ID
- * @param  int  $id
+ * Muestra el detalle de pedido para cierto ID
+ * @param  int  $id_pedido
  * @return \Illuminate\Http\Response
  * @OA\Get(
- *     path="/detallepedido/{id}/show",
- *     operationId="detallePedidoShow",
- *     tags={"Detalle de Pedidos"},
+ *     path="/api/pedidos/detallepedido/{id_pedido}/show",
+ *     operationId="DetallePedidoShow",
+ *     tags={"Detalle de Pedido"},
  *     summary="Obtener un detalle de pedido",
  *     description="Obtiene la información de un detalle de pedido en base a su ID.",
  *     @OA\Parameter(
  *         description="Parámetro necesario para la consulta de detalle de pedido para un producto",
- *         name="id",
+ *         name="id_pedido",
  *         in="path",
- *         description="ID del detalle de pedido",
+ *         description="ID del pedido",
  *         required=true,
  *     ),
  *     @OA\Response(
@@ -69,13 +45,14 @@ class DetallePedidoController extends Controller
  *     )
  * )
  */
-    public function show($id){
+    public function show($id_pedido){
 
-        $detalle = DetallePedido::find($id);
-      
+        $detalle = DetallePedido::where('id_pedido', $id_pedido)->get();
+
         if (!$detalle) {
-            return response()->json(['message' => 'Producto no encontrado'], 404);
+            return response()->json(['message' => 'Detalle no encontrado'], 404);
+        } else {
+            return response()->json(DetallePedidoResource::collection($detalle), 200);
         }
-        return response()->json(['data' => $detalle], 200);
     }
 }
