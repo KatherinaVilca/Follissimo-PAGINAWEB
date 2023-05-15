@@ -15,7 +15,7 @@ class DetallePedidoController extends Controller
 {
     public function index()
     {
-     
+
     }
 
 /**
@@ -23,7 +23,7 @@ class DetallePedidoController extends Controller
  * @param  int  $id_pedido
  * @return \Illuminate\Http\Response
  * @OA\Get(
- *     path="/api/pedidos/detallepedido/{id_pedido}/show",
+ *     path="/rest/pedidos/detallepedido/{id_pedido}/show",
  *     operationId="DetallePedidoShow",
  *     tags={"Detalle de Pedido"},
  *     summary="Obtener un detalle de pedido",

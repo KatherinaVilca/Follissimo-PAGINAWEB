@@ -12,9 +12,9 @@ use App\Http\Resources\CategoriaResource;
 class CategoriaController extends Controller
 {
 /** Muestra todas las categorias
- * @return \Illuminate\Http\Response 
+ * @return \Illuminate\Http\Response
  * @OA\Get(
- *     path="/api/categorias",
+ *     path="/rest/categorias",
  *     operationId="getCategoriasList",
  *     tags={"Categorias"},
  *     summary="Obtener lista de categorías",
@@ -23,17 +23,17 @@ class CategoriaController extends Controller
  *         response=200,
  *         description="Operación exitosa",
  *     ),
- *     
+ *
  *     @OA\Response(
  *         response=404,
  *         description="No se encontraron categorias"
  *     )
  * )
- */  
+ */
     public function index()
     {
         $categorias = Categoria::all();
-    
+
         if ($categorias->count() > 0) {
             return response()->json(CategoriaResource::collection($categorias), 200);
         } else {

@@ -6,7 +6,7 @@
         "version": "1.0.0"
     },
     "paths": {
-        "/api/categorias": {
+        "/rest/categorias": {
             "get": {
                 "tags": [
                     "Categorias"
@@ -24,7 +24,7 @@
                 }
             }
         },
-        "/api/clientes/create": {
+        "/rest/clientes/create": {
             "post": {
                 "tags": [
                     "Cliente"
@@ -69,7 +69,7 @@
                 }
             }
         },
-        "/api/clientes": {
+        "/rest/clientes": {
             "post": {
                 "tags": [
                     "Clientes"
@@ -140,7 +140,7 @@
                 }
             }
         },
-        "/api/pedidos/detallepedido/{id_pedido}/show": {
+        "/rest/pedidos/detallepedido/{id_pedido}/show": {
             "get": {
                 "tags": [
                     "Detalle de Pedido"
@@ -166,7 +166,7 @@
                 }
             }
         },
-        "/api/pedidos/{id_cliente}/index_id": {
+        "/rest/pedidos/{id_cliente}/index_id": {
             "get": {
                 "tags": [
                     "Pedido"
@@ -192,7 +192,7 @@
                 }
             }
         },
-        "/api/pedido/{id}{id_estado}": {
+        "/rest/pedido/{id}{id_estado}": {
             "delete": {
                 "tags": [
                     "Pedido"
@@ -218,7 +218,7 @@
                 }
             }
         },
-        "/api/productos": {
+        "/rest/productos": {
             "get": {
                 "tags": [
                     "Productos"
@@ -236,7 +236,7 @@
                 }
             }
         },
-        "/api/productos/{id}/show": {
+        "/rest/productos/{id}/show": {
             "get": {
                 "tags": [
                     "Producto"
@@ -262,7 +262,7 @@
                 }
             }
         },
-        "/api/tamaños": {
+        "/rest/tamaños": {
             "get": {
                 "tags": [
                     "Tamaños"

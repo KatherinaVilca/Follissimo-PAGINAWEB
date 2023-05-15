@@ -21,9 +21,9 @@ use App\Http\Resources\ProductoResource;
 class ProductoController extends Controller
 {
 /** Muentra todos los productos
- * @return \Illuminate\Http\Response 
+ * @return \Illuminate\Http\Response
  * @OA\Get(
- *     path="/api/productos",
+ *     path="/rest/productos",
  *     operationId="getProductosList",
  *     tags={"Productos"},
  *     summary="Obtener lista de productos",
@@ -32,7 +32,7 @@ class ProductoController extends Controller
  *         response=200,
  *         description="Operación exitosa"
  *     ),
- * 
+ *
  *     @OA\Response(
  *         response=404,
  *         description="Productos no encontrados"
@@ -54,7 +54,7 @@ class ProductoController extends Controller
  * @param  int  $id
  * @return \Illuminate\Http\Response
  * @OA\Get(
- *     path="/api/productos/{id}/show",
+ *     path="/rest/productos/{id}/show",
  *     operationId="productoShow",
  *     tags={"Producto"},
  *     summary="Obtener información de un producto",
@@ -78,7 +78,7 @@ class ProductoController extends Controller
     public function show($id){
 
         $producto = Producto::find($id);
-        
+
         if (!$producto) {
             return response()->json(['message' => 'Producto no encontrado'], 404);
         } else {

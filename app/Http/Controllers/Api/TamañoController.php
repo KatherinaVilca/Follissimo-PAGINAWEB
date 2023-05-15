@@ -14,11 +14,11 @@ use App\Http\Resources\TamañoResource;
 
 class TamañoController extends Controller
 {
-    
+
 /** Muestra todas los tamaños
- * @return \Illuminate\Http\Response 
+ * @return \Illuminate\Http\Response
  * @OA\Get(
- *     path="/api/tamaños",
+ *     path="/rest/tamaños",
  *     operationId="getTamañosList",
  *     tags={"Tamaños"},
  *     summary="Obtener lista de tamaños",
@@ -27,13 +27,13 @@ class TamañoController extends Controller
  *         response=200,
  *         description="Operación exitosa",
  *     ),
- *     
+ *
  *     @OA\Response(
  *         response=404,
  *         description="No se encontraron tamaños"
  *     )
  * )
- */ 
+ */
     public function index()
     {
         $tamaños = Tamaño::all();

@@ -19,9 +19,9 @@ class PedidoController extends Controller
 
 /** Muestra todos los pedidos para un id de cliente
  * @param  int  $id_cliente
- * @return \Illuminate\Http\Response 
+ * @return \Illuminate\Http\Response
  * @OA\Get(
- *     path="/api/pedidos/{id_cliente}/index_id",
+ *     path="/rest/pedidos/{id_cliente}/index_id",
  *     operationId="pedidoIndexID",
  *     tags={"Pedido"},
  *     summary="Obtener pedidos de un cliente",
@@ -36,7 +36,7 @@ class PedidoController extends Controller
  *         response=200,
  *         description="Lista de pedidos del cliente",
  *     ),
- * 
+ *
  *     @OA\Response(
  *         response=404,
  *         description="No se encontraron pedidos del cliente"
@@ -51,14 +51,14 @@ class PedidoController extends Controller
             return response()->json(['message' => 'Pedidos no encontrados'], 404);
         } else {
             return response()->json(PedidoResource::collection($pedidos), 200);
-        }        
+        }
     }
 
 /** Dado un producto dado, lo cancela
  * @param  int  $id
- * @return \Illuminate\Http\Response 
+ * @return \Illuminate\Http\Response
  * @OA\Delete(
- *     path="/api/pedido/{id}{id_estado}",
+ *     path="/rest/pedido/{id}{id_estado}",
  *     operationId="pedidoCancelar",
  *     tags={"Pedido"},
  *     summary="Cancelar un pedido",
