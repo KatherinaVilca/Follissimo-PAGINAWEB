@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cliente extends Model
 {
-    use HasFactory;
+    protected $table = 'clientes';
+    public $timestamps = true;
+    use SoftDeletes;
 }
