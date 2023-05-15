@@ -46,15 +46,19 @@ class PedidoController extends Controller
     public function index_id($id_cliente){
 
         $pedidos = Pedido::where('id_cliente', $id_cliente)->get();
-        
-        return response()->json(['data'=>$pedidos]);
+
+        if (!$pedidos) {
+            return response()->json(['message' => 'Pedidos no encontrados'], 404);
+        } else {
+            return response()->json(PedidoResource::collection($pedidos), 200);
+        }        
     }
 
 /** Dado un producto dado, lo cancela
  * @param  int  $id
  * @return \Illuminate\Http\Response 
  * @OA\Delete(
- *     path="/api/pedido/{id}",
+ *     path="/api/pedido/{id}{id_estado}",
  *     operationId="pedidoCancelar",
  *     tags={"Pedido"},
  *     summary="Cancelar un pedido",
@@ -75,12 +79,12 @@ class PedidoController extends Controller
  *     )
  * )
  */
-    public function cancelar($id){
+    public function cancelar($id,$id_estado){
 
         $pedido = Pedido::find($id);
-        $pedido->delete();
+        $pedido->id_estado = $id_estado;
 
-        return response()->json(['data' => $pedido]);
+        return response()->json(PedidoResource($pedido), 200);
     }
 
 }
