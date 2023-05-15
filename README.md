@@ -71,3 +71,25 @@ Cuando un cliente selecciona y realiza una compra de uno o más productos, se ge
 #### [JQuery](https://jquery.com/)
 
 ### Testeado en Safari, Brave, Mozilla Firefox, Google Chrome y Microsoft Edge
+
+### Ejemplos para probar la API
+##### Nota: Para acceder a la API se utiliza /rest
+#### GET /categorias
+##### Obtiene la lista de todas las categorías
+#### GET /pedidos/{id}/index
+##### Obtiene todos los detalles de pedido con el ID indicado
+##### Ejemplo:
+/rest/pedidos/1/index devuelve la lista de detalles del pedido con ID 1, con el código 200
+/rest/pedidos/89/index o de cualquier ID de pedido que no exista, devuelve la lista vacía.
+#### GET /pedidos/{id_cliente}/index_id
+##### Obtiene la lista de pedidos asociados a un cliente en base a su ID
+##### Ejemplo
+/rest/pedidos/1/index_id devuelve los pedidos del cliente con ID 1
+#### GET /productos
+##### Obtiene la lista de todos los productos.
+#### GET /productos/{id}/show
+##### Obtiene la información de un producto en base a su ID
+##### Ejemplo:
+/rest/productos/1/show devuelve el producto con ID 1
+#### GET /tamaños
+##### Obtiene la lista de todos los tamaños
