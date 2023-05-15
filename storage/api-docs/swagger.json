@@ -24,42 +24,19 @@
                 }
             }
         },
-        "/pedidos/{id}/index": {
+        "/api/pedidos/detallepedido/{id_pedido}/show": {
             "get": {
                 "tags": [
-                    "Detalle de Pedidos"
-                ],
-                "summary": "Obtener todos los detalles de pedidos",
-                "description": "Obtiene la lista de todos los detalles de pedidos.",
-                "operationId": "detallePedidoIndex",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "ID del detalle de pedido",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Lista de detalles de pedidos"
-                    }
-                }
-            }
-        },
-        "/detallepedido/{id}/show": {
-            "get": {
-                "tags": [
-                    "Detalle de Pedidos"
+                    "Detalle de Pedido"
                 ],
                 "summary": "Obtener un detalle de pedido",
                 "description": "Obtiene la información de un detalle de pedido en base a su ID.",
-                "operationId": "detallePedidoShow",
+                "operationId": "DetallePedidoShow",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "id_pedido",
                         "in": "path",
-                        "description": "ID del detalle de pedido",
+                        "description": "ID del pedido",
                         "required": true
                     }
                 ],
@@ -99,7 +76,7 @@
                 }
             }
         },
-        "/api/pedido/{id}": {
+        "/api/pedido/{id}{id_estado}": {
             "delete": {
                 "tags": [
                     "Pedido"
