@@ -4,14 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class DetallePedido extends Model
 {
     protected $table = 'detalles_pedido';
-    use HasFactory;
+    public $timestamps = true;
 
     public function productos()
     {
         return $this->belongsTo(Producto::class, 'id_producto');
+    }
+
+    public function pedidos()
+    {
+        return $this->belongsTo(Producto::class, 'id_pedido');
     }
 }
