@@ -57,3 +57,17 @@ Cuando un cliente selecciona y realiza una compra de uno o más productos, se ge
     * Ver productos en el carrito
     * Filtrar productos por alguna condición (Ej: mas vendidos, ultimos agregados, etc)
     * Ver pedidos realizados
+
+## Etapa 2: Proyecto Framework PHP - Laravel
+
+#### [Link](https://foliissimo-brunovelazquez.vercel.app/) al Deploy de Vercel
+
+#### [Link](https://foliissimo-brunovelazquez.vercel.app/rest/documentation) a la documentación en SwaggerUI
+
+### Librerías importadas
+
+#### [Bootstrap](https://getbootstrap.com/)
+#### [DataTables](https://datatables.net/)
+#### [JQuery](https://jquery.com/)
+
+### Testeado en Safari, Brave, Mozilla Firefox, Google Chrome y Microsoft Edge
