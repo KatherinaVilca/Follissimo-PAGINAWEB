@@ -79,10 +79,10 @@ class ProductoController extends Controller
 
         $producto = Producto::find($id);
         
-        if ($producto) {
-            return response()->json(new ProductoResource($producto), 200);
-        } else {
+        if (!$producto) {
             return response()->json(['message' => 'Producto no encontrado'], 400);
+        } else {
+            return response()->json(new ProductoResource($producto), 200);
         }
     }
 }
