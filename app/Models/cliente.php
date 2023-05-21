@@ -9,5 +9,4 @@ class Cliente extends Model
 {
     protected $table = 'clientes';
     public $timestamps = true;
-    use SoftDeletes;
 }

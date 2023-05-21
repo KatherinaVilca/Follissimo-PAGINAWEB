@@ -12,7 +12,7 @@ class DetallePedido extends Model
     protected $table = 'detalles_pedido';
     public $timestamps = true;
 
-    public function productos()
+    public function producto()
     {
         return $this->belongsTo(Producto::class, 'id_producto');
     }

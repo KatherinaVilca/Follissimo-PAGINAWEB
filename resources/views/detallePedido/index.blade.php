@@ -11,7 +11,7 @@
         <thead>
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col">ID_Producto</th>
+                <th scope="col">Producto (ID)</th>
                 <th scope="col">Cantidad</th>
             </tr>
         </thead>
@@ -19,7 +19,11 @@
             @foreach ($detalles_pedido as $detalle_pedido)
             <tr>
                 <td>{{ $detalle_pedido->id }}</td>
-                <td><a href="/productos/{{$detalle_pedido->id_producto}}/show"><u>{{ $detalle_pedido->id_producto }}</u></a></td>
+                <td>
+                    <a href="/productos/{{$detalle_pedido->id_producto}}/show"><u>
+                        {{$detalle_pedido->producto->nombre }} ({{$detalle_pedido->id_producto}})
+                    </u></a>
+                </td>
                 <td>{{ $detalle_pedido->cantidad }}</td>
             </tr>
             @endforeach

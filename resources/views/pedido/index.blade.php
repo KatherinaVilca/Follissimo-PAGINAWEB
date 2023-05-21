@@ -24,7 +24,7 @@
                 <td>{{ $pedido->id }}</td>
                 <td>{{ $pedido->monto_total }}</td>
                 <td>{{ date('d-m-Y', strtotime($pedido->fecha)); }}</td>
-                <td>{{ $pedido->id_cliente }}</td>
+                <td>{{ $pedido->cliente->nombre}} {{$pedido->cliente->apellido}}</td>
                 <td>{{ $pedido->estado->estado }}</td>
                 <td><a href="pedidos/{{$pedido->id}}/index" class="btn btn-info">Ver más</a></td>
             </tr>
