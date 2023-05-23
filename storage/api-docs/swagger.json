@@ -24,7 +24,7 @@
                 }
             }
         },
-        "/rest/clientes/create": {
+        "/api/clientes/create": {
             "post": {
                 "tags": [
                     "Cliente"
@@ -69,7 +69,7 @@
                 }
             }
         },
-        "/rest/clientes": {
+        "/api/clientes": {
             "post": {
                 "tags": [
                     "Clientes"
@@ -140,7 +140,7 @@
                 }
             }
         },
-        "/rest/pedidos/detallepedido/{id_pedido}/show": {
+        "/rest/pedidos/{id_pedido}/detalle": {
             "get": {
                 "tags": [
                     "Detalle de Pedido"
@@ -166,7 +166,7 @@
                 }
             }
         },
-        "/rest/pedidos/{id_cliente}/index_id": {
+        "/rest/pedidos/{id_cliente}": {
             "get": {
                 "tags": [
                     "Pedido"
@@ -236,7 +236,59 @@
                 }
             }
         },
-        "/rest/productos/{id}/show": {
+        "/rest/productos/tamaño/{tipo_tamaño}": {
+            "get": {
+                "tags": [
+                    "Productos"
+                ],
+                "summary": "Obtener productos por tamaño",
+                "description": "Muestra todos los productos filtrados por un tamaño dado",
+                "operationId": "getproductosPorTamaño",
+                "parameters": [
+                    {
+                        "name": "tipo_tamaño",
+                        "in": "path",
+                        "description": "Tipo de tamaño",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa"
+                    },
+                    "404": {
+                        "description": "Productos no encontrados"
+                    }
+                }
+            }
+        },
+        "/rest/productos/categoria/{tipo_categoria}": {
+            "get": {
+                "tags": [
+                    "Productos"
+                ],
+                "summary": "Obtener productos por categoría",
+                "description": "Muestra todos los productos filtrados por una categoria dada",
+                "operationId": "getproductosPorCategoria",
+                "parameters": [
+                    {
+                        "name": "tipo_categoria",
+                        "in": "path",
+                        "description": "Tipo de categoría",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa"
+                    },
+                    "404": {
+                        "description": "Productos no encontrados"
+                    }
+                }
+            }
+        },
+        "/rest/productos/{id}": {
             "get": {
                 "tags": [
                     "Producto"
