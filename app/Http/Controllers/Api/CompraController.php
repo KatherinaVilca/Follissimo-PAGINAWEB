@@ -42,7 +42,7 @@ class CompraController extends Controller
         $pedido->estado= 'pendiente';
         $pedido->save();
       
-        $detallePedido->id_pedido = $pedido->id;}
+        $detallePedido->id_pedido = $pedido->id;
         $detallePedido->id_producto = $validateData['id_producto'];
         $detallePedido->cantidad = $validateData['cantidad'];
         $detallePedido->monto_subtotal = $validateData['monto_subtotal'];
