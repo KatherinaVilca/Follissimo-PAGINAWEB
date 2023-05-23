@@ -49,12 +49,84 @@ class ProductoController extends Controller
         }
     }
 
+/** Muestra todos los productos filtrados por un tamaño dado
+ * @param  string  $tipo_tamaño
+ * @return \Illuminate\Http\Response
+ * @OA\Get(
+ *     path="/rest/productos/tamaño/{tipo_tamaño}",
+ *     operationId="getproductosPorTamaño",
+ *     tags={"Productos"},
+ *     summary="Obtener productos por tamaño",
+ *     @OA\Parameter(
+ *         name="tipo_tamaño",
+ *         in="path",
+ *         description="Tipo de tamaño",
+ *         required=true,
+ *     ),
+ *     @OA\Response(
+ *         response=200,
+ *         description="Operación exitosa"
+ *     ),
+ *     @OA\Response(
+ *         response=404,
+ *         description="Productos no encontrados"
+ *     )
+ * )
+ */
+    public function productosPorTamaño($tipo_tamaño){
+
+        $productos = Producto::whereHas('tamaño', function ($query) use ($tipo_tamaño) {
+            $query->where('tipo', $tipo_tamaño);
+        })->get();
+
+        if ($productos->isEmpty()) {
+            return response()->json(['message' => 'Productos no encontrados'], 404);
+        } else {
+            return response()->json(ProductoResource::collection($productos), 200);
+        }
+    }
+
+ /** Muestra todos los productos filtrados por una categoria dada
+ * @param  string $tipo_categoria
+ * @return \Illuminate\Http\Response
+ * @OA\Get(
+ *     path="/rest/productos/categoria/{tipo_categoria}",
+ *     operationId="getproductosPorCategoria",
+ *     tags={"Productos"},
+ *     summary="Obtener productos por categoría",
+ *     @OA\Parameter(
+ *         name="tipo_categoria",
+ *         in="path",
+ *         description="Tipo de categoría",
+ *         required=true,
+ *     ),
+ *     @OA\Response(
+ *         response=200,
+ *         description="Operación exitosa"
+ *     ),
+ *     @OA\Response(
+ *         response=404,
+ *         description="Productos no encontrados"
+ *     )
+ * )
+ */
+    public function productosPorCategoria($tipo_categoria){ 
+
+        $productos = Producto::where('tipo_categoria', $tipo_categoria)->get();
+
+        if (!$productos) {
+            return response()->json(['message' => 'Productos no encontrados'], 404);
+        } else {
+            return response()->json(ProductoResource::collection($productos), 200);
+        }
+    }
+
 /**
  * Muentra un producto dado su id
  * @param  int  $id
  * @return \Illuminate\Http\Response
  * @OA\Get(
- *     path="/rest/productos/{id}/show",
+ *     path="/rest/productos/{id}",
  *     operationId="productoShow",
  *     tags={"Producto"},
  *     summary="Obtener información de un producto",
