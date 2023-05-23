@@ -140,6 +140,57 @@
                 }
             }
         },
+        "/rest/compra": {
+            "post": {
+                "tags": [
+                    "Compra"
+                ],
+                "summary": "Crear una nueva compra",
+                "description": "Realizar una compra.",
+                "operationId": "store",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "monto_total",
+                                    "id_producto",
+                                    "cantidad",
+                                    "monto_subtotal"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "monto_total": {
+                                        "type": "integer"
+                                    },
+                                    "id_producto": {
+                                        "type": "integer"
+                                    },
+                                    "cantidad": {
+                                        "type": "integer"
+                                    },
+                                    "monto_subtotal": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa"
+                    },
+                    "400": {
+                        "description": "Solicitud inválida"
+                    }
+                }
+            }
+        },
         "/rest/pedidos/{id_pedido}/detalle": {
             "get": {
                 "tags": [
