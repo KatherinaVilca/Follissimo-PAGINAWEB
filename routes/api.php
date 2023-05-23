@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\PedidoController;
 use App\Http\Controllers\Api\CategoriaController;
 use App\Http\Controllers\Api\TamañoController;
 use App\Http\Controllers\Api\ClienteController;
+use App\Http\Controllers\Api\CompraController;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
@@ -23,9 +24,4 @@ Route::post('/compra', [CompraController::class, 'store'])->name('compra.store')
 
 //Route::get('/pedidos/{id_cliente}/index', [PedidoController::class, 'cancelar'])->name('pedido.cancelar');
 Route::get('/categorias',[CategoriaController::class, 'index'])->name('categoria.index');
-
 Route::get('/tamaños',[TamañoController::class, 'index'])->name('tamaño.index');
-
-
-Route::get('/clientes/create', [ClienteController::class, 'create'])->name('cliente.create');
-Route::post('/clientes', [ClienteController::class, 'store'])->name('cliente.store');
