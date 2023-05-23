@@ -26,7 +26,7 @@ class ClienteSeeder extends Seeder
                 'nombre' => $nombre,
                 'apellido' => $apellido,
                 'direccion' => $calles[array_rand($calles)].' '.rand(0,1000),
-                'e-mail' => $nombre.'_'.$apellido.'@gmail.com',
+                'email' => $nombre.'_'.$apellido.'@gmail.com',
                 ]);
         }
     }

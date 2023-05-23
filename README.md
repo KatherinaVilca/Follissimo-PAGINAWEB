@@ -15,18 +15,16 @@ Cuando un cliente selecciona y realiza una compra de uno o más productos, se ge
 
 - Diagrama Entidad-Relación
 
-![ERD](https://user-images.githubusercontent.com/42704038/232163156-9d519fa2-41f8-4bf8-afc4-cc00a81fff9c.png)
+![ERD Compacto](https://github.com/iaw-2023/Data-Demons-laravel/assets/42704038/6d7b0171-89eb-4d75-8012-53dd9252cbb0)
 
-![ERDE](https://user-images.githubusercontent.com/42704038/232162604-a55f22d1-2e00-4dbc-9e2b-de00c2d4779f.png)
+![ERD Expandido](https://github.com/iaw-2023/Data-Demons-laravel/assets/42704038/bfc3879a-d583-45c5-8b40-146af7956f0d)
 
 ## Proyecto Framework PHP - Laravel
 - Entidades que se podrán actualizar
-    * `Cliente`
     * `Producto`
-    * `Detalle de pedido`
     * `Categoría`
     * `Tamaño`
-    * `Pedido`
+    * `Estado Pedido`
 - Reportes que se podrán generar/visualizar
     * Pedidos realizados según X atributo/filtro
     * Clientes según X atributo/filtro
@@ -59,3 +57,39 @@ Cuando un cliente selecciona y realiza una compra de uno o más productos, se ge
     * Ver productos en el carrito
     * Filtrar productos por alguna condición (Ej: mas vendidos, ultimos agregados, etc)
     * Ver pedidos realizados
+
+## Etapa 2: Proyecto Framework PHP - Laravel
+
+#### [Link](https://foliissimo-brunovelazquez.vercel.app/) al Deploy de Vercel
+
+#### [Link](https://foliissimo-brunovelazquez.vercel.app/rest/documentation) a la documentación en SwaggerUI
+
+### Librerías importadas
+
+#### [Bootstrap](https://getbootstrap.com/)
+#### [DataTables](https://datatables.net/)
+#### [JQuery](https://jquery.com/)
+
+### Testeado en Safari, Brave, Mozilla Firefox, Google Chrome y Microsoft Edge
+
+### Ejemplos para probar la API
+##### Nota: Para acceder a la API se utiliza /rest
+#### GET /categorias
+##### Obtiene la lista de todas las categorías
+#### GET /pedidos/{id}/index
+##### Obtiene todos los detalles de pedido con el ID indicado
+##### Ejemplo:
+/rest/pedidos/1/index devuelve la lista de detalles del pedido con ID 1, con el código 200
+/rest/pedidos/89/index o de cualquier ID de pedido que no exista, devuelve la lista vacía.
+#### GET /pedidos/{id_cliente}/index_id
+##### Obtiene la lista de pedidos asociados a un cliente en base a su ID
+##### Ejemplo
+/rest/pedidos/1/index_id devuelve los pedidos del cliente con ID 1
+#### GET /productos
+##### Obtiene la lista de todos los productos.
+#### GET /productos/{id}/show
+##### Obtiene la información de un producto en base a su ID
+##### Ejemplo:
+/rest/productos/1/show devuelve el producto con ID 1
+#### GET /tamaños
+##### Obtiene la lista de todos los tamaños

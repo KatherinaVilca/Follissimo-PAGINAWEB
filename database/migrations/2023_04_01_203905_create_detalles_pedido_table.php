@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('id_producto')->constrained('productos');
             $table->integer('cantidad');
             $table->integer('monto_subtotal');
+            $table->timestamps();
         });
     }
 

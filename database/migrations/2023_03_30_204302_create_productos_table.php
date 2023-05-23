@@ -13,16 +13,18 @@ return new class extends Migration
     {
         Schema::create('productos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('precio');
             $table->string('nombre');
+            $table->integer('precio');
             $table->string('color');
-            $table->string('descripción');
-            $table->string('tipo_categoria');
+            $table->bigInteger('tipo_categoria');
             $table->foreign('tipo_categoria')
-                ->references('tipo')->on('categorias');
-            $table->string('tipo_tamaño');
+                ->references('id')->on('categorias');
+            $table->bigInteger('tipo_tamaño');
             $table->foreign('tipo_tamaño')
-                ->references('tipo')->on('tamaños');
+                ->references('id')->on('tamaños');
+            $table->string('descripción');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -16,6 +16,8 @@ return new class extends Migration
             $table->integer('monto_total');
             $table->date('fecha')->default(DB::raw('CURRENT_DATE'));
             $table->foreignId('id_cliente')->constrained('clientes');
+            $table->foreignId('id_estado')->constrained('estados_pedido');
+            $table->timestamps();
         });
     }
 

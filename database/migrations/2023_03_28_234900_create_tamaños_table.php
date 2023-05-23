@@ -12,8 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tamaños', function (Blueprint $table) {
+            $table->id();
             $table->string('tipo');
-            $table->primary('tipo');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
