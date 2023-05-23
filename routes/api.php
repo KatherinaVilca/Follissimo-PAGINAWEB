@@ -16,7 +16,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/productos',[ProductoController::class, 'index'])->name('producto.index');
 Route::get('/productos/{id}', [ProductoController::class, 'show'])->name('producto.show');
 Route::get('/productos/tamaño/{tipo_tamaño}', [ProductoController::class, 'productosPorTamaño'])->name('producto.productosPorTamaño');
-Route::get('/productos/categoria{tipo_categoria}', [ProductoController::class, 'productosPorCategoria'])->name('producto.productosPorCategoria');
+Route::get('/productos/categoria/{tipo_categoria}', [ProductoController::class, 'productosPorCategoria'])->name('producto.productosPorCategoria');
 Route::get('/pedidos/{id_cliente}', [PedidoController::class, 'index_id'])->name('pedido.index_id');
 Route::get('/pedidos/{id_pedido}/detalle', [DetallePedidoController::class, 'show'])->name('DetallePedido.show');
 Route::post('/compra', [CompraController::class, 'store'])->name('compra.store');

@@ -112,7 +112,9 @@ class ProductoController extends Controller
  */
     public function productosPorCategoria($tipo_categoria){ 
 
-        $productos = Producto::where('tipo_categoria', $tipo_categoria)->get();
+        $productos =Producto::whereHas('categoria', function ($query) use ($tipo_categoria) {
+            $query->where('tipo', $tipo_categoria);
+        })->get();
 
         if (!$productos) {
             return response()->json(['message' => 'Productos no encontrados'], 404);
