@@ -23,7 +23,7 @@ class DetallePedidoController extends Controller
  * @param  int  $id_pedido
  * @return \Illuminate\Http\Response
  * @OA\Get(
- *     path="/rest/pedidos/detallepedido/{id_pedido}/show",
+ *     path="/rest/pedidos/{id_pedido}/detalle",
  *     operationId="DetallePedidoShow",
  *     tags={"Detalle de Pedido"},
  *     summary="Obtener un detalle de pedido",

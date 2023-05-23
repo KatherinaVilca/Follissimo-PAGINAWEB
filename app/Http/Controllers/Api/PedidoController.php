@@ -21,7 +21,7 @@ class PedidoController extends Controller
  * @param  int  $id_cliente
  * @return \Illuminate\Http\Response
  * @OA\Get(
- *     path="/rest/pedidos/{id_cliente}/index_id",
+ *     path="/rest/pedidos/{id_cliente}",
  *     operationId="pedidoIndexID",
  *     tags={"Pedido"},
  *     summary="Obtener pedidos de un cliente",
