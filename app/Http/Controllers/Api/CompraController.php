@@ -5,13 +5,13 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Http\Response;
 use App\Models\Pedido;
 use App\Models\DetallePedido;
 use App\Models\EstadoPedido;
 use App\Models\Cliente;
 use OpenApi\Annotations as OA;
 use OpenApi\Annotations\Post;
-use OpenApi\Annotations\Response;
 use OpenApi\Annotations\RequestBody;
 use OpenApi\Annotations\MediaType;
 use OpenApi\Annotations\Schema;
@@ -81,6 +81,11 @@ class CompraController extends Controller
         $detallePedido->id_producto = $validateData['id_producto'];
         $detallePedido->cantidad = $validateData['cantidad'];
         $detallePedido->monto_subtotal = $validateData['monto_subtotal'];
+        $detallePedido->save();
+
+        return response()->json([
+            'message' => 'Compra realizada con éxito',
+        ], 200);
     }
 
 }
