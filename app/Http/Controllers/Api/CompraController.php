@@ -52,11 +52,11 @@ class CompraController extends Controller
  *     )
  * )
  */
-    public function store( CompraRequest $request) {
+    public function store(CompraRequest $request) {
 
         $validatedRequest = $request->validated();
 
-        $pedido= new Pedido();
+        $pedido = new Pedido();
 
         $cliente = Cliente::where('email',  $validatedRequest['email'])->first();
 
@@ -77,7 +77,6 @@ class CompraController extends Controller
         $pedido->save();
 
         foreach ($validatedRequest['detalle_productos'] as $detalle_producto) {
-
             $detallePedido = new DetallePedido();
             $detallePedido->id_pedido = $pedido->id;
             $detallePedido->id_producto = $detalle_producto['id_producto'];
@@ -88,7 +87,6 @@ class CompraController extends Controller
 
         return response()->json([
             'message' => 'Compra realizada con éxito',
-        ], 200);
+        ], 201);
     }
-
 }
