@@ -11,7 +11,7 @@ class CompraRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,9 +23,10 @@ class CompraRequest extends FormRequest
     {
         return [
             'id_producto' => 'required',
-            'Precio' => 'required|min:0',
+            'monto_total' => 'required|min:0',
             'cantidad' => 'min:0',
-            'Email' => 'required', 'max:255'
+            'email' => 'required', 'max:255',
+            'monto_subtotal' => 'required|min:0'
         ];
     }
 }
