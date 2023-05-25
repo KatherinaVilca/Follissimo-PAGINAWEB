@@ -20,7 +20,7 @@ use OpenApi\Annotations\Property;
 use App\Http\Requests\CompraRequest;
 
 class CompraController extends Controller
-{   
+{
  /**
  * Realizar una compra.
  * @OA\Post(
@@ -54,34 +54,37 @@ class CompraController extends Controller
  */
     public function store( CompraRequest $request) {
 
-        $validateData = $request->validated();
+        $validatedRequest = $request->validated();
 
         $pedido= new Pedido();
-        $detallePedido = new DetallePedido ();
-    
-        $cliente = Cliente::where('email',  $validateData['email'])->first();
+
+        $cliente = Cliente::where('email',  $validatedRequest['email'])->first();
 
         if (!$cliente) {
             $cliente = new Cliente();
             $cliente->nombre = Str::random(10);
             $cliente->apellido = Str::random(10);
             $cliente->direccion = Str::random(20);
-            $cliente->email = $validateData['email'];
+            $cliente->email = $validatedRequest['email'];
             $cliente->save();
         }
-        
+
         $estadoPendiente = EstadoPedido::where('estado', 'PENDIENTE')->first();
 
-        $pedido->monto_total = $validateData['monto_total'];
+        $pedido->monto_total = $validatedRequest['monto_total'];
         $pedido->id_cliente = $cliente->id;
         $pedido->id_estado = $estadoPendiente->id;
         $pedido->save();
-      
-        $detallePedido->id_pedido = $pedido->id;
-        $detallePedido->id_producto = $validateData['id_producto'];
-        $detallePedido->cantidad = $validateData['cantidad'];
-        $detallePedido->monto_subtotal = $validateData['monto_subtotal'];
-        $detallePedido->save();
+
+        foreach ($validatedRequest['detalle_productos'] as $detalle_producto) {
+
+            $detallePedido = new DetallePedido();
+            $detallePedido->id_pedido = $pedido->id;
+            $detallePedido->id_producto = $detalle_producto['id_producto'];
+            $detallePedido->cantidad = $detalle_producto['cantidad'];
+            $detallePedido->monto_subtotal = $detalle_producto['monto_subtotal'];
+            $detallePedido->save();
+        }
 
         return response()->json([
             'message' => 'Compra realizada con éxito',

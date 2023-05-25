@@ -22,11 +22,12 @@ class CompraRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id_producto' => 'required',
-            'monto_total' => 'required|min:0',
-            'cantidad' => 'min:0',
             'email' => 'required', 'max:255',
-            'monto_subtotal' => 'required|min:0'
+            'monto_total' => 'required|min:0',
+            'detalle_productos' => 'required|array|min:1',
+                'detalle_productos.*.id_producto' => 'required',
+                'detalle_productos.*.cantidad' => 'min:0',
+                'detalle_productos.*.monto_subtotal' => 'required|min:0',
         ];
     }
 }
