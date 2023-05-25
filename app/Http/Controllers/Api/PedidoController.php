@@ -4,10 +4,13 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use OpenApi\Annotations as OA;
 use OpenApi\Annotations\Get;
 use OpenApi\Annotations\Response;
 use App\Models\Pedido;
+use App\Models\Cliente;
+use App\Models\EstadoPedido;
 use App\Http\Resources\PedidoResource;
 
 class PedidoController extends Controller
@@ -55,19 +58,23 @@ class PedidoController extends Controller
     }
 
 /** Dado un producto dado, lo cancela
- * @param  int  $id
  * @return \Illuminate\Http\Response
- * @OA\Delete(
- *     path="/rest/pedido/{id}{id_estado}",
+ * @OA\Post(
+ *     path="/rest/pedidos/cancelar",
  *     operationId="pedidoCancelar",
  *     tags={"Pedido"},
  *     summary="Cancelar un pedido",
  *     description="Cancela un pedido en base a su ID.",
- *     @OA\Parameter(
- *         name="id",
- *         in="path",
- *         description="ID del pedido",
- *         required=true,
+ *      @OA\RequestBody(
+ *         @OA\MediaType(
+ *             mediaType="application/json",
+ *             @OA\Schema(
+ *                 type="object",
+ *                 required={"email", "id_pedido"},
+ *                 @OA\Property(property="email", type="string"),
+ *                 @OA\Property(property="id_pedido", type="integer"),
+ *             )
+ *         )
  *     ),
  *     @OA\Response(
  *         response=200,
@@ -79,12 +86,49 @@ class PedidoController extends Controller
  *     )
  * )
  */
-    public function cancelar($id,$id_estado){
+    public function cancelar(Request $request){
 
-        $pedido = Pedido::find($id);
-        $pedido->id_estado = $id_estado;
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email|max:255',
+            'id_pedido' => 'required|integer|min:1',
+        ]);
+    
+        if ($validator->fails()) {
+            return response()->json(['message' => 'Datos inválidos'], 400);
+        }
+        
+        $validateData = $validator->validated();
+        
+        $cliente = Cliente::where('email', $validateData['email'] )->first();
 
-        return response()->json(PedidoResource($pedido), 200);
+        if (!$cliente) {
+            return response()->json(['message' => 'cliente no encontrado'], 404);
+        } 
+
+        $id_cliente = $cliente->id;
+
+        $pedido = Pedido::where('id', $validateData['id_pedido'])
+                        ->where('id_cliente', $id_cliente)
+                        ->first();
+
+        if (!$pedido) {
+            return response()->json(['message' => 'Pedido no encontrado'], 404);
+        }
+
+        $estadoCancelado= EstadoPedido::where('estado', 'CANCELADO')->first();
+        $estadoEntregado= EstadoPedido::where('estado', 'ENTREGADO')->first();
+
+        if($pedido->id_estado == $estadoCancelado->id){
+            return response()->json(['message' => 'No se puede cancelar un pedido ya cancelado'], 404);
+        }
+
+        if($pedido->id_estado == $estadoEntregado->id){
+            return response()->json(['message' => 'No se puede cancelar un pedido ya entregado'], 404);
+        }
+
+        $pedido->id_estado = $estadoCancelado;
+
+        return response()->json(new PedidoResource($pedido), 200);
     }
 
 }
