@@ -33,12 +33,17 @@ class CompraController extends Controller
  *             mediaType="application/json",
  *             @OA\Schema(
  *                 type="object",
- *                 required={"email", "monto_total", "id_producto", "cantidad", "monto_subtotal"},
+ *                 required={"email", "monto_total", "detalle_productos"},
  *                 @OA\Property(property="email", type="string"),
  *                 @OA\Property(property="monto_total", type="integer"),
- *                 @OA\Property(property="id_producto", type="integer"),
- *                 @OA\Property(property="cantidad", type="integer"),
- *                 @OA\Property(property="monto_subtotal", type="integer"),
+ *                 @OA\Property(property="detalle_productos", type="array",
+ *                      @OA\Items(
+ *                            type="object",
+ *                            @OA\Property(property="id_producto", type="integer"),
+ *                            @OA\Property(property="cantidad", type="integer"),
+ *                            @OA\Property(property="monto_subtotal", type="integer"),
+ *                      )
+ *                  )
  *             )
  *         )
  *     ),
@@ -47,8 +52,8 @@ class CompraController extends Controller
  *         description="Operación exitosa",
  *     ),
  *     @OA\Response(
- *         response=400,
- *         description="Solicitud inválida",
+ *         response=422,
+ *         description="Parámetros incorrectos",
  *     )
  * )
  */

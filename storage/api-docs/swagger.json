@@ -39,9 +39,7 @@
                                 "required": [
                                     "email",
                                     "monto_total",
-                                    "id_producto",
-                                    "cantidad",
-                                    "monto_subtotal"
+                                    "detalle_productos"
                                 ],
                                 "properties": {
                                     "email": {
@@ -50,14 +48,22 @@
                                     "monto_total": {
                                         "type": "integer"
                                     },
-                                    "id_producto": {
-                                        "type": "integer"
-                                    },
-                                    "cantidad": {
-                                        "type": "integer"
-                                    },
-                                    "monto_subtotal": {
-                                        "type": "integer"
+                                    "detalle_productos": {
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "id_producto": {
+                                                    "type": "integer"
+                                                },
+                                                "cantidad": {
+                                                    "type": "integer"
+                                                },
+                                                "monto_subtotal": {
+                                                    "type": "integer"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
                                     }
                                 },
                                 "type": "object"
@@ -69,8 +75,8 @@
                     "200": {
                         "description": "Operación exitosa"
                     },
-                    "400": {
-                        "description": "Solicitud inválida"
+                    "422": {
+                        "description": "Parámetros incorrectos"
                     }
                 }
             }
