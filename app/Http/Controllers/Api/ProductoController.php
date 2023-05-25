@@ -110,13 +110,13 @@ class ProductoController extends Controller
  *     )
  * )
  */
-    public function productosPorCategoria($tipo_categoria){ 
+    public function productosPorCategoria($tipo_categoria){
 
         $productos =Producto::whereHas('categoria', function ($query) use ($tipo_categoria) {
             $query->where('tipo', $tipo_categoria);
         })->get();
 
-        if (!$productos) {
+        if ($productos->isEmpty()) {
             return response()->json(['message' => 'Productos no encontrados'], 404);
         } else {
             return response()->json(ProductoResource::collection($productos), 200);

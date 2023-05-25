@@ -49,7 +49,7 @@ class DetallePedidoController extends Controller
 
         $detalle = DetallePedido::where('id_pedido', $id_pedido)->get();
 
-        if (!$detalle) {
+        if ($detalle->isEmpty()) {
             return response()->json(['message' => 'Detalle no encontrado'], 404);
         } else {
             return response()->json(DetallePedidoResource::collection($detalle), 200);
