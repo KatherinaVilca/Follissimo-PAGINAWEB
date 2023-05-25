@@ -22,6 +22,6 @@ Route::get('/pedidos/{id_cliente}', [PedidoController::class, 'index_id'])->name
 Route::get('/pedidos/{id_pedido}/detalle', [DetallePedidoController::class, 'show'])->name('DetallePedido.show');
 Route::post('/compra', [CompraController::class, 'store'])->name('compra.store');
 
-//Route::get('/pedidos/{id_cliente}/index', [PedidoController::class, 'cancelar'])->name('pedido.cancelar');
+Route::post('/pedidos/cancelar', [PedidoController::class, 'cancelar'])->name('pedido.cancelar');
 Route::get('/categorias',[CategoriaController::class, 'index'])->name('categoria.index');
 Route::get('/tamaños',[TamañoController::class, 'index'])->name('tamaño.index');
