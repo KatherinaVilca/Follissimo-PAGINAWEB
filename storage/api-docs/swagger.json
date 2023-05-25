@@ -133,22 +133,35 @@
                 }
             }
         },
-        "/rest/pedido/{id}{id_estado}": {
-            "delete": {
+        "/rest/pedidos/cancelar": {
+            "post": {
                 "tags": [
                     "Pedido"
                 ],
                 "summary": "Cancelar un pedido",
                 "description": "Cancela un pedido en base a su ID.",
                 "operationId": "pedidoCancelar",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "ID del pedido",
-                        "required": true
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "id_pedido"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "id_pedido": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
                     }
-                ],
+                },
                 "responses": {
                     "200": {
                         "description": "Pedido cancelado exitosamente"
