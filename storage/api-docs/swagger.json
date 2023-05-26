@@ -81,32 +81,6 @@
                 }
             }
         },
-        "/rest/pedidos/{id_pedido}/detalle": {
-            "get": {
-                "tags": [
-                    "Detalle de Pedido"
-                ],
-                "summary": "Obtener un detalle de pedido",
-                "description": "Obtiene la información de un detalle de pedido en base a su ID.",
-                "operationId": "DetallePedidoShow",
-                "parameters": [
-                    {
-                        "name": "id_pedido",
-                        "in": "path",
-                        "description": "ID del pedido",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Información del detalle de pedido"
-                    },
-                    "404": {
-                        "description": "Detalle de pedido no encontrado"
-                    }
-                }
-            }
-        },
         "/rest/pedidos/{id_cliente}": {
             "get": {
                 "tags": [
@@ -133,8 +107,34 @@
                 }
             }
         },
+        "/rest/pedidos/{id_pedido}/detalle": {
+            "get": {
+                "tags": [
+                    "Pedido"
+                ],
+                "summary": "Obtener detalles de un pedido",
+                "description": "Obtiene la información de un detalle de pedido en base a su ID.",
+                "operationId": "DetallePedidoShow",
+                "parameters": [
+                    {
+                        "name": "id_pedido",
+                        "in": "path",
+                        "description": "ID del pedido",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Información del detalle de pedido"
+                    },
+                    "404": {
+                        "description": "Detalle de pedido no encontrado"
+                    }
+                }
+            }
+        },
         "/rest/pedidos/cancelar": {
-            "post": {
+            "put": {
                 "tags": [
                     "Pedido"
                 ],
@@ -167,7 +167,10 @@
                         "description": "Pedido cancelado exitosamente"
                     },
                     "404": {
-                        "description": "Pedido no encontrado"
+                        "description": "Pedido/Cliente no encontrado"
+                    },
+                    "422": {
+                        "description": "Pedido ya fue cancelado/entregado"
                     }
                 }
             }
