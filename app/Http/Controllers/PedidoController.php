@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pedido;
 use Illuminate\Http\Request;
+use App\Models\DetallePedido;
 
 class PedidoController extends Controller
 {
@@ -35,9 +36,12 @@ class PedidoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Pedido $pedido)
+    public function show($id)
     {
-        //
+        $detalles_pedido = DetallePedido::where('id_pedido', $id)
+            ->get();
+
+        return view('detallePedido.index', compact('detalles_pedido'))->with('id',$id);
     }
 
     /**
