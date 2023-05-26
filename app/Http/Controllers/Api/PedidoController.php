@@ -11,7 +11,9 @@ use OpenApi\Annotations\Response;
 use App\Models\Pedido;
 use App\Models\Cliente;
 use App\Models\EstadoPedido;
+use App\Models\DetallePedido;
 use App\Http\Resources\PedidoResource;
+use App\Http\Resources\DetallePedidoResource;
 
 class PedidoController extends Controller
 {
@@ -57,6 +59,44 @@ class PedidoController extends Controller
         }
     }
 
+/**
+ * Muestra el detalle de pedido para cierto ID de Pedido
+ * @param  int  $id_pedido
+ * @return \Illuminate\Http\Response
+ * @OA\Get(
+ *     path="/rest/pedidos/{id_pedido}/detalle",
+ *     operationId="DetallePedidoShow",
+ *     tags={"Pedido"},
+ *     summary="Obtener detalles de un pedido",
+ *     description="Obtiene la información de un detalle de pedido en base a su ID.",
+ *     @OA\Parameter(
+ *         description="Parámetro necesario para la consulta de detalle de pedido para un producto",
+ *         name="id_pedido",
+ *         in="path",
+ *         description="ID del pedido",
+ *         required=true,
+ *     ),
+ *     @OA\Response(
+ *         response=200,
+ *         description="Información del detalle de pedido",
+ *     ),
+ *     @OA\Response(
+ *         response=404,
+ *         description="Detalle de pedido no encontrado"
+ *     )
+ * )
+ */
+public function show($id_pedido){
+
+    $detalle = DetallePedido::where('id_pedido', $id_pedido)->get();
+
+    if ($detalle->isEmpty()) {
+        return response()->json(['message' => 'Detalle/s no encontrado/s'], 404);
+    } else {
+        return response()->json(DetallePedidoResource::collection($detalle), 200);
+    }
+}
+
 /** Dado un producto dado, lo cancela
  * @return \Illuminate\Http\Response
  * @OA\Post(
@@ -82,7 +122,11 @@ class PedidoController extends Controller
  *     ),
  *     @OA\Response(
  *         response=404,
- *         description="Pedido no encontrado"
+ *         description="Pedido/Cliente no encontrado"
+ *     ),
+ *     @OA\Response(
+ *         response=422,
+ *         description="Pedido ya fue cancelado/entregado"
  *     )
  * )
  */
@@ -92,18 +136,18 @@ class PedidoController extends Controller
             'email' => 'required|email|max:255',
             'id_pedido' => 'required|integer|min:1',
         ]);
-    
+
         if ($validator->fails()) {
-            return response()->json(['message' => 'Datos inválidos'], 400);
+            return response()->json(['message' => 'Datos inválidos'], 422);
         }
-        
+
         $validateData = $validator->validated();
-        
+
         $cliente = Cliente::where('email', $validateData['email'] )->first();
 
         if (!$cliente) {
-            return response()->json(['message' => 'cliente no encontrado'], 404);
-        } 
+            return response()->json(['message' => 'Cliente no encontrado'], 404);
+        }
 
         $id_cliente = $cliente->id;
 
@@ -119,16 +163,16 @@ class PedidoController extends Controller
         $estadoEntregado= EstadoPedido::where('estado', 'ENTREGADO')->first();
 
         if($pedido->id_estado == $estadoCancelado->id){
-            return response()->json(['message' => 'No se puede cancelar un pedido ya cancelado'], 404);
+            return response()->json(['message' => 'No se puede cancelar un pedido ya cancelado'], 422);
         }
 
         if($pedido->id_estado == $estadoEntregado->id){
-            return response()->json(['message' => 'No se puede cancelar un pedido ya entregado'], 404);
+            return response()->json(['message' => 'No se puede cancelar un pedido ya entregado'], 422);
         }
 
         $pedido->id_estado = $estadoCancelado;
 
-        return response()->json(new PedidoResource($pedido), 200);
+        return response()->json(['message' => 'Pedido cancelado exitosamente'], 200);
     }
 
 }

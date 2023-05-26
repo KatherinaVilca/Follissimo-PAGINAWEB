@@ -2,7 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\DetallePedidoController;
 use App\Http\Controllers\Api\ProductoController;
 use App\Http\Controllers\Api\PedidoController;
 use App\Http\Controllers\Api\CategoriaController;
@@ -19,7 +18,7 @@ Route::get('/productos/{id}', [ProductoController::class, 'show'])->name('produc
 Route::get('/productos/tamaño/{tipo_tamaño}', [ProductoController::class, 'productosPorTamaño'])->name('producto.productosPorTamaño');
 Route::get('/productos/categoria/{tipo_categoria}', [ProductoController::class, 'productosPorCategoria'])->name('producto.productosPorCategoria');
 Route::get('/pedidos/{id_cliente}', [PedidoController::class, 'index_id'])->name('pedido.index_id');
-Route::get('/pedidos/{id_pedido}/detalle', [DetallePedidoController::class, 'show'])->name('DetallePedido.show');
+Route::get('/pedidos/{id_pedido}/detalle', [PedidoController::class, 'show'])->name('pedido.show');
 Route::post('/compra', [CompraController::class, 'store'])->name('compra.store');
 
 Route::post('/pedidos/cancelar', [PedidoController::class, 'cancelar'])->name('pedido.cancelar');
