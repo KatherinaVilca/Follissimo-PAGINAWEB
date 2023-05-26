@@ -99,7 +99,7 @@ public function show($id_pedido){
 
 /** Dado un producto dado, lo cancela
  * @return \Illuminate\Http\Response
- * @OA\Post(
+ * @OA\Put(
  *     path="/rest/pedidos/cancelar",
  *     operationId="pedidoCancelar",
  *     tags={"Pedido"},
@@ -170,9 +170,9 @@ public function show($id_pedido){
             return response()->json(['message' => 'No se puede cancelar un pedido ya entregado'], 422);
         }
 
-        $pedido->id_estado = $estadoCancelado;
+        $pedido->id_estado = $estadoCancelado->id;
+        $pedido->update();
 
         return response()->json(['message' => 'Pedido cancelado exitosamente'], 200);
     }
-
 }
