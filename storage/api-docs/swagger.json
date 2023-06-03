@@ -81,7 +81,37 @@
                 }
             }
         },
+<<<<<<< Updated upstream
         "/rest/pedidos/{id_cliente}": {
+=======
+        "/rest/pedidos/{id_pedido}/detalle": {
+            "get": {
+                "tags": [
+                    "Detalle de Pedido"
+                ],
+                "summary": "Obtener un detalle de pedido",
+                "description": "Obtiene la información de un detalle de pedido en base a su ID.",
+                "operationId": "DetallePedidoShow",
+                "parameters": [
+                    {
+                        "name": "id_pedido",
+                        "in": "path",
+                        "description": "ID del pedido",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Información del detalle de pedido"
+                    },
+                    "404": {
+                        "description": "Detalle de pedido no encontrado"
+                    }
+                }
+            }
+        },
+        "/rest/pedidos/{email}": {
+>>>>>>> Stashed changes
             "get": {
                 "tags": [
                     "Pedido"
@@ -91,9 +121,9 @@
                 "operationId": "pedidoIndexID",
                 "parameters": [
                     {
-                        "name": "id_cliente",
+                        "name": "email",
                         "in": "path",
-                        "description": "ID del cliente",
+                        "description": "Email del cliente",
                         "required": true
                     }
                 ],
