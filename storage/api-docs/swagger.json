@@ -81,9 +81,6 @@
                 }
             }
         },
-<<<<<<< Updated upstream
-        "/rest/pedidos/{id_cliente}": {
-=======
         "/rest/pedidos/{id_pedido}/detalle": {
             "get": {
                 "tags": [
@@ -111,7 +108,6 @@
             }
         },
         "/rest/pedidos/{email}": {
->>>>>>> Stashed changes
             "get": {
                 "tags": [
                     "Pedido"
