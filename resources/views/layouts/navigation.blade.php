@@ -100,11 +100,11 @@
             <x-responsive-nav-link :href="route('cliente.index')" :active="request()->routeIs('cliente.index')">
                 {{ __('Clientes') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('estadoPedido.index')" :active="request()->routeIs('estadoPedido.index')">
+                {{ __('Estados') }}
+            </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('pedido.index')" :active="request()->routeIs('pedido.index')">
                 {{ __('Pedidos') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Detalles Pedidos') }}
             </x-responsive-nav-link>
         </div>
 

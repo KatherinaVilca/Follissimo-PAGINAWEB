@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class EstadoPedido extends Model
 {
-    use HasFactory;
     use SoftDeletes;
     protected $table = 'estados_pedido';
 

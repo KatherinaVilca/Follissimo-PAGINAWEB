@@ -23,7 +23,7 @@ class ProductoRequest extends FormRequest
     {
         return [
             'Nombre'=> 'bail|required',
-            'Precio' => 'required|min:0',
+            'Precio' => 'required|numeric|min:0',
             'Color' =>'required',
             'Categoria'=>'required',
             'Tamaño'=>'required',

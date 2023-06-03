@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Tamaño extends Model
 {
-    use HasFactory;
+    protected $table = 'tamaños';
     use SoftDeletes;
 
     public function productos() {

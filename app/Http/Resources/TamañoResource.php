@@ -15,7 +15,8 @@ class TamañoResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'tipo'  => $this->id
+            'id' => $this->id,
+            'tipo'  => $this->tipo
         ];
     }
 }

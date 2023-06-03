@@ -3,15 +3,19 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Contracts\Validation\Validator;
 
 class CompraRequest extends FormRequest
 {
+    public $validator = null;
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,10 +26,19 @@ class CompraRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id_producto' => 'required',
-            'Precio' => 'required|min:0',
-            'cantidad' => 'min:0',
-            'Email' => 'required', 'max:255'
+            'email' => 'required|email|max:255',
+            'monto_total' => 'required|numeric|min:0',
+            'detalle_productos' => 'required|array|min:1',
+                'detalle_productos.*.id_producto' => 'required|numeric|min:1',
+                'detalle_productos.*.cantidad' => 'required|numeric|min:1',
+                'detalle_productos.*.monto_subtotal' => 'required|numeric|min:0',
         ];
+    }
+
+    protected function failedValidation(Validator $validator)
+    {
+        throw new HttpResponseException(response()->json([
+            'errors' => $validator->errors(),
+        ], 422));
     }
 }

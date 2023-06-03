@@ -18,8 +18,8 @@ class PedidoResource extends JsonResource
             'id_pedido' => $this->id,
             'monto_total'  => $this->monto_total,
             'fecha' => $this->fecha,
-            'id_cliente' => $this->id_cliente,
-            'id_estado' => $this->id_estado
+            'cliente' => new ClienteResource($this->cliente),
+            'estado' => new EstadoResource($this->estado),
         ];
     }
 }

@@ -24,68 +24,46 @@
                 }
             }
         },
-        "/rest/clientes/create": {
+        "/rest/compra": {
             "post": {
                 "tags": [
-                    "Cliente"
+                    "Compra"
                 ],
-                "summary": "Crear un nuevo cliente",
-                "operationId": "574c0071d77ad35cd828bb0eacbfa0f4",
-                "responses": {
-                    "200": {
-                        "description": "Campos necesarios para crear un nuevo cliente",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "fields": {
+                "summary": "Crear una nueva compra",
+                "description": "Realizar una compra.",
+                "operationId": "store",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "monto_total",
+                                    "detalle_productos"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "monto_total": {
+                                        "type": "integer"
+                                    },
+                                    "detalle_productos": {
+                                        "type": "array",
+                                        "items": {
                                             "properties": {
-                                                "email": {
-                                                    "properties": {
-                                                        "type": {
-                                                            "type": "string",
-                                                            "example": "email"
-                                                        },
-                                                        "label": {
-                                                            "type": "string",
-                                                            "example": "Email"
-                                                        },
-                                                        "required": {
-                                                            "type": "boolean",
-                                                            "example": true
-                                                        }
-                                                    },
-                                                    "type": "object"
+                                                "id_producto": {
+                                                    "type": "integer"
+                                                },
+                                                "cantidad": {
+                                                    "type": "integer"
+                                                },
+                                                "monto_subtotal": {
+                                                    "type": "integer"
                                                 }
                                             },
                                             "type": "object"
                                         }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/rest/clientes": {
-            "post": {
-                "tags": [
-                    "Clientes"
-                ],
-                "summary": "Crear un nuevo cliente",
-                "operationId": "2a8a28c7aec782e1af95193a65053e68",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "properties": {
-                                    "email": {
-                                        "description": "Correo electrónico del nuevo cliente",
-                                        "type": "string",
-                                        "format": "email"
                                     }
                                 },
                                 "type": "object"
@@ -95,52 +73,18 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Cliente creado exitosamente",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "data": {}
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
+                        "description": "Operación exitosa"
                     },
                     "422": {
-                        "description": "Error de validación",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "message": {
-                                            "type": "string",
-                                            "example": "Los datos proporcionados no son válidos."
-                                        },
-                                        "errors": {
-                                            "description": "Errores de validación al crear un cliente.",
-                                            "properties": {
-                                                "email": {
-                                                    "description": "Error de validación del campo email.",
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "string",
-                                                        "example": "El campo email es requerido."
-                                                    }
-                                                }
-                                            },
-                                            "type": "object"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
+                        "description": "Parámetros incorrectos"
                     }
                 }
             }
         },
-        "/rest/pedidos/detallepedido/{id_pedido}/show": {
+<<<<<<< Updated upstream
+        "/rest/pedidos/{id_cliente}": {
+=======
+        "/rest/pedidos/{id_pedido}/detalle": {
             "get": {
                 "tags": [
                     "Detalle de Pedido"
@@ -166,7 +110,8 @@
                 }
             }
         },
-        "/rest/pedidos/{id_cliente}/index_id": {
+        "/rest/pedidos/{email}": {
+>>>>>>> Stashed changes
             "get": {
                 "tags": [
                     "Pedido"
@@ -176,9 +121,9 @@
                 "operationId": "pedidoIndexID",
                 "parameters": [
                     {
-                        "name": "id_cliente",
+                        "name": "email",
                         "in": "path",
-                        "description": "ID del cliente",
+                        "description": "Email del cliente",
                         "required": true
                     }
                 ],
@@ -192,17 +137,17 @@
                 }
             }
         },
-        "/rest/pedido/{id}{id_estado}": {
-            "delete": {
+        "/rest/pedidos/{id_pedido}/detalle": {
+            "get": {
                 "tags": [
                     "Pedido"
                 ],
-                "summary": "Cancelar un pedido",
-                "description": "Cancela un pedido en base a su ID.",
-                "operationId": "pedidoCancelar",
+                "summary": "Obtener detalles de un pedido",
+                "description": "Obtiene la información de un detalle de pedido en base a su ID.",
+                "operationId": "DetallePedidoShow",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "id_pedido",
                         "in": "path",
                         "description": "ID del pedido",
                         "required": true
@@ -210,10 +155,52 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "Información del detalle de pedido"
+                    },
+                    "404": {
+                        "description": "Detalle de pedido no encontrado"
+                    }
+                }
+            }
+        },
+        "/rest/pedidos/cancelar": {
+            "put": {
+                "tags": [
+                    "Pedido"
+                ],
+                "summary": "Cancelar un pedido",
+                "description": "Cancela un pedido en base a su ID.",
+                "operationId": "pedidoCancelar",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "id_pedido"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "id_pedido": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
                         "description": "Pedido cancelado exitosamente"
                     },
                     "404": {
-                        "description": "Pedido no encontrado"
+                        "description": "Pedido/Cliente no encontrado"
+                    },
+                    "422": {
+                        "description": "Pedido ya fue cancelado/entregado"
                     }
                 }
             }
@@ -236,7 +223,59 @@
                 }
             }
         },
-        "/rest/productos/{id}/show": {
+        "/rest/productos/tamaño/{tipo_tamaño}": {
+            "get": {
+                "tags": [
+                    "Productos"
+                ],
+                "summary": "Obtener productos por tamaño",
+                "description": "Muestra todos los productos filtrados por un tamaño dado",
+                "operationId": "getproductosPorTamaño",
+                "parameters": [
+                    {
+                        "name": "tipo_tamaño",
+                        "in": "path",
+                        "description": "Tipo de tamaño",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa"
+                    },
+                    "404": {
+                        "description": "Productos no encontrados"
+                    }
+                }
+            }
+        },
+        "/rest/productos/categoria/{tipo_categoria}": {
+            "get": {
+                "tags": [
+                    "Productos"
+                ],
+                "summary": "Obtener productos por categoría",
+                "description": "Muestra todos los productos filtrados por una categoria dada",
+                "operationId": "getproductosPorCategoria",
+                "parameters": [
+                    {
+                        "name": "tipo_categoria",
+                        "in": "path",
+                        "description": "Tipo de categoría",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa"
+                    },
+                    "404": {
+                        "description": "Productos no encontrados"
+                    }
+                }
+            }
+        },
+        "/rest/productos/{id}": {
             "get": {
                 "tags": [
                     "Producto"

@@ -4,51 +4,94 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Http\Response;
 use App\Models\Pedido;
 use App\Models\DetallePedido;
+use App\Models\EstadoPedido;
 use App\Models\Cliente;
+use OpenApi\Annotations as OA;
+use OpenApi\Annotations\Post;
+use OpenApi\Annotations\RequestBody;
+use OpenApi\Annotations\MediaType;
+use OpenApi\Annotations\Schema;
+use OpenApi\Annotations\Property;
+
 use App\Http\Requests\CompraRequest;
 
-
 class CompraController extends Controller
-{   
-    public function store(ProductoRequest $request) {
+{
+ /**
+ * Realizar una compra.
+ * @OA\Post(
+ *     path="/rest/compra",
+ *     operationId="store",
+ *     tags={"Compra"},
+ *     summary="Crear una nueva compra",
+ *     @OA\RequestBody(
+ *         @OA\MediaType(
+ *             mediaType="application/json",
+ *             @OA\Schema(
+ *                 type="object",
+ *                 required={"email", "monto_total", "detalle_productos"},
+ *                 @OA\Property(property="email", type="string"),
+ *                 @OA\Property(property="monto_total", type="integer"),
+ *                 @OA\Property(property="detalle_productos", type="array",
+ *                      @OA\Items(
+ *                            type="object",
+ *                            @OA\Property(property="id_producto", type="integer"),
+ *                            @OA\Property(property="cantidad", type="integer"),
+ *                            @OA\Property(property="monto_subtotal", type="integer"),
+ *                      )
+ *                  )
+ *             )
+ *         )
+ *     ),
+ *     @OA\Response(
+ *         response=200,
+ *         description="Operación exitosa",
+ *     ),
+ *     @OA\Response(
+ *         response=422,
+ *         description="Parámetros incorrectos",
+ *     )
+ * )
+ */
+    public function store(CompraRequest $request) {
 
-        $validateData = $request->validated();
+        $validatedRequest = $request->validated();
 
-        $pedido= new Pedido();
-        $detallePedido = new DetallePedido ();
-    
-        $cliente = Cliente::where('email',  $validateData['email'])->first();
+        $pedido = new Pedido();
+
+        $cliente = Cliente::where('email',  $validatedRequest['email'])->first();
 
         if (!$cliente) {
             $cliente = new Cliente();
-
-            //pero el request solo viene un mail. Si cliente es nulo, deberia abrir un formulario 
-            // donde se pidan y me manden estos datos. Luego deberia volver aca con
-            //otro resquest y a ese pedirle estas cosas.
-            /*
-            $cliente->nombre = $validateData['nombre'];
-            $cliente->apellido = $validateData['apellido'];
-            $cliente->direccion = $validateData['direccion'];
-            $cliente->email = $validateData['email'];
+            $cliente->nombre = Str::random(10);
+            $cliente->apellido = Str::random(10);
+            $cliente->direccion = Str::random(20);
+            $cliente->email = $validatedRequest['email'];
             $cliente->save();
-            */
-            $cliente->email = $validateData['email'];
         }
-        
-        $pedido->monto_total = $validateData['monto_total'];
+
+        $estadoPendiente = EstadoPedido::where('estado', 'PENDIENTE')->first();
+
+        $pedido->monto_total = $validatedRequest['monto_total'];
         $pedido->id_cliente = $cliente->id;
-        $pedido->estado= 'pendiente';
+        $pedido->id_estado = $estadoPendiente->id;
         $pedido->save();
-      
-        $detallePedido->id_pedido = $pedido->id;
-        $detallePedido->id_producto = $validateData['id_producto'];
-        $detallePedido->cantidad = $validateData['cantidad'];
-        $detallePedido->monto_subtotal = $validateData['monto_subtotal'];
 
+        foreach ($validatedRequest['detalle_productos'] as $detalle_producto) {
+            $detallePedido = new DetallePedido();
+            $detallePedido->id_pedido = $pedido->id;
+            $detallePedido->id_producto = $detalle_producto['id_producto'];
+            $detallePedido->cantidad = $detalle_producto['cantidad'];
+            $detallePedido->monto_subtotal = $detalle_producto['monto_subtotal'];
+            $detallePedido->save();
+        }
 
+        return response()->json([
+            'message' => 'Compra realizada con éxito',
+        ], 201);
     }
-
-
 }
