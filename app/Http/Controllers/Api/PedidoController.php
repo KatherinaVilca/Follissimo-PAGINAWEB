@@ -23,18 +23,18 @@ class PedidoController extends Controller
     }
 
 /** Muestra todos los pedidos para un id de cliente
- * @param  int  $id_cliente
+ * @param string $email
  * @return \Illuminate\Http\Response
  * @OA\Get(
- *     path="/rest/pedidos/{id_cliente}",
+ *     path="/rest/pedidos/{email}",
  *     operationId="pedidoIndexID",
  *     tags={"Pedido"},
  *     summary="Obtener pedidos de un cliente",
  *     description="Obtiene la lista de pedidos asociados a un cliente en base a su ID.",
- *     @OA\Parameter(
- *         name="id_cliente",
+ *    @OA\Parameter(
+ *         name="email",
  *         in="path",
- *         description="ID del cliente",
+ *         description="Email del cliente",
  *         required=true,
  *     ),
  *     @OA\Response(
@@ -48,11 +48,19 @@ class PedidoController extends Controller
  *     )
  * )
  */
-    public function index_id($id_cliente){
+    public function index_id($email){
+       
+        $cliente = Cliente::where('email', $email)->first();
+
+        if (!$cliente) {
+            return response()->json(['message' => 'cliente no encontrado'], 404);
+        }
+
+        $id_cliente = $cliente->id;
 
         $pedidos = Pedido::where('id_cliente', $id_cliente)->get();
 
-        if ($pedidos->isEmpty()) {
+        if (!$pedidos) {
             return response()->json(['message' => 'Pedidos no encontrados'], 404);
         } else {
             return response()->json(PedidoResource::collection($pedidos), 200);
