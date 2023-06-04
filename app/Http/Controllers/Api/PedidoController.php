@@ -48,7 +48,7 @@ class PedidoController extends Controller
  *     )
  * )
  */
-    public function index_id($email){
+    public function index_email($email){
        
         $cliente = Cliente::where('email', $email)->first();
 
