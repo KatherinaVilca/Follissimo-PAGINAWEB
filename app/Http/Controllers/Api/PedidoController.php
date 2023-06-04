@@ -60,8 +60,8 @@ class PedidoController extends Controller
 
         $pedidos = Pedido::where('id_cliente', $id_cliente)->get();
 
-        if (!$pedidos) {
-            return response()->json(['message' => 'Pedidos no encontrados'], 404);
+        if ($pedidos->isEmpty()) {
+            return response()->json(['message' => 'Pedidos no encontrados'], 200);
         } else {
             return response()->json(PedidoResource::collection($pedidos), 200);
         }
