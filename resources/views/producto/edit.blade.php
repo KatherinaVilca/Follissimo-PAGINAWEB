@@ -7,7 +7,7 @@
 @endsection
 
 @section('page content')
-        <form action="/productos/{{$producto->id}}" method="POST">
+        <form action="/productos/{{$producto->id}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="mb-3">
@@ -35,7 +35,9 @@
                     <div class="invalid-feedback d-block" role="alert">
                         {{$message}}
                     </div>
-                @enderror            </div>
+                @enderror            
+            </div>
+
             <div class="mb-3">
                 <label> Categoria:</label>
                 <select class="form-select" aria-label="Default select example" name="Categoria" tabindex="4">
@@ -68,6 +70,16 @@
                         {{$message}}
                     </div>
                 @enderror
+            </div>
+
+            <div class="mb-3">
+              <label for="imagen" class="form-label">Imagen</label>
+            <input type="file" class="form-control" name="imagen" tabindex="9">
+             @error('imagen')
+               <div class="invalid-feedback d-block" role="alert">
+                {{$message}}
+                </div>
+               @enderror
             </div>
 
             <button type="submit" class="btn btn-outline-success" tabindex="7">Guardar cambios</button>
