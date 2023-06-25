@@ -25,11 +25,11 @@ Route::get('/productos/categoria/{tipo_categoria}', [ProductoController::class, 
 Route::get('/categorias',[CategoriaController::class, 'index'])->name('categoria.index');
 Route::get('/tamaños',[TamañoController::class, 'index'])->name('tamaño.index');
 
-//Route::middleware('auth:sanctum')->group(function () {
 Route::group(['middleware'=>["auth:sanctum"]],function(){
     Route::post('/logout', [ClienteAuthenticatedSessionController::class, 'logout'])->name('ClienteAuthenticatedSessionController.logout');
-    Route::put('/pedidos/cancelar', [PedidoController::class, 'cancelar'])->name('pedido.cancelar');
-    Route::post('/compra', [CompraController::class, 'store'])->name('compra.store');
-    Route::get('/pedidos/{id_pedido}/detalle', [DetallePedidoController::class, 'show'])->name('DetallePedido.show');
     Route::get('/mispedidos', [PedidoController::class, 'index'])->name('pedido.index');
+    Route::post('/compra', [CompraController::class, 'store'])->name('compra.store');
+  
+    Route::get('/pedidos/{id_pedido}/detalle', [DetallePedidoController::class, 'show'])->name('DetallePedido.show');
+    Route::put('/pedidos/cancelar', [PedidoController::class, 'cancelar'])->name('pedido.cancelar');
 });
