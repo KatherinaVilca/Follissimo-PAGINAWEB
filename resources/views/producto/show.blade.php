@@ -7,8 +7,17 @@
 @endsection
 @section('page content')
     <div class="container">
-        <div class="card mb-3" style="max-width: 540px;">
+        <div class="card mb-3" style="max-width: 840px;">
             <div class="row g-0">
+
+            <div class="col-md-4">
+                    @if ($producto->imagen)
+                        <img src="{{ $producto->imagen }}" class="img-fluid" alt="Imagen del producto">
+                    @else
+                        <p>Sin imagen</p>
+                    @endif
+                </div>
+                
                 <div class="col-md-8">
                     <div class="card-body">
                             <h5 class="card-title">Nombre: {{$producto->nombre}}</h5>
