@@ -20,42 +20,41 @@ class PedidoController extends Controller
 {
     
 /** Muestra todos los pedidos para un id de cliente
- * @param string $token
  * @return \Illuminate\Http\Response
  * @OA\Get(
  *     path="/rest/mispedidos",
  *     operationId="pedidoIndexID",
  *     tags={"Pedido"},
  *     summary="Obtener pedidos de un cliente",
- *     description="Obtiene la lista de pedidos asociados a un cliente en base a su ID.",
- *    @OA\Parameter(
- *         name="token",
- *         in="path",
- *         description="token del cliente",
- *         required=true,
- *     ),
+ *     description="Obtiene la lista de pedidos asociados a un cliente.",
+ *     security={{"bearerAuth": {}}},
  *     @OA\Response(
  *         response=200,
  *         description="Lista de pedidos del cliente",
+ *         @OA\JsonContent(
+ *             type="array",
+ *             @OA\Items(ref="#/components/schemas/PedidoResource")
+ *         )
  *     ),
- *
  *     @OA\Response(
- *         response=404,
- *         description="No se encontraron pedidos del cliente"
- *     )
+ *         response=400,
+ *         description="No se encontraron pedidos del cliente",
+ *         @OA\JsonContent(
+ *             @OA\Property(
+ *                 property="message",
+ *                 type="string",
+ *                 example="Pedidos no encontrados"
+ *             )
+ *         )
+ *     ),
+ *     @OA\Response(
+ *         response=401,
+ *         description="No autorizado",
+ *     ),
  * )
  */
     public function index(){
-       /*
-        $cliente = Cliente::where('email', $email)->first();
-
-        if (!$cliente) {
-            return response()->json(['message' => 'cliente no encontrado'], 404);
-        }
-
-        $id_cliente = $cliente->id;
-        */
-
+      
         $cliente = Auth::user();
     
         $id_cliente = $cliente->id;
