@@ -5,7 +5,7 @@
 @endsection
 
 @section('page content')
-        <form action="/productos" method="POST">
+        <form action="/productos" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="Nombre" class="form-label">Nombre producto</label>
@@ -58,6 +58,16 @@
                         {{$message}}
                     </div>
                 @enderror
+            </div>
+
+            <div class="mb-3">
+              <label for="imagen" class="form-label">Imagen</label>
+            <input type="file" class="form-control" name="imagen" tabindex="9">
+             @error('imagen')
+               <div class="invalid-feedback d-block" role="alert">
+                {{$message}}
+                </div>
+               @enderror
             </div>
 
             <button type="submit" class="btn btn-outline-success" tabindex="7">Crear</button>
