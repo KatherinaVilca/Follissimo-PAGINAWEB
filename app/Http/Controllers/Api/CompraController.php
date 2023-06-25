@@ -54,6 +54,7 @@ class CompraController extends Controller
      *         response=422,
      *         description="Parámetros incorrectos",
      *     )
+     *       security={{"bearerAuth": {}}}
      * )
      */
 
@@ -67,20 +68,6 @@ class CompraController extends Controller
         $user = $request->user();
 
         $cliente = Cliente::where('email', $user->email)->first();
-
-        /*
-        $cliente = Cliente::where('email',  $validatedRequest['email'])->first();
-
-        if (!$cliente) {
-            $cliente = new Cliente();
-            $cliente->nombre = Str::random(10);
-            $cliente->apellido = Str::random(10);
-            $cliente->direccion = Str::random(20);
-            $cliente->email = $validatedRequest['email'];
-            $cliente->save();
-        }
-        */
-        
 
         $estadoPendiente = EstadoPedido::where('estado', 'PENDIENTE')->first();
 
@@ -103,43 +90,4 @@ class CompraController extends Controller
         ], 201);
     }
     
-
-    /*
-    public function store(Request $request)
-{
-    $validatedData = $request->validate([
-        'monto_total' => 'required',
-        'detalle_productos' => 'required|array',
-        'detalle_productos.*.id_producto' => 'required',
-        'detalle_productos.*.cantidad' => 'required',
-        'detalle_productos.*.monto_subtotal' => 'required',
-    ]);
-
-    $pedido = new Pedido();
-
-    $user = $request->user();
-    $cliente = Cliente::where('email', $user->email)->first();
-
-    $estadoPendiente = EstadoPedido::where('estado', 'PENDIENTE')->first();
-
-    $pedido->monto_total = $validatedData['monto_total'];
-    $pedido->id_cliente = $cliente->id;
-    $pedido->id_estado = $estadoPendiente->id;
-    $pedido->save();
-
-    foreach ($validatedData['detalle_productos'] as $detalleProducto) {
-        $detallePedido = new DetallePedido();
-        $detallePedido->id_pedido = $pedido->id;
-        $detallePedido->id_producto = $detalleProducto['id_producto'];
-        $detallePedido->cantidad = $detalleProducto['cantidad'];
-        $detallePedido->monto_subtotal = $detalleProducto['monto_subtotal'];
-        $detallePedido->save();
-    }
-
-    return response()->json([
-        'message' => 'Compra realizada con éxito',
-    ], 201);
-}
-*/
-
 }
