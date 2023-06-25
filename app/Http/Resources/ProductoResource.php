@@ -19,6 +19,7 @@ class ProductoResource extends JsonResource
             'nombre' => $this->nombre,
             'precio' => $this->precio,
             'color' => $this->color,
+            'imagen' => $this->imagen,
             'tipo_categoria' => $this->categoria->tipo,
             'tipo_tamaño' => $this->tamaño->tipo,
             'descripción' => $this->descripción
