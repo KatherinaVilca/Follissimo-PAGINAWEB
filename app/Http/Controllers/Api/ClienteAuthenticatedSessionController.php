@@ -36,7 +36,7 @@ class ClienteAuthenticatedSessionController extends Controller
         $token = $cliente->createToken('auth_token')->plainTextToken;
 
         return response()
-            ->json(['data' => $cliente, 'access_token' => $token, 'token_type' => 'Bearer',]);
+            ->json(['cliente' => $cliente, 'access_token' => $token, 'token_type' => 'Bearer',]);
     }
 
     public function login (Request $request)
@@ -48,15 +48,19 @@ class ClienteAuthenticatedSessionController extends Controller
                 ->json(['message' => 'No autorizado en el controler'], 401);
             
         }
-        */
+        
 
         $cliente = Cliente::where('email', $request['email']) ->first();
+        */
+
+        $cliente = Cliente::where('email', $request['email'])->first();
+
         $token = $cliente->createToken('auth_token')->plainTextToken;
 
         return response()
         ->json([
             'message' => 'Bienvenido '.$cliente->name,
-            'accessToken' => $token,
+            'access_token' => $token,
             'token_type' => 'Bearer',
             'cliente' => $cliente,
         ]);
