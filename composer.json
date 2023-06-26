@@ -13,6 +13,7 @@
         "laravel/sanctum": "^3.2",
         "laravel/scout": "^10.1",
         "laravel/tinker": "^2.8",
+        "mercadopago/dx-php": "^2.5",
         "zircote/swagger-php": "^4.7"
     },
     "require-dev": {
