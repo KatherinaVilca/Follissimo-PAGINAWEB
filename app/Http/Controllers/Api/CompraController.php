@@ -94,4 +94,29 @@ class CompraController extends Controller
             'message' => 'Compra realizada con éxito',
         ], 201);
     }
+
+    public function MPOrder(Request $contents) {
+        \MercadoPago\SDK::setAccessToken("TEST-8501622214294283-062210-930ba2761940ddc39730a55f6cf9ddbc-179015124");
+
+        $payment = new \MercadoPago\Payment();
+        $payment->transaction_amount = $contents['transaction_amount'];
+        $payment->token = $contents['token'];
+        $payment->installments = $contents['installments'];
+        $payment->payment_method_id = $contents['payment_method_id'];
+        $payment->issuer_id = $contents['issuer_id'];
+        $payer = new \MercadoPago\Payer();
+        $payer->email = $contents['payer']['email'];
+        $payer->identification = array(
+            "type" => $contents['payer']['identification']['type'],
+            "number" => $contents['payer']['identification']['number']
+        );
+        $payment->payer = $payer;
+        $payment->save();
+        $response = array(
+            'status' => $payment->status,
+            'status_detail' => $payment->status_detail,
+            'id' => $payment->id
+        );
+        return response()->json($response);
+    }
 }

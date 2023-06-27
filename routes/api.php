@@ -24,3 +24,5 @@ Route::post('/compra', [CompraController::class, 'store'])->name('compra.store')
 Route::put('/pedidos/cancelar', [PedidoController::class, 'cancelar'])->name('pedido.cancelar');
 Route::get('/categorias',[CategoriaController::class, 'index'])->name('categoria.index');
 Route::get('/tamaños',[TamañoController::class, 'index'])->name('tamaño.index');
+
+Route::post('/process_payment',[CompraController::class, 'MPOrder']);
