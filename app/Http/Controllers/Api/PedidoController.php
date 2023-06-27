@@ -14,54 +14,55 @@ use App\Models\EstadoPedido;
 use App\Models\DetallePedido;
 use App\Http\Resources\PedidoResource;
 use App\Http\Resources\DetallePedidoResource;
+use Illuminate\Support\Facades\Auth;
 
 class PedidoController extends Controller
 {
-    public function index()
-    {
-
-    }
-
+    
 /** Muestra todos los pedidos para un id de cliente
- * @param string $email
  * @return \Illuminate\Http\Response
  * @OA\Get(
- *     path="/rest/pedidos/{email}",
+ *     path="/rest/mispedidos",
  *     operationId="pedidoIndexID",
  *     tags={"Pedido"},
  *     summary="Obtener pedidos de un cliente",
- *     description="Obtiene la lista de pedidos asociados a un cliente en base a su ID.",
- *    @OA\Parameter(
- *         name="email",
- *         in="path",
- *         description="Email del cliente",
- *         required=true,
- *     ),
+ *     description="Obtiene la lista de pedidos asociados a un cliente.",
+ *     security={{"bearerAuth": {}}},
  *     @OA\Response(
  *         response=200,
  *         description="Lista de pedidos del cliente",
+ *         @OA\JsonContent(
+ *             type="array",
+ *             @OA\Items(ref="#/components/schemas/PedidoResource")
+ *         )
  *     ),
- *
  *     @OA\Response(
- *         response=404,
- *         description="No se encontraron pedidos del cliente"
- *     )
+ *         response=400,
+ *         description="No se encontraron pedidos del cliente",
+ *         @OA\JsonContent(
+ *             @OA\Property(
+ *                 property="message",
+ *                 type="string",
+ *                 example="Pedidos no encontrados"
+ *             )
+ *         )
+ *     ),
+ *     @OA\Response(
+ *         response=401,
+ *         description="No autorizado",
+ *     ),
  * )
  */
-    public function index_email($email){
-       
-        $cliente = Cliente::where('email', $email)->first();
-
-        if (!$cliente) {
-            return response()->json(['message' => 'cliente no encontrado'], 404);
-        }
-
+    public function index(){
+      
+        $cliente = Auth::user();
+    
         $id_cliente = $cliente->id;
 
         $pedidos = Pedido::where('id_cliente', $id_cliente)->get();
 
         if ($pedidos->isEmpty()) {
-            return response()->json(['message' => 'Pedidos no encontrados'], 200);
+            return response()->json(['message' => 'Pedidos no encontrados'], 400);
         } else {
             return response()->json(PedidoResource::collection($pedidos), 200);
         }
@@ -73,7 +74,7 @@ class PedidoController extends Controller
  * @return \Illuminate\Http\Response
  * @OA\Get(
  *     path="/rest/pedidos/{id_pedido}/detalle",
- *     operationId="DetallePedidoShow",
+ *     operationId="pedidoShow",
  *     tags={"Pedido"},
  *     summary="Obtener detalles de un pedido",
  *     description="Obtiene la información de un detalle de pedido en base a su ID.",

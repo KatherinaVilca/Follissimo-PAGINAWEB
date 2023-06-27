@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 class ClienteSeeder extends Seeder
 {
@@ -27,6 +28,7 @@ class ClienteSeeder extends Seeder
                 'apellido' => $apellido,
                 'direccion' => $calles[array_rand($calles)].' '.rand(0,1000),
                 'email' => $nombre.'_'.$apellido.'@gmail.com',
+                'password' => Hash::make('12345'),
                 ]);
         }
     }
