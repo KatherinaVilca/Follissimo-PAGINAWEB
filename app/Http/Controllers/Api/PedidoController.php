@@ -74,7 +74,7 @@ class PedidoController extends Controller
  * @return \Illuminate\Http\Response
  * @OA\Get(
  *     path="/rest/pedidos/{id_pedido}/detalle",
- *     operationId="DetallePedidoShow",
+ *     operationId="pedidoShow",
  *     tags={"Pedido"},
  *     summary="Obtener detalles de un pedido",
  *     description="Obtiene la información de un detalle de pedido en base a su ID.",
