@@ -25,5 +25,4 @@ class Producto extends Model
     {
         return $this->belongsTo(Tamaño::class,'tipo_tamaño');
     }
-
 }
