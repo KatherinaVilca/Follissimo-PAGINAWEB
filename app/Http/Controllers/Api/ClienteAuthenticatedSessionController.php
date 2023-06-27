@@ -8,6 +8,8 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+
 use Illuminate\View\View;
 use App\Http\Requests\RegistroRequest;
 use App\Models\Cliente;
@@ -19,12 +21,7 @@ class ClienteAuthenticatedSessionController extends Controller
     {
         $validateData = $request->validated();
 
-        /*
-        if($validateData->fails()){
-            return response()->json($validateData->errors());
-        }
-        */
-
+       
         $cliente = new Cliente();
         $cliente->nombre = $validateData['nombre'];
         $cliente->apellido = $validateData['apellido'];
@@ -39,31 +36,33 @@ class ClienteAuthenticatedSessionController extends Controller
             ->json(['cliente' => $cliente, 'access_token' => $token, 'token_type' => 'Bearer',]);
     }
 
-    public function login (Request $request)
+    public function login (Request $request)       
     {
-        /*
-        if(!Auth::attempt($request->only('email','password')))
-        {
-            return response()
-                ->json(['message' => 'No autorizado en el controler'], 401);
-            
-        }
-        
-
-        $cliente = Cliente::where('email', $request['email']) ->first();
-        */
-
         $cliente = Cliente::where('email', $request['email'])->first();
 
-        $token = $cliente->createToken('auth_token')->plainTextToken;
+           if(isset($cliente->id)){
+            if(Hash::check($request->password, $cliente->password)){
+                $token = $cliente->createToken('auth_token')->plainTextToken;
 
-        return response()
-        ->json([
-            'message' => 'Bienvenido '.$cliente->name,
-            'access_token' => $token,
-            'token_type' => 'Bearer',
-            'cliente' => $cliente,
-        ]);
+                return response()
+                ->json([
+                    'message' => 'Bienvenido '.$cliente->name,
+                    'access_token' => $token,
+                    'token_type' => 'Bearer',
+                    'cliente' => $cliente,
+                ]);
+
+            }else{
+                return response()->json([
+                    'error' => 'La contraseña es incorrecta.'
+                ],401);
+            }
+        }else{
+            return response()->json([
+                'error' => 'Usuario no registrado.'
+            ],400);
+        }
+
     } 
 
     
