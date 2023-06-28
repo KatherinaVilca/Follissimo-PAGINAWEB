@@ -29,6 +29,7 @@ Route::group(['middleware'=>["auth:sanctum"]],function(){
     Route::post('/logout', [ClienteAuthenticatedSessionController::class, 'logout'])->name('ClienteAuthenticatedSessionController.logout');
     Route::get('/mispedidos', [PedidoController::class, 'index'])->name('pedido.index');
     Route::post('/compra', [CompraController::class, 'store'])->name('compra.store');
-
+    Route::post('/process_payment',[CompraController::class, 'MPOrder']);
+  
     Route::put('/pedidos/cancelar', [PedidoController::class, 'cancelar'])->name('pedido.cancelar');
 });
