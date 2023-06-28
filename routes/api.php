@@ -30,6 +30,7 @@ Route::group(['middleware'=>["auth:sanctum"]],function(){
     Route::get('/mispedidos', [PedidoController::class, 'index'])->name('pedido.index');
     Route::post('/compra', [CompraController::class, 'store'])->name('compra.store');
     Route::post('/process_payment',[CompraController::class, 'MPOrder']);
-  
+    Route::get('/miperfil',[ClienteAuthenticatedSessionController::class, 'perfil'])->name('ClienteAuthenticatedSessionController.perfil');
+
     Route::put('/pedidos/cancelar', [PedidoController::class, 'cancelar'])->name('pedido.cancelar');
 });
