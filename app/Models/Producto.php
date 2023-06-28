@@ -17,10 +17,6 @@ class Producto extends Model
         return $this->belongsTo(Categoria::class,'tipo_categoria');
     }
 
-    public function detallespedido() {
-        return $this->hasMany('App\Models\DetallePedido');
-    }
-
     public function tamaño()
     {
         return $this->belongsTo(Tamaño::class,'tipo_tamaño');
