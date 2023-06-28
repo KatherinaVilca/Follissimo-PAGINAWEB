@@ -20,9 +20,9 @@ class ProductoSeeder extends Seeder
             'nombre' => 'Geranio',
             'precio' => '900',
             'descripción' =>'Los geranios son plantas de exterior con flores de colores vivos. Florecen durante el verano y son bastante resistentes.',
-            'color' => 'verde',
+            'color' => 'rosa',
             'imagen'=>Str::random(),
-            'id_imagen'=>Str::random(),
+            'id_imagen'=>'product_images/f1sjwnvbmgezpjekw2yn',
             'tipo_categoria' => '2',
             'tipo_tamaño' => $tipos_tamaño->random(),
         ]);
