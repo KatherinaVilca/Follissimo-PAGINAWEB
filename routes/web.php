@@ -43,7 +43,6 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/productos/filtrar', [ProductoController::class, 'filtrar'])->name('producto.filtrar');
 
-
     Route::get('/categorias', [CategoriaController::class, 'index'])->name('categoria.index');
     Route::get('/categorias/create', [CategoriaController::class, 'create'])->name('categoria.create');
     Route::post('/categorias', [CategoriaController::class, 'store'])->name('categoria.store');

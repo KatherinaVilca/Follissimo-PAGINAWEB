@@ -21,58 +21,53 @@ use App\Http\Requests\CompraRequest;
 
 class CompraController extends Controller
 {
- /**
- * Realizar una compra.
- * @OA\Post(
- *     path="/rest/compra",
- *     operationId="store",
- *     tags={"Compra"},
- *     summary="Crear una nueva compra",
- *     @OA\RequestBody(
- *         @OA\MediaType(
- *             mediaType="application/json",
- *             @OA\Schema(
- *                 type="object",
- *                 required={"email", "monto_total", "detalle_productos"},
- *                 @OA\Property(property="email", type="string"),
- *                 @OA\Property(property="monto_total", type="integer"),
- *                 @OA\Property(property="detalle_productos", type="array",
- *                      @OA\Items(
- *                            type="object",
- *                            @OA\Property(property="id_producto", type="integer"),
- *                            @OA\Property(property="cantidad", type="integer"),
- *                            @OA\Property(property="monto_subtotal", type="integer"),
- *                      )
- *                  )
- *             )
- *         )
- *     ),
- *     @OA\Response(
- *         response=200,
- *         description="Operación exitosa",
- *     ),
- *     @OA\Response(
- *         response=422,
- *         description="Parámetros incorrectos",
- *     )
- * )
- */
+/**
+     * Realizar una compra.
+     * @OA\Post(
+     *     path="/rest/compra",
+     *     operationId="store",
+     *     tags={"Compra"},
+     *     summary="Crear una nueva compra",
+     *     @OA\RequestBody(
+     *         @OA\MediaType(
+     *             mediaType="application/json",
+     *             @OA\Schema(
+     *                 type="object",
+     *                 required={"monto_total", "detalle_productos"},
+     *                 @OA\Property(property="monto_total", type="integer"),
+     *                 @OA\Property(property="detalle_productos", type="array",
+     *                      @OA\Items(
+     *                            type="object",
+     *                            @OA\Property(property="id_producto", type="integer"),
+     *                            @OA\Property(property="cantidad", type="integer"),
+     *                            @OA\Property(property="monto_subtotal", type="integer"),
+     *                      )
+     *                  )
+     *             )
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Operación exitosa",
+     *     ),
+     *     @OA\Response(
+     *         response=422,
+     *         description="Parámetros incorrectos",
+     *     )
+     *       security={{"bearerAuth": {}}}
+     * )
+     */
+
+
     public function store(CompraRequest $request) {
 
         $validatedRequest = $request->validated();
 
         $pedido = new Pedido();
 
-        $cliente = Cliente::where('email',  $validatedRequest['email'])->first();
+        $user = $request->user();
 
-        if (!$cliente) {
-            $cliente = new Cliente();
-            $cliente->nombre = Str::random(10);
-            $cliente->apellido = Str::random(10);
-            $cliente->direccion = Str::random(20);
-            $cliente->email = $validatedRequest['email'];
-            $cliente->save();
-        }
+        $cliente = Cliente::where('email', $user->email)->first();
 
         $estadoPendiente = EstadoPedido::where('estado', 'PENDIENTE')->first();
 
@@ -93,5 +88,44 @@ class CompraController extends Controller
         return response()->json([
             'message' => 'Compra realizada con éxito',
         ], 201);
+    }
+
+    public function MPOrder(Request $contents) {
+
+        $user = Auth::user();
+
+        $id_cliente = $user->id;
+
+        $cliente = Cliente::where('id', $id_cliente)->first();
+
+        if ($cliente != null) {
+            \MercadoPago\SDK::setAccessToken("TEST-8501622214294283-062210-930ba2761940ddc39730a55f6cf9ddbc-179015124");
+
+            $payment = new \MercadoPago\Payment();
+            $payment->transaction_amount = $contents['transaction_amount'];
+            $payment->token = $contents['token'];
+            $payment->installments = $contents['installments'];
+            $payment->payment_method_id = $contents['payment_method_id'];
+            $payment->issuer_id = $contents['issuer_id'];
+            $payer = new \MercadoPago\Payer();
+            $payer->email = $contents['payer']['email'];
+            $payer->identification = array(
+                "type" => $contents['payer']['identification']['type'],
+                "number" => $contents['payer']['identification']['number']
+            );
+            $payment->payer = $payer;
+            $payment->save();
+            $response = array(
+                'status' => $payment->status,
+                'status_detail' => $payment->status_detail,
+                'id' => $payment->id
+            );
+            return response()->json($response);
+        }
+        else{
+            return response()->json([
+                'error' => 'Usuario no registrado.'
+            ],401);
+        }
     }
 }

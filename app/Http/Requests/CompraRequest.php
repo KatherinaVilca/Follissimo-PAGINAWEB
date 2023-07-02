@@ -26,7 +26,6 @@ class CompraRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => 'required|email|max:255',
             'monto_total' => 'required|numeric|min:0',
             'detalle_productos' => 'required|array|min:1',
                 'detalle_productos.*.id_producto' => 'required|numeric|min:1',

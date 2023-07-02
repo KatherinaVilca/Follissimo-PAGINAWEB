@@ -15,11 +15,11 @@ class DetallePedidoResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id_detalle' => $this->id,
-            'id_pedido' => $this->id_pedido,
+            'id_detalle' =>$this->id,
+            'id_pedido' =>$this->id_pedido,
             'id_producto' => $this->id_producto,
             'cantidad' => $this->cantidad,
-            'monto_subtotal' => $this->monto_subtotal
+            'monto_subtotal' => $this->monto_subtotal,
         ];
     }
 }

@@ -25,6 +25,7 @@ class ProductoRequest extends FormRequest
             'Nombre'=> 'bail|required',
             'Precio' => 'required|numeric|min:0',
             'Color' =>'required',
+            'imagen' => 'image|mimes:jpeg,png,jpg|max:2048',
             'Categoria'=>'required',
             'Tamaño'=>'required',
             'Descripcion' => 'required|max:255',

@@ -17,33 +17,8 @@ class Producto extends Model
         return $this->belongsTo(Categoria::class,'tipo_categoria');
     }
 
-    public function detallespedido() {
-        return $this->hasMany('App\Models\DetallePedido');
-    }
-
     public function tamaño()
     {
         return $this->belongsTo(Tamaño::class,'tipo_tamaño');
-    }
-
-    public function scopeFiltro(Builder $query, Request $request)
-    {
-        if ($request->has('color')) {
-            $query->where('color', $request->input('color'));
-    }
-
-        if ($request->has('tipo_tamaño')) {
-            $query->where('color', $request->input('color'));
-        }
-
-        if ($request->has('precio_min')) {
-            $query->where('precio', '>=', $request->input('precio_min'));
-        }
-
-        if ($request->has('precio_max')) {
-            $query->where('precio', '<=', $request->input('precio_max'));
-        }
-
-        return $query;
     }
 }
