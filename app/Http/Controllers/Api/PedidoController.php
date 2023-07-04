@@ -22,7 +22,7 @@ class PedidoController extends Controller
 /** Muestra todos los pedidos para un id de cliente
  * @return \Illuminate\Http\Response
  * @OA\Get(
- *     path="/rest/mispedidos",
+ *     path="/rest/pedidos",
  *     operationId="pedidoIndexID",
  *     tags={"Pedido"},
  *     summary="Obtener pedidos de un cliente",

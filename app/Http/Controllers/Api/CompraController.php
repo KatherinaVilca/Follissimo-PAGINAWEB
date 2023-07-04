@@ -99,7 +99,7 @@ class CompraController extends Controller
         $cliente = Cliente::where('id', $id_cliente)->first();
 
         if ($cliente != null) {
-            \MercadoPago\SDK::setAccessToken("TEST-8501622214294283-062210-930ba2761940ddc39730a55f6cf9ddbc-179015124");
+            \MercadoPago\SDK::setAccessToken(env('MP_ACCESS_TOKEN'));
 
             $payment = new \MercadoPago\Payment();
             $payment->transaction_amount = $contents['transaction_amount'];
