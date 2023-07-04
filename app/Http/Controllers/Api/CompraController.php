@@ -16,6 +16,8 @@ use OpenApi\Annotations\RequestBody;
 use OpenApi\Annotations\MediaType;
 use OpenApi\Annotations\Schema;
 use OpenApi\Annotations\Property;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 use App\Http\Requests\CompraRequest;
 
@@ -91,7 +93,6 @@ class CompraController extends Controller
     }
 
     public function MPOrder(Request $contents) {
-
         $user = Auth::user();
 
         $id_cliente = $user->id;
