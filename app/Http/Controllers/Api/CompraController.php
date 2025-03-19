@@ -16,6 +16,8 @@ use OpenApi\Annotations\RequestBody;
 use OpenApi\Annotations\MediaType;
 use OpenApi\Annotations\Schema;
 use OpenApi\Annotations\Property;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 use App\Http\Requests\CompraRequest;
 
@@ -91,7 +93,6 @@ class CompraController extends Controller
     }
 
     public function MPOrder(Request $contents) {
-
         $user = Auth::user();
 
         $id_cliente = $user->id;
@@ -99,7 +100,7 @@ class CompraController extends Controller
         $cliente = Cliente::where('id', $id_cliente)->first();
 
         if ($cliente != null) {
-            \MercadoPago\SDK::setAccessToken("TEST-8501622214294283-062210-930ba2761940ddc39730a55f6cf9ddbc-179015124");
+            \MercadoPago\SDK::setAccessToken(env('MP_ACCESS_TOKEN'));
 
             $payment = new \MercadoPago\Payment();
             $payment->transaction_amount = $contents['transaction_amount'];
